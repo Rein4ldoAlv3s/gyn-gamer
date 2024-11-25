@@ -8,7 +8,7 @@ const Home = () => {
             </h1>
             <div>
 
-                <div className="grid grid-cols-4 gap-4 py-5">
+                <div className="grid grid-cols-4 gap-4 py-5 ">
                     {PRODUTOS.map((prod, index) => (
                         <a key={index} href={`/produtos/${prod.id}`}>
                             <div className="flex justify-center flex-col items-center border-2 rounded-md border-gray-400 hover:scale-105 transition-transform duration-300" key={index}>

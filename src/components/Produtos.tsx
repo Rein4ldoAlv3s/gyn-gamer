@@ -83,10 +83,10 @@ const Produtos = () => {
         if (!dadosCep) {
             return ""
         } else if (dadosCep.error) {
-            return "CEP inválido!"
+            return "CEP inválido! Digite novamente."
         }
         else if (dadosCep && dadosCep.localidade === "Goiânia") {
-            return "Frete Grátis!";
+            return "Usuário de Goiânia identificado. Frete Grátis!";
         } else {
             return <div>
                 <p>Cidade: {dadosCep.localidade}</p>
