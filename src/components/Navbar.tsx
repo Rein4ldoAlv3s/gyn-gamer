@@ -18,9 +18,8 @@ const Navbar = () => {
   }, []);
 
   const autoCompleteChange = (selectedOption: any) => {
-    console.log(selectedOption);
-    if (selectedOption) {
-      navigate("/produtos/" + selectedOption.id)
+    if (selectedOption && selectedOption.id) {
+      navigate("/produtos/" + selectedOption.id, { state: { id: selectedOption.id } })
     }
   };
 
@@ -35,12 +34,10 @@ const Navbar = () => {
           placeholder="Pesquise aqui..."
           isSearchable={true}
           className="px-1 rounded-sm outline-none w-1/5"
-          openMenuOnClick={false}
+          openMenuOnClick={true}
           components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
           isClearable={true}
           onChange={(e: unknown) => autoCompleteChange(e)}
-
-
         />
       </header>
       <header className="flex justify-center bg-black">

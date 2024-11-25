@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { Produto, PRODUTOS } from '../constants'
 import { useState, useEffect } from 'react';
 import clockk from "../svg/svgviewer-output.svg";
@@ -23,6 +23,9 @@ interface Cep {
 
 const Produtos = () => {
 
+    const location = useLocation();
+    const state = location.state || {}; //evita erros se for undefined
+
     const { id } = useParams();
 
     const idNumero = Number(id);
@@ -32,9 +35,10 @@ const Produtos = () => {
     const fimPromocao = Date.now() + 604800000;
 
     useEffect(() => {
-        const produto = PRODUTOS.find(obj => obj.id === idNumero)
+        console.log(state);
+        const produto = PRODUTOS.find(obj => obj.id === idNumero || obj.id === state.id)
         setProduto(produto)
-    }, []);
+    }, [state]);
 
     const [valor, setValor] = useState('');
 
