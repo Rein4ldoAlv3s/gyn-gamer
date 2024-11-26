@@ -74,10 +74,6 @@ const Produtos = () => {
             });
     }
 
-    function randomNumber() {
-
-    }
-
     function verificarFrete() {
         console.log(dadosCep);
         if (!dadosCep) {
