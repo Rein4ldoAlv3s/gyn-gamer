@@ -4,7 +4,7 @@ import PaginatedItems from './PaginatedItems'
 const Promocoes = () => {
     return (
         <div>
-            <PaginatedItems itemsPerPage={4} />
+            <PaginatedItems itemsPerPage={5} />
         </div>
     )
 }

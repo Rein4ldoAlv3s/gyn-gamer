@@ -1,15 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import ReactPaginate from 'react-paginate';
+import { Produto, PRODUTOS } from '../constants'
 
 // Example items, to simulate fetching from another resources.
 const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+const itemsProdutos: Produto[] = PRODUTOS
 
 function Items({ currentItems }: { currentItems: number[] }) {
     return (
         <>
             {currentItems &&
                 currentItems.map((item: any) => (
+                    <div key={item}>
+                        <h3>Item #{item}</h3>
+                    </div>
+                ))}
+        </>
+    );
+}
+
+function Produtos({ currentProdutos }: { currentProdutos: Produto[] }) {
+    return (
+        <>
+            {currentProdutos &&
+                currentProdutos.map((item: any) => (
                     <div key={item}>
                         <h3>Item #{item}</h3>
                     </div>
@@ -28,12 +43,12 @@ function PaginatedItems({ itemsPerPage }: { itemsPerPage: any }) {
     // from an API endpoint with useEffect and useState)
     const endOffset = itemOffset + itemsPerPage;
     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-    const currentItems = items.slice(itemOffset, endOffset);
-    const pageCount = Math.ceil(items.length / itemsPerPage);
+    const currentItems = itemsProdutos.slice(itemOffset, endOffset);
+    const pageCount = Math.ceil(itemsProdutos.length / itemsPerPage);
 
     // Invoke when user click to request another page.
     const handlePageClick = (event: any) => {
-        const newOffset = (event.selected * itemsPerPage) % items.length;
+        const newOffset = (event.selected * itemsPerPage) % itemsProdutos.length;
         console.log(
             `User requested page number ${event.selected}, which is offset ${newOffset}`
         );
@@ -46,7 +61,7 @@ function PaginatedItems({ itemsPerPage }: { itemsPerPage: any }) {
 
             {/* Renderização de itens */}
             <div className="grid grid-cols-1 gap-4 ">
-                <Items currentItems={currentItems} />
+                <Produtos currentProdutos={currentItems} />
             </div>
 
             {/* Paginação */}
