@@ -4,21 +4,23 @@ import ReactPaginate from 'react-paginate';
 import { Produto, PRODUTOS } from '../constants'
 
 // Example items, to simulate fetching from another resources.
-const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-const itemsProdutos: Produto[] = PRODUTOS
+// const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
-function Items({ currentItems }: { currentItems: number[] }) {
-    return (
-        <>
-            {currentItems &&
-                currentItems.map((item: any) => (
-                    <div key={item}>
-                        <h3>Item #{item}</h3>
-                    </div>
-                ))}
-        </>
-    );
-}
+
+// function Items({ currentItems }: { currentItems: number[] }) {
+//     return (
+//         <>
+//             {currentItems &&
+//                 currentItems.map((item: any) => (
+//                     <div key={item}>
+//                         <h3>Item #{item}</h3>
+//                     </div>
+//                 ))}
+//         </>
+//     );
+// }
+
+const itemsProdutos: Produto[] = PRODUTOS
 
 function Produtos({ currentProdutos }: { currentProdutos: Produto[] }) {
     return (
@@ -26,7 +28,7 @@ function Produtos({ currentProdutos }: { currentProdutos: Produto[] }) {
             {currentProdutos &&
                 currentProdutos.map((item: Produto) => (
                     <div key={item.id}>
-                        <h3>{item.name}</h3>
+                        <h3 className=''>{item.name}</h3>
                     </div>
                 ))}
         </>
@@ -74,7 +76,7 @@ function PaginatedItems({ itemsPerPage }: { itemsPerPage: any }) {
                 pageCount={pageCount}
                 containerClassName="flex justify-center items-center mt-4 space-x-2"
                 pageClassName="bg-white border border-gray-300 rounded-md px-4 py-2 text-gray-700 hover:bg-gray-200"
-                pageLinkClassName="text-sm font-medium"
+                pageLinkClassName="text-sm medium"
                 activeClassName="bg-blue-500 text-white font-bold"
                 breakClassName="text-gray-400"
                 nextClassName="bg-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-400"
