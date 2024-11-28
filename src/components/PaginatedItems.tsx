@@ -24,9 +24,9 @@ function Produtos({ currentProdutos }: { currentProdutos: Produto[] }) {
     return (
         <>
             {currentProdutos &&
-                currentProdutos.map((item: any) => (
-                    <div key={item}>
-                        <h3>Item #{item}</h3>
+                currentProdutos.map((item: Produto) => (
+                    <div key={item.id}>
+                        <h3>{item.name}</h3>
                     </div>
                 ))}
         </>
