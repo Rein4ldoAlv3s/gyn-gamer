@@ -3,21 +3,6 @@ import ReactDOM from 'react-dom';
 import ReactPaginate from 'react-paginate';
 import { Produto, PRODUTOS } from '../constants'
 
-const itemsProdutos: Produto[] = PRODUTOS
-
-function Produtos({ currentProdutos }: { currentProdutos: Produto[] }) {
-    return (
-        <>
-            {currentProdutos &&
-                currentProdutos.map((item: Produto) => (
-                    <div key={item.id}>
-                        <h3 className=''>{item.name}</h3>
-                    </div>
-                ))}
-        </>
-    );
-}
-
 const Home = () => {
     return (
         <div>
@@ -25,29 +10,39 @@ const Home = () => {
                 PRODUTOS NOVOS E LANÇAMENTOS
             </h1>
             <div>
-
-                <div className="grid grid-cols-4 gap-4 py-5 ">
-                    {PRODUTOS.map((prod, index) => (
-                        <a key={index} href={`/produtos/${prod.id}`}>
-                            <div className="flex justify-center flex-col items-center border-2 rounded-md border-gray-400 hover:scale-105 transition-transform duration-300" key={index}>
-                                <div className="w-full h-60">
-                                    <img src={prod.img} alt="Imagem 1" className="w-full h-full object-cover" />
-
-                                </div>
-                                <div className="p-2 text-center">
-                                    <p className="pt-3 pb-1 text-center line-clamp-2 text-customWhite">{prod.name}</p>
-                                    <p className="text-customWhite">R$ {prod.price}</p>
-                                </div>
-                            </div>
-                        </a>
-                    ))}
+                <div className='pb-5'>
+                    <PaginatedItems itemsPerPage={8} />
                 </div>
-
-
             </div>
         </div>
     )
 }
+
+function Produtos({ currentProdutos }: { currentProdutos: Produto[] }) {
+    return (
+        <div>
+            <div className="grid grid-cols-4 gap-4 py-5 ">
+                {currentProdutos.map((prod, index) => (
+                    <a key={index} href={`/produtos/${prod.id}`}>
+                        <div className="flex justify-center flex-col items-center border-2 rounded-md border-gray-400 hover:scale-105 transition-transform duration-300" key={index}>
+                            <div className="w-full h-60">
+                                <img src={prod.img} alt="Imagem 1" className="w-full h-full object-cover" />
+
+                            </div>
+                            <div className="p-2 text-center">
+                                <p className="pt-3 pb-1 text-center line-clamp-2 text-customWhite">{prod.name}</p>
+                                <p className="text-customWhite">R$ {prod.price}</p>
+                            </div>
+                        </div>
+                    </a>
+                ))}
+            </div>
+        </div>
+
+    );
+}
+
+const itemsProdutos: Produto[] = PRODUTOS
 
 function PaginatedItems({ itemsPerPage }: { itemsPerPage: any }) {
     // Here we use item offsets; we could also use page offsets
@@ -72,15 +67,11 @@ function PaginatedItems({ itemsPerPage }: { itemsPerPage: any }) {
     };
 
     return (
-        <div className="p-6 bg-gray-50 rounded-md shadow-lg">
-            <h1 className="text-xl font-bold mb-4 text-gray-800">Paginated Items</h1>
-
-            {/* Renderização de itens */}
-            <div className="grid grid-cols-1 gap-4 ">
+        <div>
+            <div>
                 <Produtos currentProdutos={currentItems} />
             </div>
 
-            {/* Paginação */}
             <ReactPaginate
                 breakLabel="..."
                 nextLabel="Próximo >"
