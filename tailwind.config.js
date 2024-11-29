@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         customGray: "#212121",
+        customGrayHover: "#3A3A3A",
         customWhite: "#fff",
         customYellowDiscount: "#ffd700"
       }
