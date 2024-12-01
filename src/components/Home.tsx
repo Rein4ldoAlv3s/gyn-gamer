@@ -82,7 +82,7 @@ function PaginatedItems({ itemsPerPage }: { itemsPerPage: any }) {
                 containerClassName="flex justify-center items-center mt-4 space-x-2"
                 pageClassName="bg-customGray border border-gray-300 rounded-md px-4 py-2 text-white hover:bg-customGrayHover"
                 pageLinkClassName="text-sm medium"
-                activeClassName="bg-blue-500 text-white font-bold"
+                activeClassName="bg-blue-500 text-white font-extrabold"
                 breakClassName="text-gray-400"
                 nextClassName="bg-customWhite text-gray-700 px-4 py-2 rounded-md hover:bg-gray-400"
                 previousClassName="bg-customWhite text-gray-700 px-4 py-2 rounded-md hover:bg-gray-400"
