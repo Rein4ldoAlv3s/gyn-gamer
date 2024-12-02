@@ -5,6 +5,7 @@ import Promocoes from "./components/Promocoes"
 import Pcgamer from './components/Pcgamer';
 import Produtos from './components/Produtos';
 import Footer from './components/Footer';
+import Notebooks from './components/Notebooks';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/promocoes" element={<Promocoes />} />
             <Route path="/pcgamer" element={<Pcgamer />} />
             <Route path="/produtos/:id" element={<Produtos />} />
+            <Route path="/notebooks" element={<Notebooks />} />
           </Routes>
         </main>
         <Footer />
