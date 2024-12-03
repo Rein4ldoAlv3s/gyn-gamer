@@ -6,7 +6,8 @@ export interface Produto {
   parcel?: number;
   img: string;
   rating: number;
-  descricao: string[]
+  descricao: string[],
+  categoria: string
 }
 
 export const PRODUTOS: Produto[] = [
@@ -25,7 +26,8 @@ export const PRODUTOS: Produto[] = [
       "Comprimento do cabo: Aproximadamente 1 metro, proporcionando flexibilidade na hora de fixar a trava.",
       "Peso leve: Com apenas 0,140 kg, a trava é fácil de transportar",
       "Acompanha duas chaves: Para maior comodidade e segurança."
-    ]
+    ],
+    categoria: "acessorio"
   },
   {
     id: 2,
@@ -42,7 +44,8 @@ export const PRODUTOS: Produto[] = [
       "- Armazenamento: SSD 256GB",
       "- Placa Gráfica: Intel UHD Graphics",
       "Tela - Tamanho: 15.6”"
-    ]
+    ],
+    categoria: "notebook"
   },
   {
     id: 3,
@@ -57,7 +60,8 @@ export const PRODUTOS: Produto[] = [
       "Tensão nominal de entrada: 220 V~",
       "Frequência: 50 / 60 Hz ±5 Hz",
       "Frequência no modo Bateria: 50 / 60 Hz ±1 Hz"
-    ]
+    ],
+    categoria: "acessorio"
   },
   {
     id: 4,
@@ -74,7 +78,8 @@ export const PRODUTOS: Produto[] = [
       "Ajuste de inclinação do encosto: 135º",
       "Peso máximo recomendado: 120 kg",
       "Rodinhas: nylon, 65mm",
-    ]
+    ],
+    categoria: "escritorio"
   },
   {
     id: 5,
@@ -90,7 +95,8 @@ export const PRODUTOS: Produto[] = [
       "Largura do produto: 36.5cm",
       "Altura do produto: 37cm",
       "Comprimento do produto: 3.3cm"
-    ]
+    ],
+    categoria: "acessorio"
   },
   {
     id: 6,
@@ -106,7 +112,8 @@ export const PRODUTOS: Produto[] = [
       "Umidade relativa máxima (%): 90%",
       "Umidade relativa mínima (%): 10%",
       "Alimentação: Bivolt"
-    ]
+    ],
+    categoria: "acessorio"
   },
   {
     id: 7,
@@ -122,7 +129,8 @@ export const PRODUTOS: Produto[] = [
       "Quantidade de canais / Subcanais: 26 / 121 (38 CTCSS e 83 DCS)",
       "Tempo de carga: 7 horas (com as pilhas recarregáveis que acompanham o produto)",
       "Temperatura de operação: 0ºC a 45ºC"
-    ]
+    ],
+    categoria: "acessorio"
   },
   {
     id: 8,
@@ -138,7 +146,8 @@ export const PRODUTOS: Produto[] = [
       "Resolução (máx): 1920*1080 PX",
       "Brilho: 300cd/m2",
       "Contraste: 3000:1 (Tip.)"
-    ]
+    ],
+    categoria: "acessorio"
   },
   {
     id: 9,
@@ -155,7 +164,8 @@ export const PRODUTOS: Produto[] = [
       "Funções: Multimídia",
       "Sistema: anti-respingo",
       "Teclas: baixas slim"
-    ]
+    ],
+    categoria: "acessorio"
   },
   {
     id: 10,
@@ -180,7 +190,8 @@ export const PRODUTOS: Produto[] = [
       "Largura: 2 slots",
       "Cooler: Dual Fan",
       "Saídas de vídeo: DisplayPort 1.4 + HDMI 2.0b + DVI"
-    ]
+    ],
+    categoria: "placa de video"
   },
   {
     id: 11,
@@ -200,7 +211,8 @@ export const PRODUTOS: Produto[] = [
       "Velocidade de Gravação: Até 450MB/s",
       "Durabilidade (TBW): 300 TBW (aproximado)",
       "MTBF (Mean Time Between Failures): 1,5 milhões de horas"
-    ]
+    ],
+    categoria: "acessorio"
   },
   {
     id: 12,
@@ -239,7 +251,8 @@ export const PRODUTOS: Produto[] = [
       "01 Cadeira Gamer",
       "Imagem Do Fabricante: Meramente ilustrativa",
       "A marca das peças pode variar de acordo com o estoque momentâneo em nossa fábrica, garantimos manter sempre o nível de ótima qualidade dos produtos e atender o mínimo estipulado no computador. Nunca um modelo inferior."
-    ]
+    ],
+    categoria: "pc gamer"
   },
   {
     id: 13,
@@ -264,6 +277,7 @@ export const PRODUTOS: Produto[] = [
       "SSD: 480GB M.2 NVME",
       "Cabos Inclusos: Energia",
       "Gabinete: Gabinete Gamer Neologic Phantom"
-    ]
+    ],
+    categoria: "pc gamer"
   },
 ];

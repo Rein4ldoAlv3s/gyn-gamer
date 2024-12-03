@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate';
 import { Produto, PRODUTOS } from '../constants';
 
+
 const Pcgamer = () => {
+
     return (
         <div>
             <h1 className="flex justify-center text-3xl font-bold text-customWhite">
@@ -21,7 +23,7 @@ function Produtos({ currentProdutos }: { currentProdutos: Produto[] }) {
     return (
         <div>
             <div className="grid grid-cols-4 gap-4 py-5 ">
-                {/* {currentProdutos.map((prod, index) => (
+                {currentProdutos.map((prod, index) => (
                     <a key={index} href={`/produtos/${prod.id}`}>
                         <div className="flex justify-center flex-col items-center border-2 rounded-md border-gray-400 hover:scale-105 transition-transform duration-300" key={index}>
                             <div className="w-full h-60">
@@ -34,20 +36,14 @@ function Produtos({ currentProdutos }: { currentProdutos: Produto[] }) {
                             </div>
                         </div>
                     </a>
-                ))} */}
-                {currentProdutos.map((item, id) =>
-                    <div key={id}>
-                        <h1>{item.name}</h1>
-
-                    </div>
-                )}
+                ))}
             </div>
         </div>
 
     );
 }
 
-const itemsProdutos: Produto[] = PRODUTOS
+const itemsProdutos: Produto[] = PRODUTOS.filter((prod) => (prod.categoria === "pc gamer"));
 
 function PaginatedItems({ itemsPerPage }: { itemsPerPage: any }) {
     // Here we use item offsets; we could also use page offsets
@@ -73,7 +69,7 @@ function PaginatedItems({ itemsPerPage }: { itemsPerPage: any }) {
 
     return (
         <div>
-            <div className=''>
+            <div>
                 <Produtos currentProdutos={currentItems} />
             </div>
 
