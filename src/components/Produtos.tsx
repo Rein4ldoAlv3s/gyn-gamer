@@ -106,8 +106,8 @@ const Produtos = () => {
                     <p className='text-lg line-through mt-2'>de R$ {(produto?.price)?.toFixed(2)}</p>
                     <p className='text-xl font-bold mt-1'>por R$ {(produto?.desc)?.toFixed(2)}</p>
                     <p className='text-xs font-semibold'>à vista com desconto</p>
-                    <p className='text-lg mt-3'>R$ {(produto?.parcel)?.toFixed(2)}</p>
-                    <p className='text-base'>ou 10x de R$ {((produto?.parcel ?? 0) / 10)?.toFixed(2)} sem juros no cartão</p >
+                    <p className='text-lg mt-3'>ou R$ {(produto?.parcel)?.toFixed(2)}</p>
+                    <p className='text-base'>10x de R$ {((produto?.parcel ?? 0) / 10)?.toFixed(2)} sem juros no cartão</p >
                     <div className='mt-3 text-center text-customYellowDiscount flex justify-center w-56 bg-black rounded-full'>
                         <img className='mr-2' src={clockk} alt="" width="25" height="25" />
                         <div className=''>

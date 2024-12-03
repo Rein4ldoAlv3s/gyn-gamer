@@ -280,4 +280,51 @@ export const PRODUTOS: Produto[] = [
     ],
     categoria: "pc gamer"
   },
+  {
+    id: 14,
+    name: "Notebook Acer Nitro 5 AN515-58-54UH",
+    price: 5999.00,
+    desc: 3499.01,
+    parcel: 3683.17,
+    img: "https://saldaodainformatica.com.br/img/p/1/3/2/3/5/13235-medium_default.webp",
+    rating: 4.5,
+    descricao: [
+      "Conexão HDMI: sim",
+      "Conexão USB: sim",
+      "Cor: PRETO",
+      "Geração do processador: 12ª Geração",
+      "Marca: Acer",
+      "Memória RAM: 8 GB",
+      "Placa de redes: sim",
+      "Placa de vídeo: RTX 3050",
+      "Processador: Intel Core i5",
+      "Sistema operacional: Windows 11",
+      "SSD: 512 GB",
+      "Teclado luminoso: sim",
+      "Teclado numérico: sim",
+      "Tela: 15.6",
+      "Tipo de memória: DDR4"
+    ],
+    categoria: "notebook"
+  },
+  {
+    id: 15,
+    name: "Notebook Acer Predator PHN16-71-76PL",
+    price: 9999.00,
+    desc: 5999.01,
+    parcel: 6314.75,
+    img: "https://saldaodainformatica.com.br/img/p/1/3/8/9/8/13898-medium_default.webp",
+    rating: 4.5,
+    descricao: [
+      "Geração do processador: 13ª Geração",
+      "Marca: Acer",
+      "Memória RAM: 16GB",
+      "Placa de vídeo: RTX 4050",
+      "Processador: Intel Core i7",
+      "Sistema operacional: Windows 11",
+      "SSD: 512 GB",
+      "Tela: 16"
+    ],
+    categoria: "notebook"
+  },
 ];
