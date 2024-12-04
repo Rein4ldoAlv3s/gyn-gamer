@@ -32,7 +32,7 @@ function Produtos({ currentProdutos }: { currentProdutos: Produto[] }) {
                             </div>
                             <div className="p-2 text-center">
                                 <p className="pt-3 pb-1 text-center line-clamp-2 text-customWhite">{prod.name}</p>
-                                <p className="text-customWhite">R$ {prod.price}</p>
+                                <p className="text-customWhite">R$ {(prod.price)?.toFixed(2)}</p>
                             </div>
                         </div>
                     </a>
