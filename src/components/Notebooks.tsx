@@ -18,6 +18,14 @@ const Notebooks = () => {
 }
 
 function Produtos({ currentProdutos }: { currentProdutos: Produto[] }) {
+
+    function formatarMoeda(valor: any) {
+        return new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+        }).format(valor);
+    }
+
     return (
         <div>
             <div className="grid grid-cols-4 gap-4 py-5 ">
@@ -30,7 +38,7 @@ function Produtos({ currentProdutos }: { currentProdutos: Produto[] }) {
                             </div>
                             <div className="p-2 text-center">
                                 <p className="pt-3 pb-1 text-center line-clamp-2 text-customWhite">{prod.name}</p>
-                                <p className="text-customWhite">R$ {(prod.price)?.toFixed(2)}</p>
+                                <p className="text-customWhite">R$ {formatarMoeda(prod.price)}</p>
                             </div>
                         </div>
                     </a>

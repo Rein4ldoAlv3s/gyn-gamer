@@ -13,7 +13,7 @@ const Footer = () => {
                 <p className='text-sm'>
                     Preços e condições de pagamento exclusivos para compras via internet e
                     podem variar nas lojas físicas. Os preços anunciados neste site ou via
-                    e-mail promocional podem ser alterados sem prévio aviso. A Pichau Informática,
+                    e-mail promocional podem ser alterados sem prévio aviso. A Gyn Gamer,
                     não é responsável por erros descritivos. As fotos contidas nesta página são
                     meramente ilustrativas do produto e podem variar de acordo com o fornecedor/lote
                     do fabricante. Ofertas válidas até o término de nossos estoques. Vendas sujeitas

@@ -94,6 +94,13 @@ const Produtos = () => {
     }
 
 
+    function formatarMoeda(valor: any) {
+        return new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+        }).format(valor);
+    }
+
     return (
         <div>
             <h1 className="flex justify-center text-3xl font-bold text-customWhite">
@@ -103,11 +110,11 @@ const Produtos = () => {
                 <img className="w-1/2 " src={produto?.img} alt="" />
                 <div className="text-slate-300 ml-6">
                     <p className='text-2xl'>{produto?.name}</p>
-                    <p className='text-lg line-through mt-2'>de R$ {(produto?.price)?.toFixed(2)}</p>
-                    <p className='text-xl font-bold mt-1'>por R$ {(produto?.desc)?.toFixed(2)}</p>
+                    <p className='text-lg line-through mt-2'>de {formatarMoeda(produto?.price)}</p>
+                    <p className='text-xl font-bold mt-1'>por R$ {formatarMoeda(produto?.desc)}</p>
                     <p className='text-xs font-semibold'>à vista com desconto</p>
-                    <p className='text-lg mt-3'>ou R$ {(produto?.parcel)?.toFixed(2)}</p>
-                    <p className='text-base'>10x de R$ {((produto?.parcel ?? 0) / 10)?.toFixed(2)} sem juros no cartão</p >
+                    <p className='text-lg mt-3'>ou R$ {formatarMoeda(produto?.parcel)}</p>
+                    <p className='text-base'>10x de R$ {(formatarMoeda(produto?.desc) ?? 0 / 10)} sem juros no cartão</p >
                     <div className='mt-3 text-center text-customYellowDiscount flex justify-center w-56 bg-black rounded-full'>
                         <img className='mr-2' src={clockk} alt="" width="25" height="25" />
                         <div className=''>
