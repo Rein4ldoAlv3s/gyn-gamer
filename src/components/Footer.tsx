@@ -48,7 +48,8 @@ const Footer = () => {
                     <div className='flex flex-col ml-7'>
                         <div>
                             <p className='mb-2 text-sm'>Receba ofertas exclusivas no seu e-mail!</p>
-                            <input type="email" placeholder='E-mail' className='w-full rounded-full text-black py-2 px-4' />
+                            <input type="email" placeholder='E-mail' className=' rounded-full text-black py-2 px-4' />
+                            <button className='bg-customGray ml-1 text-white py-2 px-4 rounded-full hover:bg-customGrayHover'>Enviar</button>
                         </div>
                         <div className='mt-3'>
                             <p className='mb-2'>Siga-nos nas redes sociais!</p>
