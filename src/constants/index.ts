@@ -7,7 +7,8 @@ export interface Produto {
   img: string;
   rating: number;
   descricao: string[],
-  categoria: string
+  categoria: string,
+  isPromocao: boolean
 }
 
 export const PRODUTOS: Produto[] = [
@@ -27,7 +28,8 @@ export const PRODUTOS: Produto[] = [
       "Peso leve: Com apenas 0,140 kg, a trava é fácil de transportar",
       "Acompanha duas chaves: Para maior comodidade e segurança."
     ],
-    categoria: "acessorio"
+    categoria: "acessorio",
+    isPromocao: false
   },
   {
     id: 2,
@@ -45,7 +47,8 @@ export const PRODUTOS: Produto[] = [
       "- Placa Gráfica: Intel UHD Graphics",
       "Tela - Tamanho: 15.6”"
     ],
-    categoria: "notebook"
+    categoria: "notebook",
+    isPromocao: false
   },
   {
     id: 3,
@@ -61,7 +64,8 @@ export const PRODUTOS: Produto[] = [
       "Frequência: 50 / 60 Hz ±5 Hz",
       "Frequência no modo Bateria: 50 / 60 Hz ±1 Hz"
     ],
-    categoria: "acessorio"
+    categoria: "acessorio",
+    isPromocao: false
   },
   {
     id: 4,
@@ -79,7 +83,8 @@ export const PRODUTOS: Produto[] = [
       "Peso máximo recomendado: 120 kg",
       "Rodinhas: nylon, 65mm",
     ],
-    categoria: "escritorio"
+    categoria: "escritorio",
+    isPromocao: false
   },
   {
     id: 5,
@@ -96,7 +101,8 @@ export const PRODUTOS: Produto[] = [
       "Altura do produto: 37cm",
       "Comprimento do produto: 3.3cm"
     ],
-    categoria: "acessorio"
+    categoria: "acessorio",
+    isPromocao: false
   },
   {
     id: 6,
@@ -113,7 +119,8 @@ export const PRODUTOS: Produto[] = [
       "Umidade relativa mínima (%): 10%",
       "Alimentação: Bivolt"
     ],
-    categoria: "acessorio"
+    categoria: "acessorio",
+    isPromocao: false
   },
   {
     id: 7,
@@ -130,7 +137,8 @@ export const PRODUTOS: Produto[] = [
       "Tempo de carga: 7 horas (com as pilhas recarregáveis que acompanham o produto)",
       "Temperatura de operação: 0ºC a 45ºC"
     ],
-    categoria: "acessorio"
+    categoria: "acessorio",
+    isPromocao: true
   },
   {
     id: 8,
@@ -147,7 +155,8 @@ export const PRODUTOS: Produto[] = [
       "Brilho: 300cd/m2",
       "Contraste: 3000:1 (Tip.)"
     ],
-    categoria: "acessorio"
+    categoria: "acessorio",
+    isPromocao: true
   },
   {
     id: 9,
@@ -165,7 +174,8 @@ export const PRODUTOS: Produto[] = [
       "Sistema: anti-respingo",
       "Teclas: baixas slim"
     ],
-    categoria: "acessorio"
+    categoria: "acessorio",
+    isPromocao: false
   },
   {
     id: 10,
@@ -191,7 +201,8 @@ export const PRODUTOS: Produto[] = [
       "Cooler: Dual Fan",
       "Saídas de vídeo: DisplayPort 1.4 + HDMI 2.0b + DVI"
     ],
-    categoria: "placa de video"
+    categoria: "placa de video",
+    isPromocao: true
   },
   {
     id: 11,
@@ -212,7 +223,8 @@ export const PRODUTOS: Produto[] = [
       "Durabilidade (TBW): 300 TBW (aproximado)",
       "MTBF (Mean Time Between Failures): 1,5 milhões de horas"
     ],
-    categoria: "acessorio"
+    categoria: "acessorio",
+    isPromocao: false
   },
   {
     id: 12,
@@ -252,7 +264,8 @@ export const PRODUTOS: Produto[] = [
       "Imagem Do Fabricante: Meramente ilustrativa",
       "A marca das peças pode variar de acordo com o estoque momentâneo em nossa fábrica, garantimos manter sempre o nível de ótima qualidade dos produtos e atender o mínimo estipulado no computador. Nunca um modelo inferior."
     ],
-    categoria: "pc gamer"
+    categoria: "pc gamer",
+    isPromocao: false
   },
   {
     id: 13,
@@ -278,7 +291,8 @@ export const PRODUTOS: Produto[] = [
       "Cabos Inclusos: Energia",
       "Gabinete: Gabinete Gamer Neologic Phantom"
     ],
-    categoria: "pc gamer"
+    categoria: "pc gamer",
+    isPromocao: false
   },
   {
     id: 14,
@@ -305,7 +319,8 @@ export const PRODUTOS: Produto[] = [
       "Tela: 15.6",
       "Tipo de memória: DDR4"
     ],
-    categoria: "notebook"
+    categoria: "notebook",
+    isPromocao: false
   },
   {
     id: 15,
@@ -325,6 +340,7 @@ export const PRODUTOS: Produto[] = [
       "SSD: 512 GB",
       "Tela: 16"
     ],
-    categoria: "notebook"
+    categoria: "notebook",
+    isPromocao: false
   },
 ];

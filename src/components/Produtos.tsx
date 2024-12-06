@@ -115,13 +115,16 @@ const Produtos = () => {
                     <p className='text-xs font-semibold'>à vista com desconto</p>
                     <p className='text-lg mt-3'>ou R$ {formatarMoeda(produto?.parcel)}</p>
                     <p className='text-base'>10x de R$ {(formatarMoeda(produto?.desc) ?? 0 / 10)} sem juros no cartão</p >
-                    <div className='mt-3 text-center text-customYellowDiscount flex justify-center w-56 bg-black rounded-full'>
-                        <img className='mr-2' src={clockk} alt="" width="25" height="25" />
-                        <div className=''>
-                            <p>Oferta termina em</p>
-                            <Countdown date={fimPromocao} />
+                    {/* renderiza a div de promocao case seja true */}
+                    {produto?.isPromocao &&
+                        <div className='mt-3 text-center text-customYellowDiscount flex justify-center w-56 bg-black rounded-full'>
+                            <img className='mr-2' src={clockk} alt="" width="25" height="25" />
+                            <div>
+                                <p>Oferta termina em</p>
+                                <Countdown date={fimPromocao} />
+                            </div>
                         </div>
-                    </div>
+                    }
                     <div className='mt-3'>
                         <button className='bg-green-500 text-white py-2 px-4 rounded-full hover:bg-green-600 w-56'>Comprar</button>
                     </div>
