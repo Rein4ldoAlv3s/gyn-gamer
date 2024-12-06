@@ -1,8 +1,22 @@
 import React from 'react'
 import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa'
 import { FaX } from 'react-icons/fa6'
+import { Flip, toast, ToastContainer } from 'react-toastify'
 
 const Footer = () => {
+
+    const notify = () => toast.success('Enviado com sucesso!', {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Flip,
+    });
+
     return (
         <div className="border-b text-slate-300 bg-black pb-6 flex space-x-4 pt-4 gap-4">
             <h1 className="text-red-600 font-bold text-4xl select-none flex justify-center items-center ml-3">Gyn Gamer</h1>
@@ -49,7 +63,20 @@ const Footer = () => {
                         <div>
                             <p className='mb-2 text-sm'>Receba ofertas exclusivas no seu e-mail!</p>
                             <input type="email" placeholder='E-mail' className=' rounded-full text-black py-2 px-4' />
-                            <button className='bg-customGray ml-1 text-white py-2 px-4 rounded-full hover:bg-customGrayHover'>Enviar</button>
+                            <button onClick={notify} className='bg-customGray ml-1 text-white py-2 px-4 rounded-full hover:bg-customGrayHover'>Enviar</button>
+                            <ToastContainer
+                                position="bottom-right"
+                                autoClose={2000}
+                                hideProgressBar
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover
+                                theme="light"
+                                transition={Flip}
+                            />
                         </div>
                         <div className='mt-3'>
                             <p className='mb-2'>Siga-nos nas redes sociais!</p>
