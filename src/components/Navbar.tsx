@@ -47,11 +47,11 @@ const Navbar = () => {
             <Menu as="div" className=" relative inline-block text-left px-20">
               <a href="/" className="mr-4 hover:text-red-600">HOME</a>
               <a href="/promocoes" className="mr-4 hover:text-red-600">PROMOÇÕES</a>
-              <a href="/pcgamer" className="mr-4 hover:text-red-600">PC GAMER</a>
+              <a href="/pcgamer" className="mr-4 hover:text-red-600">PCS GAMERS</a>
               <a href="/notebooks" className="mr-4 hover:text-red-600">NOTEBOOKS</a>
 
               <MenuButton className="inline-flex justify-center items-center gap-x-2 hover:text-red-600  text-white  rounded-md focus:outline-none">
-                HARDWARE
+                HARDWARES
               </MenuButton>
 
               {/* Menu Items */}
@@ -63,7 +63,7 @@ const Navbar = () => {
                         href="#"
                         className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
                       >
-                        Mouse
+                        Mouses
                       </a>
                     )}
                   </MenuItem>
@@ -73,7 +73,7 @@ const Navbar = () => {
                         href="#"
                         className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
                       >
-                        Teclado
+                        Teclados
                       </a>
                     )}
                   </MenuItem>
@@ -83,7 +83,7 @@ const Navbar = () => {
                         href="#"
                         className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
                       >
-                        Placa-Mãe
+                        Placas-Mães
                       </a>
                     )}
                   </MenuItem>
