@@ -6,6 +6,8 @@ import Pcgamer from './components/Pcgamer';
 import Produtos from './components/Produtos';
 import Footer from './components/Footer';
 import Notebooks from './components/Notebooks';
+import Login from './components/Login';
+import Cadastro from './components/Cadastro';
 
 function App() {
 
@@ -21,6 +23,9 @@ function App() {
             <Route path="/pcgamer" element={<Pcgamer />} />
             <Route path="/produtos/:id" element={<Produtos />} />
             <Route path="/notebooks" element={<Notebooks />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/cadastro" element={<Cadastro />} />
+
           </Routes>
         </main>
         <Footer />

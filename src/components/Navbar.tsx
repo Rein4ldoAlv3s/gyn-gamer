@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Select from "react-select";
 import { Produto, PRODUTOS } from '../constants'
+import { FaFacebook, FaUser, FaUserAlt, FaUserCircle } from 'react-icons/fa';
 
 
 const Navbar = () => {
@@ -26,20 +27,28 @@ const Navbar = () => {
   return (
     <div>
       <header className="flex justify-between px-2 py-4 bg-black">
-        <a href="/">
-          <h1 className="text-red-600 font-bold text-2xl select-none">Gyn Gamer</h1>
-        </a>
+        <div>
+          <a href="/">
+            <h1 className="text-red-600 font-bold text-2xl select-none">Gyn Gamer</h1>
+          </a>
+        </div>
+
         <Select
           options={opcoes}
           placeholder="Pesquise aqui..."
           isSearchable={true}
-          className="px-1 rounded-sm outline-none w-1/5"
+          className="px-1 rounded-sm outline-none w-1/5 ml-auto"
           openMenuOnClick={true}
           components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
           isClearable={true}
           onChange={(e: unknown) => autoCompleteChange(e)}
         />
-      </header>
+        <div className='flex items-center'>
+          <FaUserCircle size={30} className='mr-2 text-white ' />
+          <a href="" className='text-white '>Minha Conta</a>
+        </div>
+
+      </header >
       <header className="flex justify-center bg-black">
         <ul className='mb-3'>
           <li className="text-customWhite text-xl ">
@@ -111,7 +120,7 @@ const Navbar = () => {
 
       </header>
 
-    </div>
+    </div >
   )
 }
 
