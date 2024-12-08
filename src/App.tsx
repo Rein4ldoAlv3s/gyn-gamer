@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Notebooks from './components/Notebooks';
 import Login from './components/Login';
 import Cadastro from './components/Cadastro';
+import MinhaConta from './components/MinhaConta';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/notebooks" element={<Notebooks />} />
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/minha-conta" element={<MinhaConta />} />
 
           </Routes>
         </main>

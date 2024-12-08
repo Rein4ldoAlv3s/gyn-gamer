@@ -37,7 +37,7 @@ const Navbar = () => {
           options={opcoes}
           placeholder="Pesquise aqui..."
           isSearchable={true}
-          className="px-1 rounded-sm outline-none w-1/5 ml-auto"
+          className="px-1 rounded-sm outline-none w-1/2"
           openMenuOnClick={true}
           components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
           isClearable={true}
@@ -45,7 +45,7 @@ const Navbar = () => {
         />
         <div className='flex items-center'>
           <FaUserCircle size={30} className='mr-2 text-white ' />
-          <a href="" className='text-white '>Minha Conta</a>
+          <a href="/minha-conta" className='text-white '>Minha Conta</a>
         </div>
 
       </header >
