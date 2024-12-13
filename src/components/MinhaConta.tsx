@@ -1,22 +1,23 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import cors from 'cors';
-import express from 'express';
+
+export interface User {
+    username: string;
+    password: string;
+}
 
 const MinhaConta = () => {
 
-    const [email, setEmail] = useState(0);
-    const [password, setPassword] = useState(0);
+    const [email, setEmail] = useState<any>(0);
+    const [password, setPassword] = useState<any>(0);
 
-    const app = express();
-
-    app.use(cors({ origin: 'http://localhost:3000' }));
+    const user: User = {
+        username: email,
+        password: password
+    }
 
     function authentic() {
-        axios.post('/login', {
-            email: email,
-            password: password
-        })
+        axios.post('http://localhost:3000/login', user)
             .then(function (response) {
                 console.log(response);
             })
