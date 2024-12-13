@@ -93,7 +93,7 @@ const Cadastro = () => {
                 />
             </div>
             <div className='mt-3'>
-                <button className='bg-black rounded-md text-slate-300 px-3 py-1.5 w-full '>Criar conta</button>
+                <button className='bg-black rounded-md text-slate-300 px-3 py-2 w-full '>Criar conta</button>
             </div>
 
 
