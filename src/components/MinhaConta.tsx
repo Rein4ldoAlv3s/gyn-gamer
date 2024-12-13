@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import cors from 'cors';
+import express from 'express';
 
 const MinhaConta = () => {
 
     const [email, setEmail] = useState(0);
     const [password, setPassword] = useState(0);
 
-    const express = require('express');
-    const cors = require('cors');
-
     const app = express();
 
+    app.use(cors({ origin: 'http://localhost:3000' }));
+
     function authentic() {
-        axios.post('http://localhost:3000/login', {
+        axios.post('/login', {
             email: email,
             password: password
         })
