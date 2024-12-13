@@ -10,12 +10,18 @@ const Navbar = () => {
 
   const navigate = useNavigate();
   const [opcoes, setOpcoes] = useState();
+  const [nomeUsuario, setNomeUsuario] = useState<string>();
 
   useEffect(() => {
     const opcoes: any = PRODUTOS.map(function (prod) {
       return { value: prod.name, label: prod.name, id: prod.id };
     })
     setOpcoes(opcoes);
+
+    if (sessionStorage.getItem("token")) {
+      setNomeUsuario("dasdsa");
+    }
+
   }, []);
 
   const autoCompleteChange = (selectedOption: any) => {
@@ -45,7 +51,7 @@ const Navbar = () => {
         />
         <div className='flex items-center'>
           <FaUserCircle size={30} className='mr-2 text-white ' />
-          <a href="/minha-conta" className='text-white '>Minha Conta</a>
+          <a href="/minha-conta" className='text-white '>{nomeUsuario}</a>
         </div>
 
       </header >

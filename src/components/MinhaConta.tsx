@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 
 export interface User {
     username: string;
@@ -10,6 +11,8 @@ const MinhaConta = () => {
 
     const [email, setEmail] = useState<any>(0);
     const [password, setPassword] = useState<any>(0);
+    const [userAuthenticated, setUserAuthenticated] = useState<any>(0);
+    const navigate = useNavigate();
 
     const user: User = {
         username: email,
@@ -19,7 +22,9 @@ const MinhaConta = () => {
     function authentic() {
         axios.post('http://localhost:3000/login', user)
             .then(function (response) {
+                sessionStorage.setItem('token', response.data.token);
                 console.log(response);
+                navigate("/")
             })
             .catch(function (error) {
                 console.error(error);
