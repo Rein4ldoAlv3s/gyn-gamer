@@ -22,8 +22,10 @@ const MinhaConta = () => {
     function authentic() {
         axios.post('http://localhost:3000/login', user)
             .then(function (response) {
-                sessionStorage.setItem('token', response.data.token);
                 console.log(response);
+                sessionStorage.setItem('token', response.data.token);
+                sessionStorage.setItem("username", email)
+
                 navigate("/")
             })
             .catch(function (error) {
@@ -40,34 +42,36 @@ const MinhaConta = () => {
     return (
         <div className="mt-10 grid grid-cols-1 max-w-lg mx-auto ">
             <h1 className='text-white text-3xl text-center'>Acesse sua conta</h1>
-            <label htmlFor="first-name" className="block text-sm/6 font-medium text-white">
+            <label htmlFor="email" className="block text-sm/6 font-medium text-white">
                 E-mail
             </label>
             <div className="mt-2">
                 <input
-                    id="first-name"
-                    name="first-name"
+                    id="email"
+                    required
+                    name="email"
                     type="email"
-                    autoComplete="given-name"
+                    autoComplete="email"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                     onChange={(e: any) => setEmail(e.target.value)}
                 />
             </div>
-            <label htmlFor="first-name" className="mt-2 block text-sm/6 font-medium text-white">
+            <label htmlFor="password" className="mt-2 block text-sm/6 font-medium text-white">
                 Senha
             </label>
             <div className="mt-2">
                 <input
-                    id="first-name"
-                    name="first-name"
+                    id="password"
+                    required
+                    name="password"
                     type="password"
-                    autoComplete="given-name"
+                    autoComplete="password"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                     onChange={(e: any) => setPassword(e.target.value)}
                 />
             </div>
             <div className='mt-3'>
-                <button onClick={() => authentic()} className='bg-black rounded-md text-slate-300 px-3 py-1.5 w-full'>Entrar</button>
+                <button type='submit' onClick={() => authentic()} className='bg-black rounded-md text-slate-300 px-3 py-1.5 w-full'>Entrar</button>
             </div>
 
             <hr className='mt-3 w-1/2 m-auto' />

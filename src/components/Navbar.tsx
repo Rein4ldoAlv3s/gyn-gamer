@@ -10,7 +10,8 @@ const Navbar = () => {
 
   const navigate = useNavigate();
   const [opcoes, setOpcoes] = useState();
-  const [nomeUsuario, setNomeUsuario] = useState<string>();
+  const [nomeUsuario, setNomeUsuario] = useState<string | null>();
+  const usuarioSessionStorage = sessionStorage.getItem("username");
 
   useEffect(() => {
     const opcoes: any = PRODUTOS.map(function (prod) {
@@ -18,11 +19,12 @@ const Navbar = () => {
     })
     setOpcoes(opcoes);
 
-    if (sessionStorage.getItem("token")) {
-      setNomeUsuario("dasdsa");
+    if (usuarioSessionStorage) {
+      const userName: string | null = usuarioSessionStorage
+      setNomeUsuario(userName)
     }
 
-  }, []);
+  }, [usuarioSessionStorage]);
 
   const autoCompleteChange = (selectedOption: any) => {
     if (selectedOption && selectedOption.id) {
@@ -51,7 +53,7 @@ const Navbar = () => {
         />
         <div className='flex items-center'>
           <FaUserCircle size={30} className='mr-2 text-white ' />
-          <a href="/minha-conta" className='text-white '>{nomeUsuario}</a>
+          <a href="/minha-conta" className='text-white '>{nomeUsuario || "Entrar"}</a>
         </div>
 
       </header >
