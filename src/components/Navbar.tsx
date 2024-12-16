@@ -41,6 +41,7 @@ const Navbar = () => {
           </Link>
         </div>
 
+
         <Select
           options={opcoes}
           placeholder="Pesquise aqui..."

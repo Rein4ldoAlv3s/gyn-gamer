@@ -72,7 +72,7 @@ const MinhaConta = () => {
             <hr className='mt-3 w-1/2 m-auto' />
             <div className='flex justify-center mt-2'>
                 <h2 className='text-customWhite mr-2'>Novo na Gyn Gamer?</h2>
-                <a className='text-customWhite underline' href="/cadastro">Cadastre-se</a>
+                <Link className='text-customWhite underline' to="/cadastro">Cadastre-se</Link>
             </div>
         </form>
     )

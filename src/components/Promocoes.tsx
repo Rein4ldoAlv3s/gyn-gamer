@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import ReactPaginate from 'react-paginate';
 import { Produto, PRODUTOS } from '../constants'
+import { Link } from 'react-router-dom';
 
 const Promocoes = () => {
 
@@ -33,7 +34,7 @@ function Produtos({ currentProdutos }: { currentProdutos: Produto[] }) {
     <div>
       <div className="grid grid-cols-4 gap-4 py-5 ">
         {currentProdutos.map((prod, index) => (
-          <a key={index} href={`/produtos/${prod.id}`}>
+          <Link key={index} to={`/produtos/${prod.id}`}>
             <div className="flex justify-center flex-col items-center border-2 rounded-md border-gray-400 hover:scale-105 transition-transform duration-300" key={index}>
               <div className="w-full h-60">
                 <img src={prod.img} alt="Imagem 1" className="w-full h-full object-cover" />
@@ -44,7 +45,7 @@ function Produtos({ currentProdutos }: { currentProdutos: Produto[] }) {
                 <p className="text-customWhite">{formatarMoeda(prod.price)}</p>
               </div>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </div>
