@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { Flip, toast, ToastContainer } from 'react-toastify';
 
 export interface User {
     username: string;
@@ -27,18 +28,29 @@ const MinhaConta = () => {
                 sessionStorage.setItem('token', response.data.token);
                 sessionStorage.setItem("username", email)
 
-                navigate("/")
+                notify()
+
+                //atrasar redirecionamento
+                setTimeout(() => {
+                    navigate("/")
+                }, 1500); // Atraso de 2 segundos (2000 ms)
             })
             .catch(function (error) {
                 console.error(error);
             });
     }
 
-
-
-    // useEffect(() => {
-    //     console.log(email);
-    // }, [email]);
+    const notify = () => toast.success('Logado com sucesso!', {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Flip,
+    });
 
     return (
         <form onSubmit={(e) => authentic(e)} className="mt-10 grid grid-cols-1 max-w-lg mx-auto ">
@@ -68,6 +80,20 @@ const MinhaConta = () => {
                 onChange={(e: any) => setPassword(e.target.value)}
             />
             <button type='submit' className='mt-3 bg-black rounded-md text-slate-300 px-3 py-1.5 w-full'>Entrar</button>
+            <ToastContainer
+                position="bottom-right"
+                autoClose={2000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+                transition={Flip}
+            />
+
 
             <hr className='mt-3 w-1/2 m-auto' />
             <div className='flex justify-center mt-2'>
