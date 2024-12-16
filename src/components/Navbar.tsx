@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Select from "react-select";
 import { Produto, PRODUTOS } from '../constants'
-import { FaFacebook, FaUser, FaUserAlt, FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle } from 'react-icons/fa';
 
 
 const Navbar = () => {
@@ -123,9 +123,6 @@ const Navbar = () => {
 
           </li>
         </ul>
-      </header>
-      <header className="flex justify-center bg-black">
-
       </header>
 
     </div >
