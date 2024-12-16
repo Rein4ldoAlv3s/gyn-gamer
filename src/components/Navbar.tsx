@@ -36,9 +36,9 @@ const Navbar = () => {
     <div>
       <header className="flex justify-between px-2 py-4 bg-black">
         <div>
-          <a href="/">
+          <Link to="/">
             <h1 className="text-red-600 font-bold text-2xl select-none">Gyn Gamer</h1>
-          </a>
+          </Link>
         </div>
 
         <Select
@@ -53,7 +53,7 @@ const Navbar = () => {
         />
         <div className='flex items-center'>
           <FaUserCircle size={30} className='mr-2 text-white ' />
-          <a href="/minha-conta" className='text-white '>{nomeUsuario || "Entrar"}</a>
+          <Link to="/minha-conta" className='text-white '>{nomeUsuario || "Entrar"}</Link>
         </div>
 
       </header >
@@ -62,10 +62,10 @@ const Navbar = () => {
           <li className="text-customWhite text-xl ">
 
             <Menu as="div" className=" relative inline-block text-left px-20">
-              <a href="/" className="mr-4 hover:text-red-600">HOME</a>
-              <a href="/promocoes" className="mr-4 hover:text-red-600">PROMOÇÕES</a>
-              <a href="/pcgamer" className="mr-4 hover:text-red-600">PCS GAMERS</a>
-              <a href="/notebooks" className="mr-4 hover:text-red-600">NOTEBOOKS</a>
+              <Link to="/" className="mr-4 hover:text-red-600">HOME</Link>
+              <Link to="/promocoes" className="mr-4 hover:text-red-600">PROMOÇÕES</Link>
+              <Link to="/pcgamer" className="mr-4 hover:text-red-600">PCS GAMERS</Link>
+              <Link to="/notebooks" className="mr-4 hover:text-red-600">NOTEBOOKS</Link>
 
               <MenuButton className="inline-flex justify-center items-center gap-x-2 hover:text-red-600  text-white  rounded-md focus:outline-none">
                 HARDWARES
