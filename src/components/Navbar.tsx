@@ -54,7 +54,36 @@ const Navbar = () => {
         />
         <div className='flex items-center'>
           <FaUserCircle size={30} className='mr-2 text-white ' />
-          <Link to="/minha-conta" className='text-white '>{nomeUsuario || "Entrar"}</Link>
+          {/* <Link to="/minha-conta" className='text-white '>{nomeUsuario || "Entrar"}</Link> */}
+          <Menu as="div">
+            <MenuButton className="text-white">
+              {nomeUsuario || "Entrar"}
+            </MenuButton>
+            <MenuItems className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1  ring-black ring-opacity-5 z-10">
+              <div className="py-1">
+                <MenuItem>
+                  {({ active }) => (
+                    <a
+                      href="#"
+                      className={`block px-4 py-2 text-sm ${active ? 'bg-white' : 'text-gray-700'}`}
+                    >
+                      Meu Perfil
+                    </a>
+                  )}
+                </MenuItem>
+                <MenuItem>
+                  {({ active }) => (
+                    <a
+                      href="#"
+                      className={`block px-4 py-2 text-sm ${active ? 'bg-white' : 'text-gray-700'}`}
+                    >
+                      Sair
+                    </a>
+                  )}
+                </MenuItem>
+              </div>
+            </MenuItems>
+          </Menu>
         </div>
 
       </header >
