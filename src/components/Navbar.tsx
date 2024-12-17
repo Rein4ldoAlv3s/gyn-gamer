@@ -11,7 +11,8 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [opcoes, setOpcoes] = useState();
   const [nomeUsuario, setNomeUsuario] = useState<string | null>();
-  const usuarioSessionStorage = sessionStorage.getItem("username");
+  //usestate logout
+  const [usuarioSessionStorage, setUsuarioSessionStorage] = useState<string | null>(sessionStorage.getItem("username"));
 
   useEffect(() => {
     const opcoes: any = PRODUTOS.map(function (prod) {
@@ -31,6 +32,13 @@ const Navbar = () => {
       navigate("/produtos/" + selectedOption.id, { state: { id: selectedOption.id } })
     }
   };
+
+  const signout = (e: any) => {
+    console.log("chamada sin");
+    e.preventDefault();
+    setUsuarioSessionStorage(null)
+    navigate("/")
+  }
 
   return (
     <div>
@@ -55,17 +63,17 @@ const Navbar = () => {
         <div className='flex items-center'>
           <FaUserCircle size={30} className='mr-2 text-white ' />
           {/* <Link to="/minha-conta" className='text-white '>{nomeUsuario || "Entrar"}</Link> */}
-          <Menu as="div">
-            <MenuButton className="text-white">
+          <Menu as="div" >
+            <MenuButton className="text-white" >
               {nomeUsuario || "Entrar"}
             </MenuButton>
-            <MenuItems className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1  ring-black ring-opacity-5 z-10">
+            <MenuItems modal={false} className="absolute text-white right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1  ring-black ring-opacity-5 z-10">
               <div className="py-1">
                 <MenuItem>
                   {({ active }) => (
                     <a
                       href="#"
-                      className={`block px-4 py-2 text-sm ${active ? 'bg-white' : 'text-gray-700'}`}
+                      className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
                     >
                       Meu Perfil
                     </a>
@@ -73,12 +81,12 @@ const Navbar = () => {
                 </MenuItem>
                 <MenuItem>
                   {({ active }) => (
-                    <a
-                      href="#"
-                      className={`block px-4 py-2 text-sm ${active ? 'bg-white' : 'text-gray-700'}`}
+                    <button
+                      onClick={(e) => signout(e)}
+                      className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
                     >
                       Sair
-                    </a>
+                    </button>
                   )}
                 </MenuItem>
               </div>
@@ -102,7 +110,7 @@ const Navbar = () => {
               </MenuButton>
 
               {/* Menu Items */}
-              <MenuItems className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1  ring-black ring-opacity-5 z-10">
+              <MenuItems modal={false} className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1  ring-black ring-opacity-5 z-10">
                 <div className="py-1">
                   <MenuItem>
                     {({ active }) => (
