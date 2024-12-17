@@ -12,7 +12,8 @@ const Navbar = () => {
   const [opcoes, setOpcoes] = useState();
   const [nomeUsuario, setNomeUsuario] = useState<string | null>();
   //usestate logout
-  const [usuarioSessionStorage, setUsuarioSessionStorage] = useState<string | null>(sessionStorage.getItem("username"));
+  const usuarioSessionStorage = sessionStorage.getItem("username");
+  const [tokenSessionStorage, setTokenSessionStorage] = useState<string | null>(sessionStorage.getItem("token"));
 
   useEffect(() => {
     const opcoes: any = PRODUTOS.map(function (prod) {
@@ -34,9 +35,9 @@ const Navbar = () => {
   };
 
   const signout = (e: any) => {
-    console.log("chamada sin");
     e.preventDefault();
-    setUsuarioSessionStorage(null)
+    console.log("chamada sin");
+    setTokenSessionStorage(null)
     navigate("/")
   }
 
