@@ -10,10 +10,10 @@ const Navbar = () => {
 
   const navigate = useNavigate();
   const [opcoes, setOpcoes] = useState();
-  const [nomeUsuario, setNomeUsuario] = useState<string | null>();
   //usestate logout
-  const [usuarioSessionStorage, setUsuarioSessionStorage] = useState(() => sessionStorage.getItem("username"));
-  const [tokenSessionStorage, setTokenSessionStorage] = useState(() => sessionStorage.getItem("token"));
+  const [nomeUsuario, setNomeUsuario] = useState<string | null>();
+  const [tokenSessionStorage, setTokenSessionStorage] = useState<string | null>(() => sessionStorage.getItem("token"));
+
 
   useEffect(() => {
     const opcoes: any = PRODUTOS.map(function (prod) {
@@ -21,27 +21,17 @@ const Navbar = () => {
     })
     setOpcoes(opcoes);
 
-    if (usuarioSessionStorage) {
-      const userName: string | null = usuarioSessionStorage
-      setNomeUsuario(userName)
-      console.log(nomeUsuario);
-    } else {
-      const userName: string | null = ""
-      setNomeUsuario(userName)
-      console.log(nomeUsuario);
-    }
-
     if (tokenSessionStorage) {
-      const token: string | null = tokenSessionStorage
-      setTokenSessionStorage(token)
-      console.log(token);
-    } else {
-      const token: string | null = ""
-      setTokenSessionStorage(token)
-      console.log(token);
+      setNomeUsuario(sessionStorage.getItem("username"))
     }
 
-  }, [usuarioSessionStorage, tokenSessionStorage]);
+    if (tokenSessionStorage === null) {
+      sessionStorage.removeItem("username")
+      sessionStorage.removeItem("token")
+      navigate("/")
+    }
+
+  }, [tokenSessionStorage]);
 
   const autoCompleteChange = (selectedOption: any) => {
     if (selectedOption && selectedOption.id) {
@@ -51,10 +41,8 @@ const Navbar = () => {
 
   const signout = (e: any) => {
     e.preventDefault();
-    console.log("chamada signout");
-    setTokenSessionStorage(null)
-    setUsuarioSessionStorage(null)
-    navigate("/")
+    setTokenSessionStorage(null);
+    setNomeUsuario("Entrar")
   }
 
   return (
@@ -88,12 +76,12 @@ const Navbar = () => {
               <div className="py-1">
                 <MenuItem>
                   {({ active }) => (
-                    <a
-                      href="#"
+                    <Link
+                      to="/minha-conta"
                       className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
                     >
                       Meu Perfil
-                    </a>
+                    </Link>
                   )}
                 </MenuItem>
                 <MenuItem>
