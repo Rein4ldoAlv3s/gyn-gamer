@@ -12,8 +12,8 @@ const Navbar = () => {
   const [opcoes, setOpcoes] = useState();
   const [nomeUsuario, setNomeUsuario] = useState<string | null>();
   //usestate logout
-  const usuarioSessionStorage = sessionStorage.getItem("username");
-  const [tokenSessionStorage, setTokenSessionStorage] = useState<string | null>(sessionStorage.getItem("token"));
+  const [usuarioSessionStorage, setUsuarioSessionStorage] = useState(() => sessionStorage.getItem("username"));
+  const [tokenSessionStorage, setTokenSessionStorage] = useState(() => sessionStorage.getItem("token"));
 
   useEffect(() => {
     const opcoes: any = PRODUTOS.map(function (prod) {
@@ -24,9 +24,24 @@ const Navbar = () => {
     if (usuarioSessionStorage) {
       const userName: string | null = usuarioSessionStorage
       setNomeUsuario(userName)
+      console.log(nomeUsuario);
+    } else {
+      const userName: string | null = ""
+      setNomeUsuario(userName)
+      console.log(nomeUsuario);
     }
 
-  }, [usuarioSessionStorage]);
+    if (tokenSessionStorage) {
+      const token: string | null = tokenSessionStorage
+      setTokenSessionStorage(token)
+      console.log(token);
+    } else {
+      const token: string | null = ""
+      setTokenSessionStorage(token)
+      console.log(token);
+    }
+
+  }, [usuarioSessionStorage, tokenSessionStorage]);
 
   const autoCompleteChange = (selectedOption: any) => {
     if (selectedOption && selectedOption.id) {
@@ -36,8 +51,9 @@ const Navbar = () => {
 
   const signout = (e: any) => {
     e.preventDefault();
-    console.log("chamada sin");
+    console.log("chamada signout");
     setTokenSessionStorage(null)
+    setUsuarioSessionStorage(null)
     navigate("/")
   }
 
