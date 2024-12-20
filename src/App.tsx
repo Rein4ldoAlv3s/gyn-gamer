@@ -9,6 +9,7 @@ import Notebooks from './components/Notebooks';
 import Login from './components/Login';
 import Cadastro from './components/Cadastro';
 import MinhaConta from './components/MinhaConta';
+import TesteUsestate from './components/TesteUsestate';
 
 function App() {
 
@@ -27,7 +28,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/minha-conta" element={<MinhaConta />} />
-            <Route path="/teste-usestate" element={<MinhaConta />} />
+            <Route path="/teste-usestate" element={<TesteUsestate />} />
 
           </Routes>
         </main>
