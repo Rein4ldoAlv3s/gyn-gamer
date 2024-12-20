@@ -10,8 +10,11 @@ import Login from './components/Login';
 import Cadastro from './components/Cadastro';
 import MinhaConta from './components/MinhaConta';
 import TesteUsestate from './components/TesteUsestate';
+import { useState } from 'react';
 
 function App() {
+
+  const [dadosLogin, setDadosLogin] = useState();
 
   return (
     <div>
@@ -27,7 +30,7 @@ function App() {
             <Route path="/notebooks" element={<Notebooks />} />
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Cadastro />} />
-            <Route path="/minha-conta" element={<MinhaConta />} />
+            <Route path="/minha-conta" element={<MinhaConta dadosSessionStorage={setDadosLogin} />} />
             <Route path="/teste-usestate" element={<TesteUsestate />} />
 
           </Routes>

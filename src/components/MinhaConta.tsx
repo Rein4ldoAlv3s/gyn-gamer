@@ -8,7 +8,7 @@ export interface User {
     password: string;
 }
 
-const MinhaConta = () => {
+const MinhaConta = ({ dadosSessionStorage }) => {
 
     const [email, setEmail] = useState<any>(0);
     const [password, setPassword] = useState<any>(0);
@@ -27,6 +27,9 @@ const MinhaConta = () => {
                 console.log(response);
                 sessionStorage.setItem('token', response.data.token);
                 sessionStorage.setItem("username", email)
+
+                //compartilha dados entre os componentes MinhaConta e App
+                dadosSessionStorage = sessionStorage;
 
                 notify()
 

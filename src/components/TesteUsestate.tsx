@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const TesteUsestate = () => {
 
-
-
     return (
-        <div>
-            <h1 className='text-white'>componente 1</h1>
-            <Comp2 />
+        <div className='text-white'>
+
         </div>
     )
 }
@@ -16,14 +13,9 @@ const Comp2 = () => {
 
 
 
-    const setValue = () => {
-        sessionStorage.setItem("nome", "Reinaldo")
-    }
-
     return (
         <div>
-            <h1 className='text-white'>componente 2</h1>
-            <button className='mt-5 text-white bg-black' onClick={setValue}>Alterar nome variavel</button>
+            <h3>Componente B</h3>
         </div>
     )
 
