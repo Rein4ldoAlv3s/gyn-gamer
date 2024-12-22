@@ -14,13 +14,13 @@ import { useState } from 'react';
 
 function App() {
 
-  const [dadosLogin, setDadosLogin] = useState();
+  const [data, setData] = useState<string>("");
 
   return (
     <div>
       {/* Conteudo Body */}
       <Router>
-        <Navbar />
+        <Navbar data={data} />
         <main className="container mx-auto px-8 pt-4 min-h-[calc(100vh-6.875rem)]">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -30,7 +30,7 @@ function App() {
             <Route path="/notebooks" element={<Notebooks />} />
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Cadastro />} />
-            <Route path="/minha-conta" element={<MinhaConta dadosSessionStorage={setDadosLogin} />} />
+            <Route path="/minha-conta" element={<MinhaConta onSendData={setData} />} />
             <Route path="/teste-usestate" element={<TesteUsestate />} />
 
           </Routes>

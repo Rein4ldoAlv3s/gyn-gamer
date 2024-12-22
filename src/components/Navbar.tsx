@@ -5,14 +5,9 @@ import Select from "react-select";
 import { Produto, PRODUTOS } from '../constants'
 import { FaUserCircle } from 'react-icons/fa';
 
-interface MyComponentProps {
-  title: string; // prop obrigatória
-  subtitle?: string; // prop opcional
-  count: number; // outra prop obrigatória
-}
 
 
-const Navbar = ({ title, subtitle, count }: MyComponentProps) => {
+const Navbar = ({ data }: { data: string }) => {
 
   const navigate = useNavigate();
   const [opcoes, setOpcoes] = useState();
@@ -76,7 +71,7 @@ const Navbar = ({ title, subtitle, count }: MyComponentProps) => {
           {/* <Link to="/minha-conta" className='text-white '>{nomeUsuario || "Entrar"}</Link> */}
           <Menu as="div" >
             <MenuButton className="text-white" >
-              {nomeUsuario || "Entrar"}
+              {data || "Entrar"}
             </MenuButton>
             <MenuItems modal={false} className="absolute text-white right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1  ring-black ring-opacity-5 z-10">
               <div className="py-1">
@@ -86,7 +81,7 @@ const Navbar = ({ title, subtitle, count }: MyComponentProps) => {
                       to="/minha-conta"
                       className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
                     >
-                      {title} - {subtitle} - {count}
+                      {data}
                     </Link>
                   )}
                 </MenuItem>
