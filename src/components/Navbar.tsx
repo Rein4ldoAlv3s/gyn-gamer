@@ -115,6 +115,7 @@ const Navbar = () => {
                 HARDWARES
               </MenuButton>
 
+
               {/* Menu Items */}
               <MenuItems modal={false} className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1  ring-black ring-opacity-5 z-10">
                 <div className="py-1">
@@ -162,6 +163,8 @@ const Navbar = () => {
                   </form>
                 </div>
               </MenuItems>
+              <Link to="/rotasteste" className="ml-4 hover:text-red-600">ROTAS DE TESTE</Link>
+
             </Menu>
 
 

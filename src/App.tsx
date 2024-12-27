@@ -11,7 +11,9 @@ import Cadastro from './components/Cadastro';
 import MinhaConta from './components/MinhaConta';
 import TesteUsestate from './components/TesteUsestate';
 import { useState } from 'react';
-import WelcomeUser from './components/WelcomeUser';
+import RotasTeste from './components/RotasTeste';
+import CarrinhoCompras from './components/CarrinhoCompras';
+import MyProfile from './components/MyProfile';
 
 function App() {
 
@@ -31,7 +33,9 @@ function App() {
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/minha-conta" element={<MinhaConta />} />
             <Route path="/teste-usestate" element={<TesteUsestate />} />
-            <Route path="/welcome" element={<WelcomeUser />} />
+            <Route path="/my-profile" element={<MyProfile />} />
+            <Route path="/rotasteste" element={<RotasTeste />} />
+            <Route path="/cart" element={<CarrinhoCompras />} />
 
           </Routes>
         </main>

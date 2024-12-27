@@ -1,6 +1,6 @@
 import React from 'react'
 
-const WelcomeUser = () => {
+const MyProfile = () => {
     return (
         <div>
             <h1 className="flex justify-center text-3xl font-bold text-customWhite">Welcome, User!</h1>
@@ -8,4 +8,4 @@ const WelcomeUser = () => {
     )
 }
 
-export default WelcomeUser
+export default MyProfile
