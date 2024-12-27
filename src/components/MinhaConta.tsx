@@ -8,7 +8,7 @@ export interface User {
     password: string;
 }
 
-const MinhaConta = ({ onSendData }: { onSendData: (data: string) => void }) => {
+const MinhaConta = () => {
 
     const [email, setEmail] = useState<any>(0);
     const [password, setPassword] = useState<any>(0);
@@ -28,8 +28,6 @@ const MinhaConta = ({ onSendData }: { onSendData: (data: string) => void }) => {
                 sessionStorage.setItem('token', response.data.token);
                 sessionStorage.setItem("username", email)
 
-                //compartilha dados entre os componentes MinhaConta e App
-                onSendData("Dado enviado do ComponenteA");
 
                 notify()
 

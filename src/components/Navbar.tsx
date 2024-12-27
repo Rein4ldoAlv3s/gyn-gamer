@@ -7,7 +7,7 @@ import { FaUserCircle } from 'react-icons/fa';
 
 
 
-const Navbar = ({ data }: { data: string }) => {
+const Navbar = () => {
 
   const navigate = useNavigate();
   const [opcoes, setOpcoes] = useState();
@@ -71,7 +71,7 @@ const Navbar = ({ data }: { data: string }) => {
           {/* <Link to="/minha-conta" className='text-white '>{nomeUsuario || "Entrar"}</Link> */}
           <Menu as="div" >
             <MenuButton className="text-white" >
-              {data || "Entrar"}
+              {"Entrar"}
             </MenuButton>
             <MenuItems modal={false} className="absolute text-white right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1  ring-black ring-opacity-5 z-10">
               <div className="py-1">
@@ -81,7 +81,7 @@ const Navbar = ({ data }: { data: string }) => {
                       to="/minha-conta"
                       className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
                     >
-                      {data}
+
                     </Link>
                   )}
                 </MenuItem>

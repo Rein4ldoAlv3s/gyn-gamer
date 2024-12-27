@@ -11,16 +11,15 @@ import Cadastro from './components/Cadastro';
 import MinhaConta from './components/MinhaConta';
 import TesteUsestate from './components/TesteUsestate';
 import { useState } from 'react';
+import WelcomeUser from './components/WelcomeUser';
 
 function App() {
-
-  const [data, setData] = useState<string>("");
 
   return (
     <div>
       {/* Conteudo Body */}
       <Router>
-        <Navbar data={data} />
+        <Navbar />
         <main className="container mx-auto px-8 pt-4 min-h-[calc(100vh-6.875rem)]">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -30,8 +29,9 @@ function App() {
             <Route path="/notebooks" element={<Notebooks />} />
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Cadastro />} />
-            <Route path="/minha-conta" element={<MinhaConta onSendData={setData} />} />
+            <Route path="/minha-conta" element={<MinhaConta />} />
             <Route path="/teste-usestate" element={<TesteUsestate />} />
+            <Route path="/welcome" element={<WelcomeUser />} />
 
           </Routes>
         </main>

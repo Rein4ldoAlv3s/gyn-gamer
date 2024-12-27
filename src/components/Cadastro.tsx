@@ -28,9 +28,9 @@ const Cadastro = () => {
                         Sobrenome
                     </label>
                     <input
-                        id="first-name"
-                        name="first-name"
-                        type="email"
+                        id="lastname"
+                        name="lastname"
+                        type="lastname"
                         autoComplete="given-name"
                         className="mt-2 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                     />
@@ -49,9 +49,9 @@ const Cadastro = () => {
             </label>
             <div className="mt-2">
                 <input
-                    id="first-name"
-                    name="first-name"
-                    type="email"
+                    id="telephone"
+                    name="telephone"
+                    type="telephone"
                     autoComplete="given-name"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
@@ -61,8 +61,8 @@ const Cadastro = () => {
             </label>
             <div className="mt-2">
                 <input
-                    id="first-name"
-                    name="first-name"
+                    id="dto"
+                    name="dto"
                     type="date"
                     autoComplete="given-name"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
@@ -73,8 +73,8 @@ const Cadastro = () => {
             </label>
             <div className="mt-2">
                 <input
-                    id="first-name"
-                    name="first-name"
+                    id="email"
+                    name="email"
                     type="email"
                     autoComplete="given-name"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
@@ -85,8 +85,8 @@ const Cadastro = () => {
             </label>
             <div className="mt-2">
                 <input
-                    id="first-name"
-                    name="first-name"
+                    id="password"
+                    name="password"
                     type="password"
                     autoComplete="given-name"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
