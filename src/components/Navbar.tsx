@@ -44,6 +44,7 @@ const Navbar = () => {
     e.preventDefault();
     setTokenSessionStorage(null);
     setNomeUsuario("Entrar")
+
   }
 
   return (
@@ -68,7 +69,7 @@ const Navbar = () => {
         />
         <div className='flex items-center'>
           <FaUserCircle size={30} className='mr-2 text-white ' />
-          {/* <Link to="/minha-conta" className='text-white '>{nomeUsuario || "Entrar"}</Link> */}
+          {/* <Link to="/login" className='text-white '>{nomeUsuario || "Entrar"}</Link> */}
           <Menu as="div" >
             <MenuButton className="text-white" >
               {"Entrar"}
@@ -78,10 +79,10 @@ const Navbar = () => {
                 <MenuItem>
                   {({ active }) => (
                     <Link
-                      to="/minha-conta"
+                      to="/login"
                       className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
                     >
-
+                      Acesse sua Conta
                     </Link>
                   )}
                 </MenuItem>

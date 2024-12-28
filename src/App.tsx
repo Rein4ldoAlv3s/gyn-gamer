@@ -1,21 +1,17 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Navbar from "./components/Navbar"
-import Home from "./components/Home"
-import Promocoes from "./components/Promocoes"
-import Pcgamer from './components/Pcgamer';
-import Produtos from './components/Produtos';
 import Footer from './components/Footer';
-import Notebooks from './components/Notebooks';
-import Login from './components/Login';
-import Cadastro from './components/Cadastro';
-import MinhaConta from './components/MinhaConta';
-import TesteUsestate from './components/TesteUsestate';
-import { useState } from 'react';
-import RotasTeste from './components/RotasTeste';
-import CarrinhoCompras from './components/CarrinhoCompras';
-import MyProfile from './components/MyProfile';
+import { useContext, useState } from 'react';
+import PrivateRoutes from './routes/private.routes';
+import { AuthContext } from './contexts/AuthContext';
+import PublicRoutes from './routes/public.routes';
 
 function App() {
+
+  const auth = useContext(AuthContext)?.auth
+  console.log(auth);
+  const privateRoutes = PrivateRoutes();
+  const publicRoutes = PublicRoutes();
 
   return (
     <div>
@@ -24,19 +20,7 @@ function App() {
         <Navbar />
         <main className="container mx-auto px-8 pt-4 min-h-[calc(100vh-6.875rem)]">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/promocoes" element={<Promocoes />} />
-            <Route path="/pcgamer" element={<Pcgamer />} />
-            <Route path="/produtos/:id" element={<Produtos />} />
-            <Route path="/notebooks" element={<Notebooks />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/cadastro" element={<Cadastro />} />
-            <Route path="/minha-conta" element={<MinhaConta />} />
-            <Route path="/teste-usestate" element={<TesteUsestate />} />
-            <Route path="/my-profile" element={<MyProfile />} />
-            <Route path="/rotasteste" element={<RotasTeste />} />
-            <Route path="/cart" element={<CarrinhoCompras />} />
-
+            {auth ? privateRoutes : publicRoutes}
           </Routes>
         </main>
         <Footer />
