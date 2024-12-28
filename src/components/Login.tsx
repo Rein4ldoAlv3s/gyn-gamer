@@ -32,10 +32,11 @@ const Login = () => {
                 console.log(response);
                 sessionStorage.setItem('token', response.data.token);
                 sessionStorage.setItem("username", email)
+
+                toast.success("Usuário logado!");
+
+                //variavel global useContext
                 auth?.setAuth(true)
-
-
-                notify()
 
                 //atrasar redirecionamento
                 setTimeout(() => {
@@ -46,18 +47,6 @@ const Login = () => {
                 console.error(error);
             });
     }
-
-    const notify = () => toast.success('Logado com sucesso!', {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Flip,
-    });
 
     return (
         <form onSubmit={(e) => authentic(e)} className="mt-10 grid grid-cols-1 max-w-lg mx-auto ">
@@ -87,19 +76,7 @@ const Login = () => {
                 onChange={(e: any) => setPassword(e.target.value)}
             />
             <button type='submit' className='mt-3 bg-black rounded-md text-slate-300 px-3 py-1.5 w-full'>Entrar</button>
-            <ToastContainer
-                position="bottom-right"
-                autoClose={2000}
-                hideProgressBar
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-                transition={Flip}
-            />
+
 
 
             <hr className='mt-3 w-1/2 m-auto' />

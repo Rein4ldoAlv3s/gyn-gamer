@@ -1,9 +1,11 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Select from "react-select";
 import { Produto, PRODUTOS } from '../constants'
 import { FaUserCircle } from 'react-icons/fa';
+import { AuthContext } from '../contexts/AuthContext';
+import { Flip, toast, ToastContainer } from 'react-toastify';
 
 
 
@@ -11,10 +13,7 @@ const Navbar = () => {
 
   const navigate = useNavigate();
   const [opcoes, setOpcoes] = useState();
-  //usestate logout
-  const [nomeUsuario, setNomeUsuario] = useState<string | null>();
-  const [tokenSessionStorage, setTokenSessionStorage] = useState<string | null>(() => sessionStorage.getItem("token"));
-
+  const auth = useContext(AuthContext);
 
   useEffect(() => {
     const opcoes: any = PRODUTOS.map(function (prod) {
@@ -22,17 +21,7 @@ const Navbar = () => {
     })
     setOpcoes(opcoes);
 
-    if (tokenSessionStorage) {
-      setNomeUsuario(sessionStorage.getItem("username"))
-    }
-
-    if (tokenSessionStorage === null) {
-      sessionStorage.removeItem("username")
-      sessionStorage.removeItem("token")
-      navigate("/")
-    }
-
-  }, [tokenSessionStorage]);
+  }, []);
 
   const autoCompleteChange = (selectedOption: any) => {
     if (selectedOption && selectedOption.id) {
@@ -42,9 +31,17 @@ const Navbar = () => {
 
   const signout = (e: any) => {
     e.preventDefault();
-    setTokenSessionStorage(null);
-    setNomeUsuario("Entrar")
 
+    toast.success("Usuário deslogado!");
+
+
+    auth?.setAuth(false)
+    console.log(auth);
+
+    //atrasar redirecionamento
+    setTimeout(() => {
+      navigate("/")
+    }, 1500); // Atraso de 2 segundos (2000 ms)
   }
 
   return (
@@ -72,7 +69,7 @@ const Navbar = () => {
           {/* <Link to="/login" className='text-white '>{nomeUsuario || "Entrar"}</Link> */}
           <Menu as="div" >
             <MenuButton className="text-white" >
-              {"Entrar"}
+              {auth?.auth ? sessionStorage.getItem("username") : "Entrar"}
             </MenuButton>
             <MenuItems modal={false} className="absolute text-white right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1  ring-black ring-opacity-5 z-10">
               <div className="py-1">
@@ -95,6 +92,7 @@ const Navbar = () => {
                       Sair
                     </button>
                   )}
+
                 </MenuItem>
               </div>
             </MenuItems>
