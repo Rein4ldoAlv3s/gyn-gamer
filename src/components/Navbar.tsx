@@ -70,7 +70,7 @@ const Navbar = () => {
             <MenuButton className="text-white" >
               {auth?.auth ? localStorage.getItem("username") : "Entrar"}
             </MenuButton>
-            <MenuItems modal={false} className="absolute text-white right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1  ring-black ring-opacity-5 z-10">
+            <MenuItems transition modal={false} className="absolute text-white right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1  ring-black ring-opacity-5 z-10 transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0">
               <div className="py-1">
                 <MenuItem>
                   {({ active }) => (
@@ -147,18 +147,16 @@ const Navbar = () => {
                       </a>
                     )}
                   </MenuItem>
-                  <form action="#" method="POST">
-                    <MenuItem>
-                      {({ active }) => (
-                        <button
-                          type="submit"
-                          className={`block w-full px-4 py-2 text-left text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
-                        >
-                          Processadores
-                        </button>
-                      )}
-                    </MenuItem>
-                  </form>
+                  <MenuItem>
+                    {({ active }) => (
+                      <a
+                        href="#"
+                        className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
+                      >
+                        Processadores
+                      </a>
+                    )}
+                  </MenuItem>
                 </div>
               </MenuItems>
               <Link to="/rotasteste" className="ml-4 hover:text-red-600">ROTAS DE TESTE</Link>
