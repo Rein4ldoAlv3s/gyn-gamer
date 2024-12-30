@@ -46,7 +46,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <header className="flex px-2 py-4 bg-black">
+      <header className="flex justify-between px-2 py-4 bg-black">
         <div>
           <Link to="/">
             <h1 className="text-red-600 font-bold text-2xl select-none">Gyn Gamer</h1>
@@ -57,13 +57,13 @@ const Navbar = () => {
           options={opcoes}
           placeholder="Pesquise aqui..."
           isSearchable={true}
-          className="px-1 rounded-sm outline-none w-[32rem] m-auto"
+          className="px-1 rounded-sm outline-none w-[32rem]"
           openMenuOnClick={true}
           components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
           isClearable={true}
           onChange={(e: unknown) => autoCompleteChange(e)}
         />
-        <div className='flex items-center'>
+        <div className='flex items-center w-40 justify-end'>
           <FaUserCircle size={30} className='mr-2 text-white ' />
           {/* <Link to="/login" className='text-white '>{nomeUsuario || "Entrar"}</Link> */}
           <Menu as="div" >
