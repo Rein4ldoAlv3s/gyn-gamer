@@ -115,7 +115,7 @@ const Navbar = () => {
 
 
               {/* Menu Items */}
-              <MenuItems modal={false} className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1  ring-black ring-opacity-5 z-10">
+              <MenuItems transition modal={false} anchor="bottom start" className="absolute text-white right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1  ring-black ring-opacity-5 z-10 transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0">
                 <div className="py-1">
                   <MenuItem>
                     {({ active }) => (
