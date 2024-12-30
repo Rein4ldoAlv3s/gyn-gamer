@@ -68,7 +68,7 @@ const Navbar = () => {
           {/* <Link to="/login" className='text-white '>{nomeUsuario || "Entrar"}</Link> */}
           <Menu as="div" >
             <MenuButton className="text-white" >
-              {auth?.auth ? sessionStorage.getItem("username") : "Entrar"}
+              {auth?.auth ? localStorage.getItem("username") : "Entrar"}
             </MenuButton>
             <MenuItems modal={false} className="absolute text-white right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1  ring-black ring-opacity-5 z-10">
               <div className="py-1">

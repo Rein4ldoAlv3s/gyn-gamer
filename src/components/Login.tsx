@@ -30,8 +30,8 @@ const Login = () => {
         axios.post('http://localhost:3000/login', user)
             .then(function (response) {
                 console.log(response);
-                sessionStorage.setItem('token', response.data.token);
-                sessionStorage.setItem("username", email)
+                localStorage.setItem('token', response.data.token);
+                localStorage.setItem("username", email)
 
                 toast.success("Usuário logado!");
 

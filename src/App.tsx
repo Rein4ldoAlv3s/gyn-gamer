@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Navbar from "./components/Navbar"
 import Footer from './components/Footer';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import PrivateRoutes from './routes/private.routes';
 import { AuthContext } from './contexts/AuthContext';
 import PublicRoutes from './routes/public.routes';
