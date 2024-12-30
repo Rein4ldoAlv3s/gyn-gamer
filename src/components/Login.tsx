@@ -40,7 +40,7 @@ const Login = () => {
 
                 //atrasar redirecionamento
                 setTimeout(() => {
-                    navigate("/rotasteste")
+                    navigate("/")
                 }, 1500); // Atraso de 2 segundos (2000 ms)
             })
             .catch(function (error) {
