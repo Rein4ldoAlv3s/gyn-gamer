@@ -46,7 +46,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <header className="flex justify-between w-full px-2 py-4 bg-black">
+      <header className="flex px-2 py-4 bg-black">
         <div>
           <Link to="/">
             <h1 className="text-red-600 font-bold text-2xl select-none">Gyn Gamer</h1>
@@ -57,7 +57,7 @@ const Navbar = () => {
           options={opcoes}
           placeholder="Pesquise aqui..."
           isSearchable={true}
-          className="px-1 rounded-sm outline-none w-[32rem]"
+          className="px-1 rounded-sm outline-none w-[32rem] m-auto"
           openMenuOnClick={true}
           components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
           isClearable={true}
