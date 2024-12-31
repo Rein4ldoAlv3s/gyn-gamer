@@ -85,6 +85,16 @@ const Navbar = () => {
                 <MenuItem>
                   {({ active }) => (
                     <Link
+                      to="/cadastro"
+                      className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
+                    >
+                      Criar Conta
+                    </Link>
+                  )}
+                </MenuItem>
+                <MenuItem>
+                  {({ active }) => (
+                    <Link
                       to="#"
                       onClick={(e) => signout(e)}
                       className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
