@@ -40,61 +40,72 @@ const CarrinhoCompras = () => {
     };
 
     return (
-        <TableContainer component={Paper}>
-            <Table>
-                {/* Cabeçalho da Tabela */}
-                <TableHead>
-                    <TableRow>
-                        <TableCell align='center'><strong>Produto</strong></TableCell>
-                        <TableCell align='center'><strong>Preço</strong></TableCell>
-                        <TableCell align='center'><strong>Estoque</strong></TableCell>
-                        <TableCell align='center'><strong>Quantidade</strong></TableCell>
-                        <TableCell align='center'><strong>Total</strong></TableCell>
-                    </TableRow>
-                </TableHead>
-
-                {/* Corpo da Tabela */}
-                <TableBody>
-                    {products.map((product) => (
-                        <TableRow key={product.id}>
-                            <TableCell align='center'>{product.name}</TableCell>
-                            <TableCell align='center'>{`R$ ${product.price.toFixed(2)}`}</TableCell>
-                            <TableCell align='center'>{product.stock}</TableCell>
-                            <TableCell align='center'>{`R$ ${(product.price * product.quantity).toFixed(2)}`}</TableCell>
-                            <TableCell align='center'>
-                                <IconButton
-                                    size="small"
-                                    onClick={() => handleQuantityChange(product.id, -1)}
-                                    disabled={product.quantity === 0}
-                                >
-                                    <RemoveIcon />
-                                </IconButton>
-                                <span style={{ margin: '0 8px' }}>{product.quantity}</span>
-                                <IconButton
-                                    size="small"
-                                    onClick={() => handleQuantityChange(product.id, 1)}
-                                    disabled={product.quantity >= product.stock}
-                                >
-                                    <AddIcon />
-                                </IconButton>
-                                <IconButton
-                                    size="small"
-                                    onClick={() => handleQuantityChange(product.id, 1)}
-                                    disabled={product.quantity >= product.stock}
-                                >
-
-                                </IconButton>
-                                <IconButton aria-label="delete">
-                                    <DeleteIcon />
-                                </IconButton>
-                            </TableCell>
+        <div className='flex'>
+            <TableContainer component={Paper}>
+                <Table>
+                    {/* Cabeçalho da Tabela */}
+                    <TableHead>
+                        <TableRow>
+                            <TableCell align='center'><strong>Produto</strong></TableCell>
+                            <TableCell align='center'><strong>Preço</strong></TableCell>
+                            <TableCell align='center'><strong>Quantidade</strong></TableCell>
+                            <TableCell align='center'><strong>Quantidade</strong></TableCell>
                         </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+                    </TableHead>
+
+                    {/* Corpo da Tabela */}
+                    <TableBody>
+                        {products.map((product) => (
+                            <TableRow key={product.id}>
+                                <TableCell align='center'>{product.name}</TableCell>
+                                <TableCell align='center'>{`R$ ${product.price.toFixed(2)}`}</TableCell>
+                                <TableCell align='center'>{`R$ ${(product.price * product.quantity).toFixed(2)}`}</TableCell>
+                                <TableCell align='center'>
+                                    <IconButton
+                                        size="small"
+                                        onClick={() => handleQuantityChange(product.id, -1)}
+                                        disabled={product.quantity === 0}
+                                    >
+                                        <RemoveIcon />
+                                    </IconButton>
+                                    <span style={{ margin: '0 8px' }}>{product.quantity}</span>
+                                    <IconButton
+                                        size="small"
+                                        onClick={() => handleQuantityChange(product.id, 1)}
+                                        disabled={product.quantity >= product.stock}
+                                    >
+                                        <AddIcon />
+                                    </IconButton>
+                                    <IconButton
+                                        size="small"
+                                        onClick={() => handleQuantityChange(product.id, 1)}
+                                        disabled={product.quantity >= product.stock}
+                                    >
+
+                                    </IconButton>
+                                    <IconButton aria-label="delete">
+                                        <DeleteIcon />
+                                    </IconButton>
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+
+            <ResumoCompra />
+        </div>
     );
 }
 
 
 export default CarrinhoCompras
+
+const ResumoCompra = () => {
+    return (
+        <div className='ml-5 w-1/3 bg-[#1E1E1E]'>
+            Ola, mundo!
+        </div>
+    )
+
+}
