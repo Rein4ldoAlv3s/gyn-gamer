@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import clockk from "../svg/svgviewer-output.svg";
 import Countdown from 'react-countdown';
 import InputMask from 'react-input-mask';
+import { FaUserCircle } from 'react-icons/fa';
+import { BiCart } from 'react-icons/bi';
 
 interface Cep {
     abreviatura?: string;
@@ -125,8 +127,12 @@ const Produtos = () => {
                             </div>
                         </div>
                     }
-                    <div className='mt-3'>
-                        <button className='bg-green-500 text-white py-2 px-4 rounded-full hover:bg-green-600 w-56'>Comprar</button>
+                    <div className='flex flex-col '>
+                        <button className=' mt-3 bg-black text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Comprar</button>
+                        <button className='mt-3 bg-black flex items-center justify-center text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
+                            <BiCart size={30} className='mr-1 text-white ' /> Adicionar ao Carrinho
+                        </button>
+
                     </div>
                     <div className='mt-5'>
                         <p className=''>Frete e prazo de entrega</p>

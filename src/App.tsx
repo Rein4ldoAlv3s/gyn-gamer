@@ -5,6 +5,8 @@ import { useContext, useEffect, useState } from 'react';
 import PrivateRoutes from './routes/private.routes';
 import { AuthContext } from './contexts/AuthContext';
 import PublicRoutes from './routes/public.routes';
+import { ThemeProvider } from '@emotion/react';
+import { createTheme, CssBaseline } from '@mui/material';
 
 function App() {
 
@@ -13,20 +15,31 @@ function App() {
   const privateRoutes = PrivateRoutes();
   const publicRoutes = PublicRoutes();
 
-  return (
-    <div>
-      {/* Conteudo Body */}
-      <Router>
-        <Navbar />
-        <main className="container mx-auto px-8 pt-4 min-h-[calc(100vh-6.875rem)]">
-          <Routes>
-            {auth ? privateRoutes : publicRoutes}
-          </Routes>
-        </main>
-        <Footer />
-      </Router>
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark', // Ativa o modo escuro
+      background: {
+        default: "#212121" // Define a cor de fundo do body
+      }
+    },
+  });
 
-    </div>
+  return (
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <div>
+        <Router>
+          <Navbar />
+          <main className="container mx-auto px-8 pt-4 min-h-[calc(100vh-6.875rem)]">
+            <Routes>
+              {auth ? privateRoutes : publicRoutes}
+            </Routes>
+          </main>
+          <Footer />
+        </Router>
+
+      </div>
+    </ThemeProvider>
   )
 }
 

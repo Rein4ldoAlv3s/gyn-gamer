@@ -4,9 +4,7 @@
 @tailwind utilities;
 
 @layer base {
-    body {
-        @apply bg-customGray;
-    }
+    body {}
 }
 
 :root {}
