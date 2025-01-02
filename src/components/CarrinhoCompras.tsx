@@ -14,10 +14,8 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const initialProducts = [
-    { id: 1, name: 'NOTEBOOK LENOVO IDEAPAD 15IAU7 I3-1215U 4GB SSD sahdjsajhdhkasjdsadjasdkasdkasdas', price: 199.99, stock: 15, quantity: 0 },
-    { id: 2, name: 'Produto 2', price: 49.99, stock: 50, quantity: 0 },
-    { id: 3, name: 'Produto 3', price: 349.99, stock: 5, quantity: 0 },
-    { id: 4, name: 'Produto 4', price: 29.99, stock: 100, quantity: 0 },
+    { id: 1, name: 'NOTEBOOK LENOVO IDEAPAD 15IAU7 I3-1215U 4GB SSD sahdjsajhdhkasjdsadjasdkasdkasdas', price: 199.99, stock: 15, quantity: 0, urlImg: "https://images.tcdn.com.br/img/img_prod/1214924/notebook_lenovo_ideapad_15iau7_i3_1215u_4gb_ssd_256gb_15_6_win_11_23768_1_513611001e1d2d3005d73f02b4101fa8.jpeg" },
+    { id: 2, name: 'CADEIRA GAMER THUNDERX3 BC3 ADMIRAL CAMUFLADO/AZUL', price: 49.99, stock: 50, quantity: 0, urlImg: "https://images.tcdn.com.br/img/img_prod/1214924/cadeira_gamer_thunderx3_bc3_admiral_camuflado_azul_23331_1_7b10fecf772f747d27e756519cce038f.png" },
 ];
 
 const CarrinhoCompras = () => {
@@ -40,15 +38,15 @@ const CarrinhoCompras = () => {
     };
 
     return (
-        <div className='flex'>
+        <div className='flex pb-10'>
             <TableContainer component={Paper}>
                 <Table>
                     {/* Cabeçalho da Tabela */}
                     <TableHead>
                         <TableRow>
                             <TableCell align='center'><strong>Produto</strong></TableCell>
-                            <TableCell align='center'><strong>Preço</strong></TableCell>
-                            <TableCell align='center'><strong>Quantidade</strong></TableCell>
+                            <TableCell align='center'><strong>Preço Unidade</strong></TableCell>
+                            <TableCell align='center'><strong>Preço Total</strong></TableCell>
                             <TableCell align='center'><strong>Quantidade</strong></TableCell>
                         </TableRow>
                     </TableHead>
@@ -59,7 +57,10 @@ const CarrinhoCompras = () => {
                             <TableRow key={product.id}>
                                 <TableCell >
                                     <div className="truncate w-96">
-                                        NOTEBOOK LENOVO IDEAPAD 15IAU7 I3-1215U 4GB SSD sahdjsajhdhkasjdsadjasdkasdkasdas
+                                        {product.name}
+                                        {product.urlImg &&
+                                            <img className='mt-3' src={product.urlImg} width="100" height="100" alt="" />
+                                        }
                                     </div>
                                 </TableCell>
                                 <TableCell >{`R$ ${product.price.toFixed(2)}`}</TableCell>
@@ -96,7 +97,6 @@ const CarrinhoCompras = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
-
             <ResumoCompra />
         </div>
     );

@@ -6,7 +6,9 @@ import { Produto, PRODUTOS } from '../constants'
 import { FaUserCircle } from 'react-icons/fa';
 import { AuthContext } from '../contexts/AuthContext';
 import { Flip, toast, ToastContainer } from 'react-toastify';
-
+import { BiCart } from 'react-icons/bi';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { IconButton } from '@mui/material';
 
 
 const Navbar = () => {
@@ -64,6 +66,9 @@ const Navbar = () => {
           onChange={(e: unknown) => autoCompleteChange(e)}
         />
         <div className='flex items-center w-40 justify-end'>
+          <IconButton className='' aria-label="shopping" sx={{ mr: '5px' }} >
+            <ShoppingCartIcon />
+          </IconButton>
           <FaUserCircle size={30} className='mr-2 text-white ' />
           {/* <Link to="/login" className='text-white '>{nomeUsuario || "Entrar"}</Link> */}
           <Menu as="div" >
