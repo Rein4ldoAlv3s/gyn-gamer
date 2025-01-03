@@ -59,7 +59,7 @@ const Navbar = () => {
           options={opcoes}
           placeholder="Pesquise aqui..."
           isSearchable={true}
-          className="px-1 rounded-sm outline-none w-[32rem]"
+          className="px-1 rounded-sm outline-none w-[32rem] text-black"
           openMenuOnClick={true}
           components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
           isClearable={true}

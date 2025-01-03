@@ -39,7 +39,7 @@ const CarrinhoCompras = () => {
 
     return (
         <div className='flex pb-10'>
-            <TableContainer component={Paper}>
+            <TableContainer className='bg-customGrayTable'>
                 <Table>
                     {/* Cabeçalho da Tabela */}
                     <TableHead>
@@ -107,7 +107,7 @@ export default CarrinhoCompras
 
 const ResumoCompra = () => {
     return (
-        <div className='ml-5 w-1/3 max-h-72 bg-[#1E1E1E] flex flex-col justify-between '>
+        <div className='ml-5 w-1/3 max-h-72 bg-customGrayTable flex flex-col justify-between '>
             <h2 className='text-2xl text-center mt-3'>Resumo da compra</h2>
             <div className='flex flex-col p-3'>
                 <span className='text-lg '>Produtos (3)</span>
@@ -116,7 +116,7 @@ const ResumoCompra = () => {
                     <span className='text-xl'>R$ 2040,00</span>
                 </div>
                 <div className='flex justify-center'>
-                    <button className='mt-3 bg-black text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Continuar a Compra</button>
+                    <button className='mt-3 bg-[#2E2E2E] text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Continuar a Compra</button>
                 </div>
             </div>
         </div>
