@@ -66,9 +66,11 @@ const Navbar = () => {
           onChange={(e: unknown) => autoCompleteChange(e)}
         />
         <div className='flex items-center w-40 justify-end'>
-          <IconButton className='' aria-label="shopping" sx={{ mr: '5px' }} >
-            <ShoppingCartIcon />
-          </IconButton>
+          <Link to={"/cart"}>
+            <IconButton aria-label="shopping" sx={{ mr: '5px' }} >
+              <ShoppingCartIcon />
+            </IconButton>
+          </Link>
           <FaUserCircle size={30} className='mr-2 text-white ' />
           {/* <Link to="/login" className='text-white '>{nomeUsuario || "Entrar"}</Link> */}
           <Menu as="div" >
