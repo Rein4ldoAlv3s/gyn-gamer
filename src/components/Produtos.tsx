@@ -38,6 +38,8 @@ const Produtos = () => {
     const fimPromocao = Date.now() + 604800000;
     const cart = useContext(CartContext);
 
+    const [teste, setTeste] = useState();
+
     useEffect(() => {
         console.log(state);
         const produto = PRODUTOS.find(obj => obj.id === idNumero || obj.id === state.id)
@@ -106,8 +108,15 @@ const Produtos = () => {
     }
 
     const addCart = (): void => {
-        cart?.produtos?.push(produto)
-        console.log(cart);
+        console.log(cart?.produtos);
+        if (cart?.produtos.length === 0 || cart?.produtos.find((p: { id: any; }) => p?.id !== produto!.id)) {
+            console.log(produto?.id + " dasdsadsa");
+            cart?.produtos.map((p: any) => console.log(p))
+            cart?.produtos.push(produto)
+        } else {
+            console.log("produto ja existe no carrinho!");
+        }
+        // console.log(cart?.produtos.find((p: { id: any; }) => p?.id !== 1));
     }
 
     return (

@@ -28,6 +28,11 @@ function Produtos({ currentProdutos }: { currentProdutos: Produto[] }) {
         }).format(valor);
     }
 
+    useEffect(() => {
+        const teste = currentProdutos.find(p => p.name === "3")
+        console.log(teste);
+    }, [currentProdutos]);
+
     return (
         <div>
             <div className="grid grid-cols-4 gap-4 py-5 ">
