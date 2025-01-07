@@ -107,7 +107,7 @@ const Produtos = () => {
 
     const addCart = (): void => {
         cart?.produtos?.push(produto)
-        console.log(produto);
+        console.log(cart);
     }
 
     return (

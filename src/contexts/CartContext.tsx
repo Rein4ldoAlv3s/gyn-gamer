@@ -4,6 +4,7 @@ import { Produto } from '../constants';
 
 interface CartContextType {
     produtos: Produto[] | any;
+    setProdutos: React.Dispatch<React.SetStateAction<Produto[]>>;
     // setProduto: React.Dispatch<React.SetStateAction<Produto[] | undefined>>;
     // qtd de um produto (ex: 2 mouses === 2 qtdProduto)
     // qtdProduto: number;
@@ -30,10 +31,10 @@ interface CartProviderProps {
 
 // Componente Provider para passar os valores para os children
 const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
-    const [produtos] = useState<Produto[] | any>(undefined);
+    const [produtos, setProdutos] = useState<Produto[] | any>([]);
 
     return (
-        <CartContext.Provider value={{ produtos }}>
+        <CartContext.Provider value={{ produtos, setProdutos }}>
             {children}
         </CartContext.Provider>
     );

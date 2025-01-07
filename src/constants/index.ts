@@ -8,7 +8,9 @@ export interface Produto {
   rating: number;
   descricao: string[],
   categoria: string,
-  isPromocao: boolean
+  isPromocao: boolean,
+  stock: number,
+  quantity: number
 }
 
 export const PRODUTOS: Produto[] = [
@@ -29,7 +31,9 @@ export const PRODUTOS: Produto[] = [
       "Acompanha duas chaves: Para maior comodidade e segurança."
     ],
     categoria: "acessorio",
-    isPromocao: false
+    isPromocao: false,
+    stock: 50,
+    quantity: 0
   },
   {
     id: 2,
@@ -48,7 +52,9 @@ export const PRODUTOS: Produto[] = [
       "Tela - Tamanho: 15.6”"
     ],
     categoria: "notebook",
-    isPromocao: false
+    isPromocao: false,
+    stock: 50,
+    quantity: 0
   },
   {
     id: 3,
@@ -65,7 +71,9 @@ export const PRODUTOS: Produto[] = [
       "Frequência no modo Bateria: 50 / 60 Hz ±1 Hz"
     ],
     categoria: "acessorio",
-    isPromocao: false
+    isPromocao: false,
+    stock: 50,
+    quantity: 0
   },
   {
     id: 4,
@@ -84,7 +92,9 @@ export const PRODUTOS: Produto[] = [
       "Rodinhas: nylon, 65mm",
     ],
     categoria: "escritorio",
-    isPromocao: false
+    isPromocao: false,
+    stock: 50,
+    quantity: 0
   },
   {
     id: 5,
@@ -102,7 +112,9 @@ export const PRODUTOS: Produto[] = [
       "Comprimento do produto: 3.3cm"
     ],
     categoria: "acessorio",
-    isPromocao: false
+    isPromocao: false,
+    stock: 50,
+    quantity: 0
   },
   {
     id: 6,
@@ -120,7 +132,9 @@ export const PRODUTOS: Produto[] = [
       "Alimentação: Bivolt"
     ],
     categoria: "acessorio",
-    isPromocao: false
+    isPromocao: false,
+    stock: 50,
+    quantity: 0
   },
   {
     id: 7,
@@ -138,7 +152,9 @@ export const PRODUTOS: Produto[] = [
       "Temperatura de operação: 0ºC a 45ºC"
     ],
     categoria: "acessorio",
-    isPromocao: true
+    isPromocao: true,
+    stock: 50,
+    quantity: 0
   },
   {
     id: 8,
@@ -156,7 +172,9 @@ export const PRODUTOS: Produto[] = [
       "Contraste: 3000:1 (Tip.)"
     ],
     categoria: "acessorio",
-    isPromocao: true
+    isPromocao: true,
+    stock: 50,
+    quantity: 0
   },
   {
     id: 9,
@@ -175,7 +193,9 @@ export const PRODUTOS: Produto[] = [
       "Teclas: baixas slim"
     ],
     categoria: "acessorio",
-    isPromocao: false
+    isPromocao: false,
+    stock: 50,
+    quantity: 0
   },
   {
     id: 10,
@@ -202,7 +222,9 @@ export const PRODUTOS: Produto[] = [
       "Saídas de vídeo: DisplayPort 1.4 + HDMI 2.0b + DVI"
     ],
     categoria: "placa de video",
-    isPromocao: true
+    isPromocao: true,
+    stock: 50,
+    quantity: 0
   },
   {
     id: 11,
@@ -224,7 +246,9 @@ export const PRODUTOS: Produto[] = [
       "MTBF (Mean Time Between Failures): 1,5 milhões de horas"
     ],
     categoria: "acessorio",
-    isPromocao: false
+    isPromocao: false,
+    stock: 50,
+    quantity: 0
   },
   {
     id: 12,
@@ -265,7 +289,9 @@ export const PRODUTOS: Produto[] = [
       "A marca das peças pode variar de acordo com o estoque momentâneo em nossa fábrica, garantimos manter sempre o nível de ótima qualidade dos produtos e atender o mínimo estipulado no computador. Nunca um modelo inferior."
     ],
     categoria: "pc gamer",
-    isPromocao: false
+    isPromocao: false,
+    stock: 50,
+    quantity: 0
   },
   {
     id: 13,
@@ -292,7 +318,9 @@ export const PRODUTOS: Produto[] = [
       "Gabinete: Gabinete Gamer Neologic Phantom"
     ],
     categoria: "pc gamer",
-    isPromocao: false
+    isPromocao: false,
+    stock: 50,
+    quantity: 0
   },
   {
     id: 14,
@@ -320,7 +348,9 @@ export const PRODUTOS: Produto[] = [
       "Tipo de memória: DDR4"
     ],
     categoria: "notebook",
-    isPromocao: false
+    isPromocao: false,
+    stock: 50,
+    quantity: 0
   },
   {
     id: 15,
@@ -341,6 +371,8 @@ export const PRODUTOS: Produto[] = [
       "Tela: 16"
     ],
     categoria: "notebook",
-    isPromocao: false
+    isPromocao: false,
+    stock: 50,
+    quantity: 0
   },
 ];
