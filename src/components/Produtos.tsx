@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import { Produto, PRODUTOS } from '../constants'
 import { useState, useEffect } from 'react';
@@ -7,6 +7,7 @@ import Countdown from 'react-countdown';
 import InputMask from 'react-input-mask';
 import { FaUserCircle } from 'react-icons/fa';
 import { BiCart } from 'react-icons/bi';
+import { CartContext } from '../contexts/CartContext';
 
 interface Cep {
     abreviatura?: string;
@@ -35,6 +36,7 @@ const Produtos = () => {
     const [produto, setProduto] = useState<Produto>();
 
     const fimPromocao = Date.now() + 604800000;
+    const cart = useContext(CartContext);
 
     useEffect(() => {
         console.log(state);
@@ -103,6 +105,11 @@ const Produtos = () => {
         }).format(valor);
     }
 
+    const addCart = (): void => {
+        cart?.produtos?.push(produto)
+        console.log(produto);
+    }
+
     return (
         <div>
             <h1 className="flex justify-center text-3xl font-bold text-customWhite">
@@ -129,7 +136,7 @@ const Produtos = () => {
                     }
                     <div className='flex flex-col '>
                         <button className=' mt-3 bg-black text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Comprar</button>
-                        <button className='mt-3 bg-black flex items-center justify-center text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
+                        <button onClick={(e) => addCart()} className='mt-3 bg-black flex items-center justify-center text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
                             <BiCart size={30} className='mr-1 text-white ' /> Adicionar ao Carrinho
                         </button>
 

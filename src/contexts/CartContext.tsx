@@ -3,8 +3,8 @@ import Produtos from '../components/Produtos';
 import { Produto } from '../constants';
 
 interface CartContextType {
-    produto: Produto[];
-    setProduto: React.Dispatch<React.SetStateAction<Produto[]>>;
+    produtos: Produto[] | any;
+    // setProduto: React.Dispatch<React.SetStateAction<Produto[] | undefined>>;
     // qtd de um produto (ex: 2 mouses === 2 qtdProduto)
     // qtdProduto: number;
     // setQtdProduto: React.Dispatch<React.SetStateAction<number>>;
@@ -30,10 +30,10 @@ interface CartProviderProps {
 
 // Componente Provider para passar os valores para os children
 const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
-    const [produto, setProduto] = useState<any>(null);
+    const [produtos] = useState<Produto[] | any>(undefined);
 
     return (
-        <CartContext.Provider value={{ produto, setProduto }}>
+        <CartContext.Provider value={{ produtos }}>
             {children}
         </CartContext.Provider>
     );
