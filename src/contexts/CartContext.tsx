@@ -2,28 +2,22 @@ import React, { createContext, useState, ReactNode } from 'react';
 import Produtos from '../components/Produtos';
 import { Produto } from '../constants';
 
-interface Cart {
+interface CartContextType {
     produto: Produto[];
     setProduto: React.Dispatch<React.SetStateAction<Produto[]>>;
     // qtd de um produto (ex: 2 mouses === 2 qtdProduto)
-    qtdProduto: number;
-    setQtdProduto: React.Dispatch<React.SetStateAction<number>>;
+    // qtdProduto: number;
+    // setQtdProduto: React.Dispatch<React.SetStateAction<number>>;
     // qtd de varios produtos (ex: 2 mouses + 1 teclado + 1 notebook === 4 qtdTotal)
     // qtdTotal = qtdProduto + qtdProduto + ...
-    qtdTotal: number[];
-    setQtdTotal: React.Dispatch<React.SetStateAction<number[]>>;
+    // qtdTotal: number[];
+    // setQtdTotal: React.Dispatch<React.SetStateAction<number[]>>;
     //valor unitario de um produto (4 mouses de R$ 20,00 === R$ 80,00 valorProduto)
-    valorProduto: number;
-    setValorProduto: React.Dispatch<React.SetStateAction<number>>;
+    // valorProduto: number;
+    // setValorProduto: React.Dispatch<React.SetStateAction<number>>;
     //valor total de varios produtos (1 mouse de R$ 20,00 + 3 fones de ouvido de R$ 50,00 === R$ 170,00 valorTotal)
-    valorTotal: number[];
-    setValorTotal: React.Dispatch<React.SetStateAction<number[]>>;
-}
-
-// Defina a interface para o valor do contexto
-interface CartContextType {
-    cart: Cart;
-    setAuth: React.Dispatch<React.SetStateAction<boolean>>;
+    // valorTotal: number[];
+    // setValorTotal: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
 // Crie o Contexto com um valor padrão inicial (opcionalmente undefined)
@@ -36,10 +30,10 @@ interface CartProviderProps {
 
 // Componente Provider para passar os valores para os children
 const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
-    const [auth, setAuth] = useState(false);
+    const [produto, setProduto] = useState<any>(null);
 
     return (
-        <CartContext.Provider value={{ auth, setAuth }}>
+        <CartContext.Provider value={{ produto, setProduto }}>
             {children}
         </CartContext.Provider>
     );
