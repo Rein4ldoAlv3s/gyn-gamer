@@ -108,15 +108,15 @@ const Produtos = () => {
     }
 
     const addCart = (): void => {
-        console.log(cart?.produtos);
-        if (cart?.produtos.length === 0 || cart?.produtos.find((p: { id: any; }) => p?.id !== produto!.id)) {
-            console.log(produto?.id + " dasdsadsa");
-            cart?.produtos.map((p: any) => console.log(p))
+
+        let itemEncontrado = cart?.produtos.find((e: any) => e.id === produto!.id)
+
+        if (cart?.produtos.length === 0 || !itemEncontrado) {
             cart?.produtos.push(produto)
+            console.log(cart?.produtos);
         } else {
             console.log("produto ja existe no carrinho!");
         }
-        // console.log(cart?.produtos.find((p: { id: any; }) => p?.id !== 1));
     }
 
     return (
