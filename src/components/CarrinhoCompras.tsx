@@ -13,10 +13,11 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { CartContext } from '../contexts/CartContext';
+import { Link } from 'react-router-dom';
 
 const initialProducts = [
-    { id: 1, name: 'NOTEBOOK LENOVO IDEAPAD 15IAU7 I3-1215U 4GB SSD sahdjsajhdhkasjdsadjasdkasdkasdas', price: 199.99, stock: 15, quantity: 0, img: "https://images.tcdn.com.br/img/img_prod/1214924/notebook_lenovo_ideapad_15iau7_i3_1215u_4gb_ssd_256gb_15_6_win_11_23768_1_513611001e1d2d3005d73f02b4101fa8.jpeg" },
-    { id: 2, name: 'CADEIRA GAMER THUNDERX3 BC3 ADMIRAL CAMUFLADO/AZUL', price: 49.99, stock: 50, quantity: 0, img: "https://images.tcdn.com.br/img/img_prod/1214924/cadeira_gamer_thunderx3_bc3_admiral_camuflado_azul_23331_1_7b10fecf772f747d27e756519cce038f.png" },
+    { id: 1, name: 'NOTEBOOK LENOVO IDEAPAD 15IAU7 I3-1215U 4GB SSD sahdjsajhdhkasjdsadjasdkasdkasdas', desc: 3, price: 199.99, stock: 15, quantity: 0, img: "https://images.tcdn.com.br/img/img_prod/1214924/notebook_lenovo_ideapad_15iau7_i3_1215u_4gb_ssd_256gb_15_6_win_11_23768_1_513611001e1d2d3005d73f02b4101fa8.jpeg" },
+    { id: 2, name: 'CADEIRA GAMER THUNDERX3 BC3 ADMIRAL CAMUFLADO/AZUL', desc: 3, price: 49.99, stock: 50, quantity: 0, img: "https://images.tcdn.com.br/img/img_prod/1214924/cadeira_gamer_thunderx3_bc3_admiral_camuflado_azul_23331_1_7b10fecf772f747d27e756519cce038f.png" },
 ];
 
 const CarrinhoCompras = () => {
@@ -42,13 +43,21 @@ const CarrinhoCompras = () => {
         );
     };
 
+    const deleteProduct = (id: number) => {
+        let produtosAtualizados = cart?.produtos.filter((p: { id: number; }) => p.id !== id)
+        cart?.setProdutos(produtosAtualizados)
+        console.log(cart?.produtos);
+
+    }
+
     useEffect(() => {
         cart?.produtos
         if (cart?.produtos) {
-
-
             setProducts(cart?.produtos)
         }
+
+        console.log(cart?.produtos);
+
     }, [cart]);
 
     return (
@@ -71,14 +80,17 @@ const CarrinhoCompras = () => {
                             <TableRow key={product.id}>
                                 <TableCell >
                                     <div className="truncate w-96">
+                                        <Link to={`/produtos/${product.id}`}>
+                                            {product.name}
+                                        </Link>
                                         {product.name}
                                         {product.img &&
                                             <img className='mt-3' src={product.img} width="100" height="100" alt="" />
                                         }
                                     </div>
                                 </TableCell>
-                                <TableCell >{`R$ ${product.price.toFixed(2)}`}</TableCell>
-                                <TableCell >{`R$ ${(product.price * product.quantity).toFixed(2)}`}</TableCell>
+                                <TableCell >{`R$ ${product.desc.toFixed(2)}`}</TableCell>
+                                <TableCell >{`R$ ${(product.desc * product.quantity).toFixed(2)}`}</TableCell>
                                 <TableCell >
                                     <IconButton
                                         size="small"
@@ -102,7 +114,10 @@ const CarrinhoCompras = () => {
                                     >
 
                                     </IconButton>
-                                    <IconButton aria-label="delete">
+                                    <IconButton
+                                        aria-label="delete"
+                                        onClick={() => deleteProduct(product.id)}
+                                    >
                                         <DeleteIcon />
                                     </IconButton>
                                 </TableCell>

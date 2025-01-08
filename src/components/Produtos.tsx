@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { Link, redirect, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { Produto, PRODUTOS } from '../constants'
 import { useState, useEffect } from 'react';
 import clockk from "../svg/svgviewer-output.svg";
@@ -37,6 +37,7 @@ const Produtos = () => {
 
     const fimPromocao = Date.now() + 604800000;
     const cart = useContext(CartContext);
+    const navigate = useNavigate();
 
     const [teste, setTeste] = useState();
 
@@ -117,6 +118,7 @@ const Produtos = () => {
         } else {
             console.log("produto ja existe no carrinho!");
         }
+        navigate("/cart")
     }
 
     return (
