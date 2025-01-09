@@ -27,19 +27,35 @@ const CarrinhoCompras = () => {
 
     const cart = useContext(CartContext);
 
+    //qtd somada de varios produtos (ex: 2 mouses + 1 teclado)
+    const [qtdTotal, setQtdTotal] = useState<number>(0);
+
     const handleQuantityChange = (id: number, increment: number) => {
         setProducts((prevProducts) =>
-            prevProducts.map((product) =>
-                product.id === id
-                    ? {
+            prevProducts.map((product) => {
+                // Verifica o produto atual antes da modificação
+                console.log("Produto antes:", product);
+
+                // Verifica se o produto corresponde ao ID
+                if (product.id === id) {
+                    const updatedProduct = {
                         ...product,
                         quantity: Math.max(
                             0,
                             Math.min(product.stock, product.quantity + increment)
-                        ),
-                    }
-                    : product
-            )
+                        )
+                    };
+
+                    // Log do produto atualizado
+                    console.log("Produto atualizado:", updatedProduct);
+                    setQtdTotal(updatedProduct.quantity)
+
+                    return updatedProduct;
+                }
+
+                // Produto inalterado
+                return product;
+            })
         );
     };
 
@@ -56,7 +72,9 @@ const CarrinhoCompras = () => {
             setProducts(cart?.produtos)
         }
 
-        console.log(cart?.produtos);
+        console.log("obj adicionado");
+
+
 
     }, [cart]);
 
@@ -108,13 +126,6 @@ const CarrinhoCompras = () => {
                                         <AddIcon />
                                     </IconButton>
                                     <IconButton
-                                        size="small"
-                                        onClick={() => handleQuantityChange(product.id, 1)}
-                                        disabled={product.quantity >= product.stock}
-                                    >
-
-                                    </IconButton>
-                                    <IconButton
                                         aria-label="delete"
                                         onClick={() => deleteProduct(product.id)}
                                     >
@@ -126,7 +137,7 @@ const CarrinhoCompras = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <ResumoCompra />
+            <ResumoCompra qtdTotal={qtdTotal} />
         </div>
     );
 }
@@ -134,12 +145,12 @@ const CarrinhoCompras = () => {
 
 export default CarrinhoCompras
 
-const ResumoCompra = () => {
+const ResumoCompra = (qtdTotal: any) => {
     return (
         <div className='ml-5 w-1/3 max-h-72 bg-customGrayTable flex flex-col justify-between '>
             <h2 className='text-2xl text-center mt-3'>Resumo da compra</h2>
             <div className='flex flex-col p-3'>
-                <span className='text-lg '>Produtos (3)</span>
+                <span className='text-lg '>{qtdTotal}</span>
                 <div className='flex justify-between mt-1'>
                     <span className='text-xl'>Total: </span>
                     <span className='text-xl'>R$ 2040,00</span>
