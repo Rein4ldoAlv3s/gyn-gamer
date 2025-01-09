@@ -28,7 +28,7 @@ const CarrinhoCompras = () => {
     const cart = useContext(CartContext);
 
     //qtd somada de varios produtos (ex: 2 mouses + 1 teclado)
-    const [qtdTotal, setQtdTotal] = useState<number>(0);
+    const [qtdTotal, setQtdTotal] = useState(0);
 
     const handleQuantityChange = (id: number, increment: number) => {
         setProducts((prevProducts) =>
@@ -145,12 +145,12 @@ const CarrinhoCompras = () => {
 
 export default CarrinhoCompras
 
-const ResumoCompra = (qtdTotal: any) => {
+const ResumoCompra = ({ qtdTotal }: any) => {
     return (
         <div className='ml-5 w-1/3 max-h-72 bg-customGrayTable flex flex-col justify-between '>
             <h2 className='text-2xl text-center mt-3'>Resumo da compra</h2>
             <div className='flex flex-col p-3'>
-                <span className='text-lg '>{qtdTotal}</span>
+                <span className='text-lg '>Produtos ({qtdTotal})</span>
                 <div className='flex justify-between mt-1'>
                     <span className='text-xl'>Total: </span>
                     <span className='text-xl'>R$ 2040,00</span>
