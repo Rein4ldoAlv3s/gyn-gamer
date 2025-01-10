@@ -33,7 +33,7 @@ export const PRODUTOS: Produto[] = [
     categoria: "acessorio",
     isPromocao: false,
     stock: 50,
-    quantity: 0
+    quantity: 1
   },
   {
     id: 2,
@@ -54,7 +54,7 @@ export const PRODUTOS: Produto[] = [
     categoria: "notebook",
     isPromocao: false,
     stock: 50,
-    quantity: 0
+    quantity: 1
   },
   {
     id: 3,
@@ -73,7 +73,7 @@ export const PRODUTOS: Produto[] = [
     categoria: "acessorio",
     isPromocao: false,
     stock: 50,
-    quantity: 0
+    quantity: 1
   },
   {
     id: 4,
@@ -94,7 +94,7 @@ export const PRODUTOS: Produto[] = [
     categoria: "escritorio",
     isPromocao: false,
     stock: 50,
-    quantity: 0
+    quantity: 1
   },
   {
     id: 5,
@@ -114,7 +114,7 @@ export const PRODUTOS: Produto[] = [
     categoria: "acessorio",
     isPromocao: false,
     stock: 50,
-    quantity: 0
+    quantity: 1
   },
   {
     id: 6,
@@ -134,7 +134,7 @@ export const PRODUTOS: Produto[] = [
     categoria: "acessorio",
     isPromocao: false,
     stock: 50,
-    quantity: 0
+    quantity: 1
   },
   {
     id: 7,
@@ -154,7 +154,7 @@ export const PRODUTOS: Produto[] = [
     categoria: "acessorio",
     isPromocao: true,
     stock: 50,
-    quantity: 0
+    quantity: 1
   },
   {
     id: 8,
@@ -174,7 +174,7 @@ export const PRODUTOS: Produto[] = [
     categoria: "acessorio",
     isPromocao: true,
     stock: 50,
-    quantity: 0
+    quantity: 1
   },
   {
     id: 9,
@@ -195,7 +195,7 @@ export const PRODUTOS: Produto[] = [
     categoria: "acessorio",
     isPromocao: false,
     stock: 50,
-    quantity: 0
+    quantity: 1
   },
   {
     id: 10,
@@ -224,7 +224,7 @@ export const PRODUTOS: Produto[] = [
     categoria: "placa de video",
     isPromocao: true,
     stock: 50,
-    quantity: 0
+    quantity: 1
   },
   {
     id: 11,
@@ -248,7 +248,7 @@ export const PRODUTOS: Produto[] = [
     categoria: "acessorio",
     isPromocao: false,
     stock: 50,
-    quantity: 0
+    quantity: 1
   },
   {
     id: 12,
@@ -291,7 +291,7 @@ export const PRODUTOS: Produto[] = [
     categoria: "pc gamer",
     isPromocao: false,
     stock: 50,
-    quantity: 0
+    quantity: 1
   },
   {
     id: 13,
@@ -320,7 +320,7 @@ export const PRODUTOS: Produto[] = [
     categoria: "pc gamer",
     isPromocao: false,
     stock: 50,
-    quantity: 0
+    quantity: 1
   },
   {
     id: 14,
@@ -350,7 +350,7 @@ export const PRODUTOS: Produto[] = [
     categoria: "notebook",
     isPromocao: false,
     stock: 50,
-    quantity: 0
+    quantity: 1
   },
   {
     id: 15,
@@ -373,6 +373,6 @@ export const PRODUTOS: Produto[] = [
     categoria: "notebook",
     isPromocao: false,
     stock: 50,
-    quantity: 0
+    quantity: 1
   },
 ];

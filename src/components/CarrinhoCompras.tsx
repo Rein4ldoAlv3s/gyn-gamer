@@ -21,7 +21,7 @@ const initialProducts = [
 ];
 
 const CarrinhoCompras = () => {
-    const [products, setProducts] = useState(initialProducts);
+    // const [products, setProducts] = useState(initialProducts);
 
     const [teste, setTeste] = useState()
 
@@ -30,11 +30,12 @@ const CarrinhoCompras = () => {
     //qtd somada de varios produtos (ex: 2 mouses + 1 teclado)
     const [qtdTotal, setQtdTotal] = useState(0);
 
+    //soma dos valores dos produtos do carrinho
+    const [valorTotal, setValorTotal] = useState(0);
+
     const handleQuantityChange = (id: number, increment: number) => {
-        setProducts((prevProducts) =>
+        cart?.setProdutos((prevProducts) =>
             prevProducts.map((product) => {
-                // Verifica o produto atual antes da modificação
-                console.log("Produto antes:", product);
 
                 // Verifica se o produto corresponde ao ID
                 if (product.id === id) {
@@ -45,9 +46,6 @@ const CarrinhoCompras = () => {
                             Math.min(product.stock, product.quantity + increment)
                         )
                     };
-
-                    // Log do produto atualizado
-                    console.log("Produto atualizado:", updatedProduct);
 
                     return updatedProduct;
                 }
@@ -66,14 +64,13 @@ const CarrinhoCompras = () => {
     }
 
     useEffect(() => {
-        cart?.produtos
-        if (cart?.produtos) {
-            setProducts(cart?.produtos)
-        }
+        //Soma da quantidade total de produtos
+        let qtdProdutosSomados = cart?.produtos.reduce((acumulador: any, produto: any) => acumulador + produto.quantity, 0)
+        setQtdTotal(qtdProdutosSomados)
 
-        console.log("obj adicionado");
-
-
+        //soma dos valores dos produtos
+        let valorTotal = cart?.produtos.reduce((acumulador: any, produto: any) => acumulador + (produto.desc * produto.quantity), 0)
+        setValorTotal(valorTotal)
 
     }, [cart]);
 
@@ -93,7 +90,7 @@ const CarrinhoCompras = () => {
 
                     {/* Corpo da Tabela */}
                     <TableBody>
-                        {products.map((product) => (
+                        {cart?.produtos.map((product: any) => (
                             <TableRow key={product.id}>
                                 <TableCell >
                                     <div className="truncate w-96">
@@ -136,7 +133,7 @@ const CarrinhoCompras = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <ResumoCompra />
+            <ResumoCompra qtdTotal={qtdTotal} setQtdTotal={setQtdTotal} valorTotal={valorTotal} setValorTotal={setValorTotal} />
         </div>
     );
 }
@@ -144,15 +141,22 @@ const CarrinhoCompras = () => {
 
 export default CarrinhoCompras
 
-const ResumoCompra = () => {
+interface ResumoCompraProps {
+    qtdTotal: number; // Tipo do estado
+    setQtdTotal: React.Dispatch<React.SetStateAction<number>>; // Tipo do setter do estado
+    valorTotal: number; // Tipo do estado
+    setValorTotal: React.Dispatch<React.SetStateAction<number>>; // Tipo do setter do estado
+}
+
+const ResumoCompra = ({ qtdTotal, setQtdTotal, valorTotal, setValorTotal }: ResumoCompraProps) => {
     return (
         <div className='ml-5 w-1/3 max-h-72 bg-customGrayTable flex flex-col justify-between '>
             <h2 className='text-2xl text-center mt-3'>Resumo da compra</h2>
             <div className='flex flex-col p-3'>
-                <span className='text-lg '>Produtos ()</span>
+                <span className='text-lg '>Produtos ({qtdTotal})</span>
                 <div className='flex justify-between mt-1'>
                     <span className='text-xl'>Total: </span>
-                    <span className='text-xl'>R$ 2040,00</span>
+                    <span className='text-xl'>R$ {(valorTotal).toFixed(2)}</span>
                 </div>
                 <div className='flex justify-center'>
                     <button className='mt-3 bg-[#2E2E2E] text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Continuar a Compra</button>
