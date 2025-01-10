@@ -48,7 +48,6 @@ const CarrinhoCompras = () => {
 
                     // Log do produto atualizado
                     console.log("Produto atualizado:", updatedProduct);
-                    setQtdTotal(updatedProduct.quantity)
 
                     return updatedProduct;
                 }
@@ -137,7 +136,7 @@ const CarrinhoCompras = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <ResumoCompra qtdTotal={qtdTotal} />
+            <ResumoCompra />
         </div>
     );
 }
@@ -145,12 +144,12 @@ const CarrinhoCompras = () => {
 
 export default CarrinhoCompras
 
-const ResumoCompra = ({ qtdTotal }: any) => {
+const ResumoCompra = () => {
     return (
         <div className='ml-5 w-1/3 max-h-72 bg-customGrayTable flex flex-col justify-between '>
             <h2 className='text-2xl text-center mt-3'>Resumo da compra</h2>
             <div className='flex flex-col p-3'>
-                <span className='text-lg '>Produtos ({qtdTotal})</span>
+                <span className='text-lg '>Produtos ()</span>
                 <div className='flex justify-between mt-1'>
                     <span className='text-xl'>Total: </span>
                     <span className='text-xl'>R$ 2040,00</span>
