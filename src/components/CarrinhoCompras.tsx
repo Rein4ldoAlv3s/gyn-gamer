@@ -99,7 +99,7 @@ const CarrinhoCompras = () => {
                                         </Link>
                                         {product.name}
                                         {product.img &&
-                                            <img className='mt-3' src={product.img} width="100" height="100" alt="" />
+                                            <img className='mt-3 h-28' src={product.img} alt="" />
                                         }
                                     </div>
                                 </TableCell>
