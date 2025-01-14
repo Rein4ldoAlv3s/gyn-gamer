@@ -127,7 +127,7 @@ const Produtos = () => {
                 PRODUTOS NOVOS E LANÇAMENTOS
             </h1>
             <div className="flex justify-center items-start py-5 max-w-5xl">
-                <img className="w-1/2 " src={produto?.img} alt="" />
+                <img className="w-1/2" src={produto?.img} alt="" />
                 <div className="text-slate-300 ml-6">
                     <p className='text-2xl'>{produto?.name}</p>
                     <p className='text-lg line-through mt-2'>de {formatarMoeda(produto?.price)}</p>
