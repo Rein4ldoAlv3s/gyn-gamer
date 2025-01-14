@@ -7,10 +7,26 @@ const MyProfile = () => {
             <div>
                 <h2>Endereços</h2>
 
-                <h2>Cep</h2>
-                <span>74000-000</span>
-                <h2>Bairro</h2>
-                <span>74000-000</span>
+                <div>
+                    <h2>Cep</h2>
+                    <span>74000-000</span>
+                </div>
+
+                <div>
+                    <h2>Bairro</h2>
+                    <span>74000-000</span>
+                </div>
+
+                <div>
+                    <h2>Estado</h2>
+                    <span>Goiás</span>
+                </div>
+
+                <div>
+                    <h2>Cidade</h2>
+                    <span>Goiânia</span>
+                </div>
+
             </div>
         </div>
     )
