@@ -1,70 +1,56 @@
 import React from 'react'
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { IconButton } from '@mui/material';
+import { HomeIcon } from '@heroicons/react/16/solid';
+import { BiHome } from 'react-icons/bi';
 
 const MyProfile = () => {
     return (
         <div>
             <h1 className="flex justify-center text-3xl font-bold text-customWhite">Welcome, User!</h1>
-            <h2>Endereço</h2>
+            <h2 className='text-2xl font-bold'>Endereço de Entrega</h2>
 
-            <div className='flex'>
+            <div className='mt-2 flex w-1/2 justify-between py-3 px-2 bg-customGrayHover rounded-md text-sm'>
 
                 <div>
                     <div>
-                        <h2>Nome do destinatário</h2>
+                        <BiHome></BiHome>
                         <span>Reinaldo Alves</span>
                     </div>
 
+                    <div className='mt-1'>
+                        <span>Setor Pedro Ludovico, Rua 35</span>
+                    </div>
+
                     <div>
-                        <h2>Cep</h2>
+                        <span>Goiânia-Goiás</span>
+                    </div>
+
+
+
+                    <div className='mt-1'>
                         <span>74000-000</span>
                     </div>
 
                     <div>
-                        <h2>Bairro</h2>
-                        <span>Setor Pedro Ludovico</span>
-                    </div>
-
-                    <div>
-                        <h2>Rua/Avenida</h2>
-                        <span>Rua 36</span>
-                    </div>
-
-                </div>
-
-                <div>
-                    <div>
-                        <h2>Estado</h2>
-                        <span>Goiás</span>
-                    </div>
-
-                    <div>
-                        <h2>Cidade</h2>
-                        <span>Goiânia</span>
-                    </div>
-
-                    <div>
-                        <h2>Telefone</h2>
                         <span>(62) 99755-4481</span>
                     </div>
 
-                    <div>
-                        <h2>Informações adicionais deste endereço (Opcional)</h2>
+                    <div className='mt-1'>
                         <span>Ao lado do Bar do Leão</span>
                     </div>
 
-                    <div className='mt-3'>
-                        <p>Este é o seu trabalho ou sua casa?</p>
-
-                        <label>
-                            <input type="radio" name="trabalho" value="trabalho" />
-                            Trabalho
-                        </label> <br />
-
-                        <label>
-                            <input type="radio" name="residencia" value="residencia" />
-                            Residencia
-                        </label> <br />
+                    <div>
+                        <span>Endereço residencial </span>
                     </div>
+
+                </div>
+                <div>
+
+                    <IconButton
+                    >
+                        <MoreVertIcon />
+                    </IconButton>
                 </div>
 
             </div>
