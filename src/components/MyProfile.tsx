@@ -83,25 +83,25 @@ const MyProfile = () => {
                     </div>
 
                     <div className='mt-2'>
-                        <span>Setor Pedro Ludovico, Rua 35</span>
+                        <span>Reinaldo Alves</span>
                     </div>
 
                     <div>
-                        <span>Goiânia-Goiás</span>
+                        <span>21/05/2001</span>
                     </div>
 
 
 
                     <div className='mt-2'>
-                        <span>CEP 74000-000</span>
+                        <span>Masculino</span>
                     </div>
 
                     <div className='mt-2'>
-                        <span>Ao lado do Bar do Leão</span>
+                        <span>teste1@gmail.com</span>
                     </div>
 
                     <div>
-                        <span>Endereço residencial </span>
+                        <span>Preferências de compras: Mouse, Teclado, Monitor  </span>
                     </div>
 
                 </div>
