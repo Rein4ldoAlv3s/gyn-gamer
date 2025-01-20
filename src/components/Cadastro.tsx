@@ -50,13 +50,16 @@ const Cadastro = () => {
                 />
             </div>
             <div className="mt-2">
-                <label htmlFor='gender'>Selecione o gênero:</label><br />
+                <label className='text-sm font-medium text-white' htmlFor='gender'>Selecione o gênero:</label><br />
 
-                <input type="radio" id="male" name="gender" value="male" />
-                <label htmlFor="male">Masculino</label><br />
+                <input type="radio" id="masculino" name="gender" value="masculino" />
+                <label className='text-sm font-medium text-white' htmlFor="masculino">Masculino</label><br />
 
-                <input type="radio" id="female" name="gender" value="female" />
-                <label htmlFor="female">Feminino</label><br />
+                <input type="radio" id="feminino" name="gender" value="feminino" />
+                <label className='text-sm font-medium text-white' htmlFor="feminino">Feminino</label><br />
+
+                <input type="radio" id="outro" name="gender" value="outro" />
+                <label className='text-sm font-medium text-white' htmlFor="outro">Outro</label><br />
             </div>
             <label htmlFor="first-name" className="mt-2 block text-sm/6 font-medium text-white">
                 Data de nascimento
