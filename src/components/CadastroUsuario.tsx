@@ -4,10 +4,10 @@ import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Select from "react-select";
 import { Produto, PRODUTOS } from '../constants'
 
-const Cadastro = () => {
+const CadastroUsuario = () => {
 
     return (
-        <div className="mt-10 flex flex-col max-w-lg mx-auto ">
+        <div className=" flex flex-col max-w-lg mx-auto pb-5">
             <h1 className='text-white text-3xl text-center'>Criar minha conta</h1>
 
             <div className='flex justify-between mt-3'>
@@ -106,4 +106,4 @@ const Cadastro = () => {
     )
 }
 
-export default Cadastro
+export default CadastroUsuario
