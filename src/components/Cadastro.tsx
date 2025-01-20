@@ -13,7 +13,7 @@ const Cadastro = () => {
             <div className='flex justify-between mt-3'>
                 <div className='w-full mr-2'>
                     <label htmlFor="first-name" className="block text-sm/6 font-medium text-white">
-                        Nome
+                        Nome Completo
                     </label>
                     <input
                         id="first-name"
@@ -25,7 +25,7 @@ const Cadastro = () => {
                 </div>
                 <div className='w-full'>
                     <label htmlFor="first-name" className="block text-sm/6 font-medium text-white">
-                        Sobrenome
+                        Nome de Usuário
                     </label>
                     <input
                         id="lastname"
@@ -36,13 +36,6 @@ const Cadastro = () => {
                     />
                 </div>
             </div>
-
-
-
-
-
-
-
 
             <label htmlFor="first-name" className="mt-2 block text-sm/6 font-medium text-white">
                 Telefone
@@ -55,6 +48,15 @@ const Cadastro = () => {
                     autoComplete="given-name"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
+            </div>
+            <div className="mt-2">
+                <label htmlFor='gender'>Selecione o gênero:</label><br />
+
+                <input type="radio" id="male" name="gender" value="male" />
+                <label htmlFor="male">Masculino</label><br />
+
+                <input type="radio" id="female" name="gender" value="female" />
+                <label htmlFor="female">Feminino</label><br />
             </div>
             <label htmlFor="first-name" className="mt-2 block text-sm/6 font-medium text-white">
                 Data de nascimento
