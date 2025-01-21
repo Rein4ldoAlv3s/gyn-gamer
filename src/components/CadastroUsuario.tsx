@@ -4,9 +4,9 @@ import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Select from "react-select";
 import { Produto, PRODUTOS } from '../constants'
 import e from 'cors';
+import axios from 'axios';
 
 const CadastroUsuario = () => {
-
 
     const [usuario, setUsuario] = useState({
         nomeReal: "",
@@ -28,6 +28,20 @@ const CadastroUsuario = () => {
             [name]: value, // Atualiza o campo atual
         }));
     };
+
+    const cadastrar = (e: any) => {
+        e.preventDefault();
+
+        axios.post('http://localhost:3000/register', usuario)
+            .then(function (response) {
+                console.log(response);
+
+
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+    }
 
 
     useEffect(() => {
@@ -98,20 +112,20 @@ const CadastroUsuario = () => {
                 <label className='text-sm font-medium text-white' htmlFor="masculino">Masculino</label><br />
 
                 <input
-                    onChange={handleChange}
-                    value="feminino"
                     type="radio"
                     id="feminino"
-                    name="gender"
+                    name="genero"
+                    onChange={handleChange}
+                    value="feminino"
                 />
                 <label className='text-sm font-medium text-white' htmlFor="feminino">Feminino</label><br />
 
                 <input
-                    onChange={handleChange}
-                    value="outro"
                     type="radio"
                     id="outro"
-                    name="gender"
+                    name="genero"
+                    onChange={handleChange}
+                    value="outro"
                 />
                 <label className='text-sm font-medium text-white' htmlFor="outro">Outro</label><br />
             </div>
@@ -159,7 +173,7 @@ const CadastroUsuario = () => {
                 />
             </div>
             <div className='mt-3'>
-                <button className='bg-black rounded-md text-slate-300 px-3 py-2 w-full '>Criar conta</button>
+                <button onClick={(e) => cadastrar(e)} className='bg-black rounded-md text-slate-300 px-3 py-2 w-full '>Criar conta</button>
             </div>
 
 

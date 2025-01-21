@@ -5,13 +5,13 @@ import { Flip, toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../contexts/AuthContext';
 
 export interface User {
-    username: string;
+    nomeUsuario: string;
     password: string;
 }
 
 const Login = () => {
 
-    const [email, setEmail] = useState<any>(0);
+    const [nomeUsuario, setnomeUsuario] = useState<any>(0);
     const [password, setPassword] = useState<any>(0);
     const navigate = useNavigate();
     const auth = useContext(AuthContext);
@@ -21,7 +21,7 @@ const Login = () => {
     }, [auth])
 
     const user: User = {
-        username: email,
+        nomeUsuario: nomeUsuario,
         password: password
     }
 
@@ -31,7 +31,7 @@ const Login = () => {
             .then(function (response) {
                 console.log(response);
                 localStorage.setItem('token', response.data.token);
-                localStorage.setItem("username", email)
+                localStorage.setItem("nomeUsuario", nomeUsuario)
 
                 toast.success("Usuário logado!");
 
@@ -51,17 +51,16 @@ const Login = () => {
     return (
         <form onSubmit={(e) => authentic(e)} className="mt-10 grid grid-cols-1 max-w-lg mx-auto ">
             <h1 className='text-white text-3xl text-center'>Acesse sua conta</h1>
-            <label htmlFor="email" className="block text-sm/6 font-medium text-white">
-                E-mail
+            <label htmlFor="nomeUsuario" className="block text-sm/6 font-medium text-white">
+                Usuario
             </label>
             <input
-                id="email"
+                id="nomeUsuario"
                 required
-                name="email"
-                type="email"
-                autoComplete="email"
+                name="nomeUsuario"
+                autoComplete="nomeUsuario"
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 mt-2"
-                onChange={(e: any) => setEmail(e.target.value)}
+                onChange={(e: any) => setnomeUsuario(e.target.value)}
             />
             <label htmlFor="password" className="mt-2 block text-sm/6 font-medium text-white">
                 Senha
