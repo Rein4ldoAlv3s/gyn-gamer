@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <header className="flex justify-between px-2 py-4 bg-black">
+      <header className="grid grid-cols-3 px-2 py-4 bg-black">
         <div>
           <Link to="/">
             <h1 className="text-red-600 font-bold text-2xl select-none">Gyn Gamer</h1>
@@ -65,7 +65,7 @@ const Navbar = () => {
           isClearable={true}
           onChange={(e: unknown) => autoCompleteChange(e)}
         />
-        <div className='flex items-center w-40 justify-end'>
+        <div className='flex items-center justify-end'>
           <Link to={"/cart"}>
             <IconButton aria-label="shopping" sx={{ mr: '5px' }} >
               <ShoppingCartIcon />
@@ -74,7 +74,7 @@ const Navbar = () => {
           <FaUserCircle size={30} className='mr-2 text-white ' />
           {/* <Link to="/login" className='text-white '>{nomeUsuario || "Entrar"}</Link> */}
           <Menu as="div" >
-            <MenuButton className="text-white" >
+            <MenuButton className="text-white max-w-[160px] truncate ..." >
               {auth?.auth ? localStorage.getItem("nomeUsuario") : "Entrar"}
             </MenuButton>
             <MenuItems transition modal={false} className="absolute text-white right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1  ring-black ring-opacity-5 z-10 transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0">
