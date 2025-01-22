@@ -157,7 +157,7 @@ const Produtos = () => {
                         <p className='font-semibold mb-2'>(gratuito para Goiânia)</p>
                         <div>
                             <InputMask
-                                mask="99999999" // Limita a quantidade de caracteres a 5 dígitos
+                                mask="99999-999" // Limita a quantidade de caracteres a 5 dígitos
                                 placeholder="Digite um número"
                                 className='text-black rounded-full w-56 py-2 px-4'
                                 value={cep}
