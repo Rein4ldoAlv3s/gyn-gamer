@@ -81,7 +81,7 @@ const Login = () => {
             <hr className='mt-3 w-1/2 m-auto' />
             <div className='flex justify-center mt-2'>
                 <h2 className='text-customWhite mr-2'>Novo na Gyn Gamer?</h2>
-                <Link className='text-customWhite underline' to="/cadastro">Cadastre-se</Link>
+                <Link className='text-customWhite underline' to="/cadastro-usuario">Cadastre-se</Link>
             </div>
         </form>
     )

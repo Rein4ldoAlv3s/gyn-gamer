@@ -5,6 +5,7 @@ import Select from "react-select";
 import { Produto, PRODUTOS } from '../constants'
 import e from 'cors';
 import axios from 'axios';
+import InputMask from 'react-input-mask';
 
 const CadastroUsuario = () => {
 
@@ -87,14 +88,15 @@ const CadastroUsuario = () => {
             </label>
 
             <div className="mt-2">
-                <input
+                <InputMask
+                    mask="(99) 99999-9999" // Limita a quantidade de caracteres a 5 dígitos
+                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                     id="telefone"
                     name="telefone"
                     type="telefone"
                     autoComplete="given-name"
                     onChange={handleChange}
                     value={usuario.telefone}
-                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
             </div>
 
