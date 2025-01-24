@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
-import { Flip, toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../contexts/AuthContext';
 
 export interface User {

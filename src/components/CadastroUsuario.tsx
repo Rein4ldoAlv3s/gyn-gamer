@@ -6,8 +6,11 @@ import { Produto, PRODUTOS } from '../constants'
 import e from 'cors';
 import axios from 'axios';
 import InputMask from 'react-input-mask';
+import { toast } from 'react-toastify';
 
 const CadastroUsuario = () => {
+
+    const navigate = useNavigate();
 
     const [usuario, setUsuario] = useState({
         nomeReal: "",
@@ -37,9 +40,17 @@ const CadastroUsuario = () => {
             .then(function (response) {
                 console.log(response);
 
+                toast.success("Usuário criado! Informe os dados do endereço.", {
+                    autoClose: 5000
+                });
+
+                setTimeout(() => {
+                    navigate("/cadastro-endereco")
+                }, 1500);
 
             })
             .catch(function (error) {
+                toast.error("Usuário ou senha errados!");
                 console.error(error);
             });
     }
