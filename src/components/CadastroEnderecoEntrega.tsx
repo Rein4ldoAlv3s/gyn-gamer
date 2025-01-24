@@ -1,6 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const CadastroEnderecoEntrega = () => {
+
+    const navigate = useNavigate();
+
+    const [endereco, setEndereco] = useState({
+        nomeDestinatario: "",
+        logradouro: "",
+        rua: "",
+        estado: "",
+        cidade: "",
+        tipoEndereco: "",
+        cep: "",
+        complemento: "",
+    })
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+
+        // Atualiza apenas o campo correspondente
+        setEndereco((prevState) => ({
+            ...prevState, // Mantém os outros campos
+            [name]: value, // Atualiza o campo atual
+        }));
+    };
+
+    useEffect(() => {
+        console.log(endereco);
+
+    }, [endereco]);
+
     return (
         <div className=" flex flex-col max-w-lg mx-auto pb-5">
             <h1 className='text-white text-3xl text-center'>Adicionar Endereço</h1>
@@ -13,6 +43,8 @@ const CadastroEnderecoEntrega = () => {
                     id="nomeDestinatario"
                     name="nomeDestinatario"
                     autoComplete="given-name"
+                    onChange={handleChange}
+                    value={endereco.nomeDestinatario}
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
             </div>
@@ -26,6 +58,8 @@ const CadastroEnderecoEntrega = () => {
                         id="logradouro"
                         name="logradouro"
                         autoComplete="given-name"
+                        onChange={handleChange}
+                        value={endereco.logradouro}
                         className="mt-2 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                     />
                 </div>
@@ -37,6 +71,8 @@ const CadastroEnderecoEntrega = () => {
                         id="rua"
                         name="rua"
                         autoComplete="given-name"
+                        onChange={handleChange}
+                        value={endereco.rua}
                         className="mt-2 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                     />
                 </div>
@@ -51,6 +87,8 @@ const CadastroEnderecoEntrega = () => {
                             id="estado"
                             name="estado"
                             autoComplete="given-name"
+                            onChange={handleChange}
+                            value={endereco.estado}
                             className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                         />
                     </div>
@@ -64,6 +102,8 @@ const CadastroEnderecoEntrega = () => {
                             id="cidade"
                             name="cidade"
                             autoComplete="given-name"
+                            onChange={handleChange}
+                            value={endereco.cidade}
                             className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                         />
                     </div>
@@ -72,10 +112,14 @@ const CadastroEnderecoEntrega = () => {
             <div className="mt-2">
                 <label className='text-sm font-medium text-white' htmlFor='tipoEndereco'>Selecione o tipo de endereço:</label><br />
 
-                <input type="radio" id="residencial" name="tipoEndereco" value="residencial" />
+                <input type="radio" id="residencial" name="tipoEndereco"
+                    onChange={handleChange}
+                    value="residencial" />
                 <label className='text-sm font-medium text-white' htmlFor="residencial">Residencial</label><br />
 
-                <input type="radio" id="comercial" name="tipoEndereco" value="comercial" />
+                <input type="radio" id="comercial" name="tipoEndereco"
+                    onChange={handleChange}
+                    value="comercial" />
                 <label className='text-sm font-medium text-white' htmlFor="comercial">Comercial</label><br />
             </div>
             <label htmlFor="cep" className="mt-2 block text-sm/6 font-medium text-white">
@@ -86,6 +130,8 @@ const CadastroEnderecoEntrega = () => {
                     id="cep"
                     name="cep"
                     autoComplete="given-name"
+                    onChange={handleChange}
+                    value={endereco.cep}
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
             </div>
@@ -97,6 +143,8 @@ const CadastroEnderecoEntrega = () => {
                     id="complemento"
                     name="complemento"
                     autoComplete="given-name"
+                    onChange={handleChange}
+                    value={endereco.complemento}
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
             </div>
