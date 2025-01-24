@@ -1,5 +1,7 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const CadastroEnderecoEntrega = () => {
 
@@ -25,6 +27,28 @@ const CadastroEnderecoEntrega = () => {
             [name]: value, // Atualiza o campo atual
         }));
     };
+
+    const cadastrar = (e: any) => {
+        e.preventDefault();
+
+        axios.post('http://localhost:3000/registerEndereco', endereco)
+            .then(function (response) {
+                console.log(response);
+
+                toast.success("Endereço criado! O usuário já pode logar em sua conta.", {
+                    autoClose: 5000
+                });
+
+                setTimeout(() => {
+                    navigate("/")
+                }, 1500);
+
+            })
+            .catch(function (error) {
+                toast.error("Usuário ou senha errados!");
+                console.error(error);
+            });
+    }
 
     useEffect(() => {
         console.log(endereco);
@@ -149,7 +173,7 @@ const CadastroEnderecoEntrega = () => {
                 />
             </div>
             <div className='mt-3'>
-                <button className='bg-black rounded-md text-slate-300 px-3 py-2 w-full '>Criar conta</button>
+                <button onClick={(e) => cadastrar(e)} className='bg-black rounded-md text-slate-300 px-3 py-2 w-full '>Criar conta</button>
             </div>
 
 
