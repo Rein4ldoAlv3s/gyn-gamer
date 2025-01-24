@@ -12,11 +12,27 @@ const TesteUsestate = () => {
 
         // </div>
 
-        <div className="grid grid-cols-3 items-center w-full h-16 bg-gray-200">
-            <div className="bg-blue-500 p-4">a1</div>
-            <div className="bg-green-500 p-4 text-center">a2</div>
-            <div className="bg-red-500 p-4 text-right">a3</div>
+        // <div className="grid gap-3 grid-cols-[1fr_auto_1fr]">
+        //     <div className="bg-blue-500 text-white p-3">Item 1</div>
+        //     <div className="bg-blue-500 text-white p-3">Item 2</div>
+        //     <div className="bg-blue-500 text-white p-3">Item 3</div>
+        //     <div className="bg-blue-500 text-white p-3">Item 4</div>
+        //     <div className="bg-blue-500 text-white p-3">Item 5</div>
+        //     <div className="bg-blue-500 text-white p-3">Item 6</div>
+        //     <div className="bg-blue-500 text-white p-3">Item 7</div>
+        //     <div className="bg-blue-500 text-white p-3">Item 8</div>
+        //     <div className="bg-blue-500 text-white p-3">Item 9</div>
+        // </div>
+
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4">
+            <div className="bg-blue-500 text-white p-4">Item 1</div>
+            <div className="bg-blue-500 text-white p-4">Item 2</div>
+            <div className="bg-blue-500 text-white p-4">Item 3</div>
+            <div className="bg-blue-500 text-white p-4">Item 4</div>
         </div>
+
+
+
 
     )
 }

@@ -5,13 +5,13 @@ const CadastroEnderecoEntrega = () => {
         <div className=" flex flex-col max-w-lg mx-auto pb-5">
             <h1 className='text-white text-3xl text-center'>Adicionar Endereço</h1>
 
-            <label htmlFor="name" className="mt-2 block text-sm/6 font-medium text-white">
+            <label htmlFor="nomeDestinatario" className="mt-2 block text-sm/6 font-medium text-white">
                 Nome Destinatário
             </label>
             <div className="mt-2">
                 <input
-                    id="name"
-                    name="name"
+                    id="nomeDestinatario"
+                    name="nomeDestinatario"
                     autoComplete="given-name"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
@@ -30,12 +30,12 @@ const CadastroEnderecoEntrega = () => {
                     />
                 </div>
                 <div className='w-full'>
-                    <label htmlFor="street" className="block text-sm/6 font-medium text-white">
+                    <label htmlFor="rua" className="block text-sm/6 font-medium text-white">
                         Rua
                     </label>
                     <input
-                        id="street"
-                        name="street"
+                        id="rua"
+                        name="rua"
                         autoComplete="given-name"
                         className="mt-2 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                     />
@@ -43,26 +43,26 @@ const CadastroEnderecoEntrega = () => {
             </div>
             <div className='flex justify-between mt-3'>
                 <div className='w-full mr-2'>
-                    <label htmlFor="state" className="mt-2 block text-sm/6 font-medium text-white">
+                    <label htmlFor="estado" className="mt-2 block text-sm/6 font-medium text-white">
                         Estado
                     </label>
                     <div className="mt-2">
                         <input
-                            id="state"
-                            name="state"
+                            id="estado"
+                            name="estado"
                             autoComplete="given-name"
                             className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                         />
                     </div>
                 </div>
                 <div className='w-full'>
-                    <label htmlFor="city" className="mt-2 block text-sm/6 font-medium text-white">
+                    <label htmlFor="cidade" className="mt-2 block text-sm/6 font-medium text-white">
                         Cidade
                     </label>
                     <div className="mt-2">
                         <input
-                            id="city"
-                            name="city"
+                            id="cidade"
+                            name="cidade"
                             autoComplete="given-name"
                             className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                         />
@@ -70,33 +70,32 @@ const CadastroEnderecoEntrega = () => {
                 </div>
             </div>
             <div className="mt-2">
-                <label className='text-sm font-medium text-white' htmlFor='gender'>Selecione o tipo de endereço:</label><br />
+                <label className='text-sm font-medium text-white' htmlFor='tipoEndereco'>Selecione o tipo de endereço:</label><br />
 
-                <input type="radio" id="masculino" name="gender" value="masculino" />
-                <label className='text-sm font-medium text-white' htmlFor="masculino">Residencial</label><br />
+                <input type="radio" id="residencial" name="tipoEndereco" value="residencial" />
+                <label className='text-sm font-medium text-white' htmlFor="residencial">Residencial</label><br />
 
-                <input type="radio" id="feminino" name="gender" value="feminino" />
-                <label className='text-sm font-medium text-white' htmlFor="feminino">Comercial</label><br />
+                <input type="radio" id="comercial" name="tipoEndereco" value="comercial" />
+                <label className='text-sm font-medium text-white' htmlFor="comercial">Comercial</label><br />
             </div>
-            <label htmlFor="first-name" className="mt-2 block text-sm/6 font-medium text-white">
+            <label htmlFor="cep" className="mt-2 block text-sm/6 font-medium text-white">
                 CEP
             </label>
             <div className="mt-2">
                 <input
-                    id="email"
-                    name="email"
-                    type="email"
+                    id="cep"
+                    name="cep"
                     autoComplete="given-name"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
             </div>
-            <label htmlFor="first-name" className="mt-2 block text-sm/6 font-medium text-white">
+            <label htmlFor="complemento" className="mt-2 block text-sm/6 font-medium text-white">
                 Complemento
             </label>
             <div className="mt-2">
                 <input
-                    id="password"
-                    name="password"
+                    id="complemento"
+                    name="complemento"
                     autoComplete="given-name"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
