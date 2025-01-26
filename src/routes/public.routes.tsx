@@ -11,6 +11,7 @@ import RotasTeste from '../components/RotasTeste'
 import TesteUsestate from '../components/TesteUsestate'
 import CadastroUsuario from '../components/CadastroUsuario'
 import CadastroEnderecoEntrega from '../components/CadastroEnderecoEntrega'
+import EscolhaEnderecoEntrega from '../components/EscolhaEnderecoEntrega'
 
 const PublicRoutes = () => {
     return (
@@ -34,6 +35,7 @@ const PublicRoutes = () => {
             <Route path="/cart" element={<CarrinhoCompras />} />
             <Route path="/cadastro-usuario" element={<CadastroUsuario />} />
             <Route path="/cadastro-endereco" element={<CadastroEnderecoEntrega />} />
+            <Route path="/escolha-endereco-entrega" element={<EscolhaEnderecoEntrega />} />
         </>
     )
 }
