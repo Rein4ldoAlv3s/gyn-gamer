@@ -15,17 +15,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { CartContext } from '../contexts/CartContext';
 import { Link, useNavigate } from 'react-router-dom';
 
-const initialProducts = [
-    { id: 1, name: 'NOTEBOOK LENOVO IDEAPAD 15IAU7 I3-1215U 4GB SSD sahdjsajhdhkasjdsadjasdkasdkasdas', desc: 3, price: 199.99, stock: 15, quantity: 0, img: "https://images.tcdn.com.br/img/img_prod/1214924/notebook_lenovo_ideapad_15iau7_i3_1215u_4gb_ssd_256gb_15_6_win_11_23768_1_513611001e1d2d3005d73f02b4101fa8.jpeg" },
-    { id: 2, name: 'CADEIRA GAMER THUNDERX3 BC3 ADMIRAL CAMUFLADO/AZUL', desc: 3, price: 49.99, stock: 50, quantity: 0, img: "https://images.tcdn.com.br/img/img_prod/1214924/cadeira_gamer_thunderx3_bc3_admiral_camuflado_azul_23331_1_7b10fecf772f747d27e756519cce038f.png" },
-];
-
 const CarrinhoCompras = () => {
     // const [products, setProducts] = useState(initialProducts);
-
-    const [teste, setTeste] = useState()
-
-    const navigate = useNavigate();
 
     const cart = useContext(CartContext);
 
