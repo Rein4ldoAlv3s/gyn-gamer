@@ -27,7 +27,7 @@ const Login = () => {
 
     function authentic(e: any) {
         e.preventDefault();
-        axios.post('http://localhost:3000/login', user)
+        axios.post('http://localhost:3000/users/login', user)
             .then(function (response) {
                 console.log(response);
                 localStorage.setItem('token', response.data.token);
