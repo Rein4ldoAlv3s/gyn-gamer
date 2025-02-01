@@ -36,7 +36,7 @@ const CadastroUsuario = () => {
     const cadastrar = (e: any) => {
         e.preventDefault();
 
-        axios.post('http://localhost:3000/register', usuario)
+        axios.post('http://localhost:3000/users/register', usuario)
             .then(function (response) {
                 console.log(response);
 
