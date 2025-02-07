@@ -1,11 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const CadastroEnderecoEntrega = () => {
 
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const { idUser } = location.state || {};
 
     const [endereco, setEndereco] = useState({
         nomeDestinatario: "",
@@ -16,6 +19,7 @@ const CadastroEnderecoEntrega = () => {
         tipoEndereco: "",
         cep: "",
         complemento: "",
+        userId: idUser
     })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +35,7 @@ const CadastroEnderecoEntrega = () => {
     const cadastrar = (e: any) => {
         e.preventDefault();
 
-        axios.post('http://localhost:3000/registerEndereco', endereco)
+        axios.post('http://localhost:3000/enderecos/register', endereco)
             .then(function (response) {
                 console.log(response);
 
@@ -51,9 +55,9 @@ const CadastroEnderecoEntrega = () => {
     }
 
     useEffect(() => {
-        console.log(endereco);
+        console.log(idUser);
 
-    }, [endereco]);
+    }, [idUser]);
 
     return (
         <div className=" flex flex-col max-w-lg mx-auto pb-5">

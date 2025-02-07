@@ -44,8 +44,12 @@ const CadastroUsuario = () => {
                     autoClose: 5000
                 });
 
+                console.log(response.data.id);
+
                 setTimeout(() => {
-                    navigate("/cadastro-endereco")
+                    navigate("/cadastro-endereco", {
+                        state: { idUser: response.data.id }
+                    })
                 }, 1500);
 
             })
