@@ -1,12 +1,33 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { IconButton } from '@mui/material';
 import { HomeIcon } from '@heroicons/react/16/solid';
 import { BiHome } from 'react-icons/bi';
 import { FaHome, FaUserCircle } from 'react-icons/fa';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const MyProfile = () => {
+
+    const idUser = localStorage.getItem("idUser");
+    // const userData = recebe os dados do usuario para setar no card
+
+    const getUsuario = () => {
+        axios.get('http://localhost:3000/users/' + idUser)
+            .then(function (response) {
+                console.log(response);
+
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+    }
+
+    useEffect(() => {
+        getUsuario()
+    }, [getUsuario])
+
     return (
         <div>
             <h1 className="flex justify-center text-3xl font-bold text-customWhite">Welcome, User!</h1>

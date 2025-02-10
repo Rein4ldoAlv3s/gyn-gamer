@@ -32,6 +32,7 @@ const Login = () => {
                 console.log(response);
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem("nomeUsuario", nomeUsuario)
+                localStorage.setItem("idUser", response.data.idUser)
 
                 toast.success("Usuário logado!");
 
