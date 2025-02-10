@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { IconButton } from '@mui/material';
 import { HomeIcon } from '@heroicons/react/16/solid';
@@ -11,22 +11,21 @@ import { toast } from 'react-toastify';
 const MyProfile = () => {
 
     const idUser = localStorage.getItem("idUser");
-    // const userData = recebe os dados do usuario para setar no card
+    const [userData, setUserData] = useState();
 
-    const getUsuario = () => {
+    useEffect(() => {
         axios.get('http://localhost:3000/users/' + idUser)
             .then(function (response) {
-                console.log(response);
-
+                setUserData(response.data)
             })
             .catch(function (error) {
                 console.error(error);
             });
-    }
+    }, [])
 
     useEffect(() => {
-        getUsuario()
-    }, [getUsuario])
+        console.log(userData);
+    }, [userData])
 
     return (
         <div>

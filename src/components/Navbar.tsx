@@ -38,6 +38,11 @@ const Navbar = () => {
 
 
     auth?.setAuth(false)
+    localStorage.removeItem("idUser")
+    localStorage.removeItem("nomeUsuario")
+    localStorage.removeItem("token")
+
+
     console.log(auth);
 
     //atrasar redirecionamento
