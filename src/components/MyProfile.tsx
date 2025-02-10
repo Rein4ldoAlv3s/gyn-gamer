@@ -11,16 +11,18 @@ import { toast } from 'react-toastify';
 const MyProfile = () => {
 
     const idUser = localStorage.getItem("idUser");
-    const [userData, setUserData] = useState();
+    const [userData, setUserData] = useState<any>(null);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/users/' + idUser)
-            .then(function (response) {
-                setUserData(response.data)
-            })
-            .catch(function (error) {
-                console.error(error);
-            });
+        if (idUser) {
+            axios.get('http://localhost:3000/users/' + idUser)
+                .then(function (response) {
+                    setUserData(response.data)
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
+        }
     }, [])
 
     useEffect(() => {
@@ -29,7 +31,7 @@ const MyProfile = () => {
 
     return (
         <div>
-            <h1 className="flex justify-center text-3xl font-bold text-customWhite">Welcome, User!</h1>
+            <h1 className="flex justify-center text-3xl font-bold text-customWhite">Welcome, {userData?.nomeReal || "User"}!</h1>
 
             <h2 className='text-2xl font-bold'>Dados do Usuário</h2>
             <div className='mt-2 flex w-1/2 justify-between bg-customGrayHover rounded-md text-sm'>
