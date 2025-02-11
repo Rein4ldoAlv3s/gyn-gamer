@@ -135,6 +135,19 @@ const Navbar = () => {
                   <MenuItem>
                     {({ active }) => (
                       <Link
+                        to="/my-profile"
+                        className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
+                      >
+                        Meu Perfil
+                      </Link>
+                    )}
+                  </MenuItem>
+                }
+
+                {auth?.auth &&
+                  <MenuItem>
+                    {({ active }) => (
+                      <Link
                         to="/cart"
                         className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
                       >
