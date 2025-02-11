@@ -39,25 +39,25 @@ const MyProfile = () => {
                 <div className='py-3 pl-2'>
                     <div className='flex items-center'>
                         <FaUserCircle size={20} className='mr-2 text-white ' />
-                        <span>Rein4ldoAlv3s</span>
+                        <span>{userData?.nomeUsuario || ""}</span>
                     </div>
 
                     <div className='mt-2'>
-                        <span>Reinaldo Alves - (62) 99755-4481</span>
+                        <span>{userData?.nomeReal || ""} - {userData?.telefone || ""}</span>
                     </div>
 
                     <div>
-                        <span>21/05/2001</span>
+                        <span>{userData?.dto || ""}</span>
                     </div>
 
 
 
                     <div className='mt-2'>
-                        <span>Masculino</span>
+                        <span>{userData?.genero || ""}</span>
                     </div>
 
                     <div className='mt-2'>
-                        <span>teste1@gmail.com</span>
+                        <span>{userData?.email || ""}</span>
                     </div>
 
                     <div>
