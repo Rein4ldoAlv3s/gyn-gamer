@@ -6,8 +6,8 @@ interface CartContextType {
     produtos: Produto[] | any;
     setProdutos: React.Dispatch<React.SetStateAction<Produto[]>>;
     // qtd de um produto (ex: 2 mouses === 2 qtdProduto)
-    // qtdProduto: number;
-    // setQtdProduto: React.Dispatch<React.SetStateAction<number>>;
+    qtdProduto: number;
+    setQtdProduto: React.Dispatch<React.SetStateAction<number>>;
     // qtd de varios produtos (ex: 2 mouses + 1 teclado + 1 notebook === 4 qtdTotal)
     // qtdTotal = qtdProduto + qtdProduto + ...
     // qtdTotal: number[];
@@ -31,9 +31,10 @@ interface CartProviderProps {
 // Componente Provider para passar os valores para os children
 const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     const [produtos, setProdutos] = useState<Produto[] | any>([]);
+    const [qtdProduto, setQtdProduto] = useState<number | any>(0);
 
     return (
-        <CartContext.Provider value={{ produtos, setProdutos }}>
+        <CartContext.Provider value={{ produtos, setProdutos, qtdProduto, setQtdProduto }}>
             {children}
         </CartContext.Provider>
     );

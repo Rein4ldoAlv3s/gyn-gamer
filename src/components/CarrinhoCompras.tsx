@@ -61,6 +61,9 @@ const CarrinhoCompras = () => {
         let qtdProdutosSomados = cart?.produtos.reduce((acumulador: any, produto: any) => acumulador + produto.quantity, 0)
         setQtdTotal(qtdProdutosSomados)
 
+        //set valor global
+        cart?.setQtdProduto(qtdProdutosSomados)
+
         //soma dos valores dos produtos
         let valorTotal = cart?.produtos.reduce((acumulador: any, produto: any) => acumulador + (produto.desc * produto.quantity), 0)
         setValorTotal(valorTotal)

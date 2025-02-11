@@ -9,6 +9,11 @@ import { Flip, toast, ToastContainer } from 'react-toastify';
 import { BiCart } from 'react-icons/bi';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { IconButton } from '@mui/material';
+import { CartContext } from '../contexts/CartContext';
+import Badge, { badgeClasses } from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+
+
 
 
 const Navbar = () => {
@@ -17,6 +22,9 @@ const Navbar = () => {
   const [opcoes, setOpcoes] = useState();
   const auth = useContext(AuthContext);
 
+  const cart = useContext(CartContext);
+  const [qtdProdutos, setQtdProdutos] = useState<any>();
+
   useEffect(() => {
     const opcoes: any = PRODUTOS.map(function (prod) {
       return { value: prod.name, label: prod.name, id: prod.id };
@@ -24,6 +32,10 @@ const Navbar = () => {
     setOpcoes(opcoes);
 
   }, []);
+
+  useEffect(() => {
+    setQtdProdutos(cart?.qtdProduto);
+  }, [cart]);
 
   const autoCompleteChange = (selectedOption: any) => {
     if (selectedOption && selectedOption.id) {
@@ -51,6 +63,13 @@ const Navbar = () => {
     }, 1500); // Atraso de 2 segundos (2000 ms)
   }
 
+  const CartBadge = styled(Badge)`
+  & .${badgeClasses.badge} {
+    top: -12px;
+    right: -6px;
+  }
+`;
+
   return (
     <div>
       <header className="grid grid-cols-3 px-2 py-4 bg-black">
@@ -72,8 +91,10 @@ const Navbar = () => {
         />
         <div className='flex items-center justify-end'>
           <Link to={"/cart"}>
-            <IconButton aria-label="shopping" sx={{ mr: '5px' }} >
-              <ShoppingCartIcon />
+            <IconButton aria-label="shopping" sx={{ mr: '15px', width: 30, height: 30, }} >
+              <ShoppingCartIcon fontSize="medium" />
+              {/* <span>{qtdProdutos}</span> */}
+              <CartBadge badgeContent={qtdProdutos} color="primary" />
             </IconButton>
           </Link>
           <FaUserCircle size={30} className='mr-2 text-white ' />
