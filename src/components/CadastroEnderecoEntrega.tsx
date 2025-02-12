@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Select from "react-select";
 
 const CadastroEnderecoEntrega = () => {
 
@@ -111,14 +112,25 @@ const CadastroEnderecoEntrega = () => {
                         Estado
                     </label>
                     <div className="mt-2">
-                        <input
+                        {/* <input
                             id="estado"
                             name="estado"
                             autoComplete="given-name"
                             onChange={handleChange}
                             value={endereco.estado}
                             className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                        /> */}
+
+                        <Select
+                            placeholder="Pesquise aqui..."
+                            isSearchable={true}
+                            className=" focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                            openMenuOnClick={true}
+                            components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
+                            isClearable={true}
                         />
+
+
                     </div>
                 </div>
                 <div className='w-full'>
