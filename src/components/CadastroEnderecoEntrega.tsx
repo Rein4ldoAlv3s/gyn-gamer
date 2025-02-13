@@ -3,11 +3,13 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Select from "react-select";
+import { estados } from '../constants/estados';
 
 const CadastroEnderecoEntrega = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
+    const [estadosBrasileiros, setEstadosBrasileiros] = useState<any[]>();
 
     const { idUser } = location.state || {};
 
@@ -22,6 +24,14 @@ const CadastroEnderecoEntrega = () => {
         complemento: "",
         userId: idUser
     })
+
+    useEffect(() => {
+        const opcoes: any = estados.map(function (est) {
+            return { value: est.value, label: est.label };
+        })
+        setEstadosBrasileiros(opcoes)
+        console.log(estadosBrasileiros);
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -54,11 +64,6 @@ const CadastroEnderecoEntrega = () => {
                 console.error(error);
             });
     }
-
-    useEffect(() => {
-        console.log(idUser);
-
-    }, [idUser]);
 
     return (
         <div className=" flex flex-col max-w-lg mx-auto pb-5">
@@ -122,12 +127,14 @@ const CadastroEnderecoEntrega = () => {
                         /> */}
 
                         <Select
+                            options={estadosBrasileiros}
                             placeholder="Pesquise aqui..."
                             isSearchable={true}
-                            className=" focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                            className=" focus:outline focus:outline-2 focus:-outline-offset-2 text-gray-900 text-base focus:outline-indigo-600 sm:text-sm/6"
                             openMenuOnClick={true}
                             components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
                             isClearable={true}
+
                         />
 
 
