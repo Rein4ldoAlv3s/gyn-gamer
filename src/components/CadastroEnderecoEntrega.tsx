@@ -27,7 +27,7 @@ const CadastroEnderecoEntrega = () => {
 
     useEffect(() => {
         const opcoes: any = estados.map(function (est) {
-            return { value: est.value, label: est.label, name: "estado" };
+            return { value: est.label, label: est.label, name: "estado" };
         })
         setEstadosBrasileiros(opcoes)
         console.log(endereco);
@@ -48,14 +48,13 @@ const CadastroEnderecoEntrega = () => {
     const handleChangeEstado = (e: any) => {
         console.log(e);
 
-        const { name, value } = e;
-
-
-        // Atualiza apenas o campo correspondente
-        setEndereco((prevState) => ({
-            ...prevState, // Mantém os outros campos
-            [name]: value, // Atualiza o campo atual
-        }));
+        if (e !== null) {
+            const { name, value } = e;
+            setEndereco((prevState) => ({
+                ...prevState, // Mantém os outros campos
+                [name]: value, // Atualiza o campo atual
+            }));
+        }
     };
 
     const cadastrar = (e: any) => {
@@ -144,16 +143,13 @@ const CadastroEnderecoEntrega = () => {
                         <Select
                             options={estadosBrasileiros}
                             name="estado"
-
                             placeholder="Pesquise aqui..."
                             isSearchable={true}
                             className=" focus:outline focus:outline-2 focus:-outline-offset-2 text-gray-900 text-sm/6"
                             openMenuOnClick={true}
-                            components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
                             isClearable={true}
                             onChange={handleChangeEstado}
 
-                            value={endereco.estado}
 
                         />
 
