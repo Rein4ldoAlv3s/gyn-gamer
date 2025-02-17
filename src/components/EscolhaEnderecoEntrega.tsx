@@ -6,28 +6,6 @@ import { useEffect } from 'react';
 
 const EscolhaEnderecoEntrega = () => {
 
-    // const cadastrar = (e: any) => {
-    //     e.preventDefault();
-
-    //     axios.get('http://localhost:3000/registerEndereco', endereco)
-    //         .then(function (response) {
-    //             console.log(response);
-
-    //             toast.success("Endereço criado! O usuário já pode logar em sua conta.", {
-    //                 autoClose: 5000
-    //             });
-
-    //             setTimeout(() => {
-    //                 navigate("/")
-    //             }, 1500);
-
-    //         })
-    //         .catch(function (error) {
-    //             toast.error("Usuário ou senha errados!");
-    //             console.error(error);
-    //         });
-    // }
-
     useEffect(() => {
 
     }, [])

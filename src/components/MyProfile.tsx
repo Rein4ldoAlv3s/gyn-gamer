@@ -15,16 +15,36 @@ const MyProfile = () => {
     const [enderecoData, setEnderecoData] = useState<any>(null);
 
     useEffect(() => {
+        // if (idUser) {
+        //     axios.get('http://localhost:3000/users/' + idUser)
+        //         .then(function (response) {
+        //             setUserData(response.data)
+        //             setEnderecoData(response.data.Enderecos)
+        //         })
+        //         .catch(function (error) {
+        //             console.error(error);
+        //         });
+        // }
+
         if (idUser) {
-            axios.get('http://localhost:3000/users/' + idUser)
-                .then(function (response) {
-                    setUserData(response.data)
-                    setEnderecoData(response.data.Enderecos)
+            fetch('http://localhost:3000/users/' + idUser)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro na requisição');
+                    }
+                    return response.json();
+                })
+                .then(response => {
+                    setUserData(response)
+                    setEnderecoData(response.Enderecos)
                 })
                 .catch(function (error) {
                     console.error(error);
                 });
         }
+
+
+
     }, [])
 
     useEffect(() => {
