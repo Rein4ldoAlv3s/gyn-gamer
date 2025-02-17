@@ -3,8 +3,11 @@ import { IconButton } from '@mui/material';
 import { FaHome } from 'react-icons/fa';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const EscolhaEnderecoEntrega = () => {
+
+    const id = 1;
 
     useEffect(() => {
 
@@ -62,12 +65,12 @@ const EscolhaEnderecoEntrega = () => {
                             <div className="py-1">
                                 <MenuItem>
                                     {({ active }) => (
-                                        <a
-                                            href="#"
+                                        <Link
+                                            to={`/cadastro-endereco/${id}`}
                                             className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
                                         >
                                             Editar
-                                        </a>
+                                        </Link>
                                     )}
                                 </MenuItem>
                             </div>
@@ -76,7 +79,7 @@ const EscolhaEnderecoEntrega = () => {
                 </div>
 
             </div>
-        </div>
+        </div >
     )
 }
 

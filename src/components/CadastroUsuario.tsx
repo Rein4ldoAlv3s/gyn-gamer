@@ -47,6 +47,7 @@ const CadastroUsuario = () => {
                 console.log(response.data.id);
 
                 setTimeout(() => {
+                    //Envia o ID de usuario para o componente CadastroEnderecoEntrega
                     navigate("/cadastro-endereco", {
                         state: { idUser: response.data.id }
                     })

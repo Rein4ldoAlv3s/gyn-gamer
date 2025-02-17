@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Select from "react-select";
 import { estados } from '../constants/estados';
@@ -11,7 +11,13 @@ const CadastroEnderecoEntrega = () => {
     const location = useLocation();
     const [estadosBrasileiros, setEstadosBrasileiros] = useState<any[]>();
 
+    //esse componente recebe o id do componente CadastroUsuario para fazer a relacao no banco de dados (usuario tem varios enderecos)
     const { idUser } = location.state || {};
+
+    //Recupera o id do Endereco vindo do componente MyProfile 
+    const { idEnd } = useParams();
+    //ID é usado para editar Endereco já existente no Banco de Dados (PUT)
+    const idEndereco = Number(idEnd);
 
     const [endereco, setEndereco] = useState({
         nomeDestinatario: "",
@@ -31,7 +37,12 @@ const CadastroEnderecoEntrega = () => {
         })
         setEstadosBrasileiros(opcoes)
         console.log(endereco);
+        console.log(idEndereco);
     }, [endereco]);
+
+    useEffect(() => {
+
+    }, [idEndereco]);
 
     const handleChange = (e: any) => {
 

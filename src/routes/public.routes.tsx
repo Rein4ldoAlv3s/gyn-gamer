@@ -34,7 +34,7 @@ const PublicRoutes = () => {
             <Route path="/rotasteste" element={<RotasTeste />} />
             <Route path="/cart" element={<CarrinhoCompras />} />
             <Route path="/cadastro-usuario" element={<CadastroUsuario />} />
-            <Route path="/cadastro-endereco" element={<CadastroEnderecoEntrega />} />
+            <Route path="/cadastro-endereco/:idEnd?" element={<CadastroEnderecoEntrega />} />
             <Route path="/escolha-endereco-entrega" element={<EscolhaEnderecoEntrega />} />
         </>
     )

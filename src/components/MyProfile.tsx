@@ -7,6 +7,7 @@ import { FaHome, FaUserCircle } from 'react-icons/fa';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 const MyProfile = () => {
 
@@ -48,7 +49,7 @@ const MyProfile = () => {
     }, [])
 
     useEffect(() => {
-        console.log(enderecoData);
+        console.log(userData);
     }, [userData])
 
     return (
@@ -102,12 +103,12 @@ const MyProfile = () => {
                             <div className="py-1">
                                 <MenuItem>
                                     {({ active }) => (
-                                        <a
-                                            href="#"
+                                        <Link
+                                            to={`#`}
                                             className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
                                         >
                                             Editar
-                                        </a>
+                                        </Link>
                                     )}
                                 </MenuItem>
                             </div>
@@ -164,12 +165,12 @@ const MyProfile = () => {
                                     <div className="py-1">
                                         <MenuItem>
                                             {({ active }) => (
-                                                <a
-                                                    href="#"
+                                                <Link
+                                                    to={`/cadastro-endereco/${userData?.id}`}
                                                     className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
                                                 >
                                                     Editar
-                                                </a>
+                                                </Link>
                                             )}
                                         </MenuItem>
                                     </div>
