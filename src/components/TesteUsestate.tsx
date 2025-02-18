@@ -1,6 +1,7 @@
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/react'
 import { ChevronDownIcon, PencilIcon, Square2StackIcon, ArchiveBoxXMarkIcon, TrashIcon } from '@heroicons/react/16/solid'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const TesteUsestate = () => {
 
@@ -29,6 +30,9 @@ const TesteUsestate = () => {
             <div className="bg-blue-500 text-white p-4">Item 2</div>
             <div className="bg-blue-500 text-white p-4">Item 3</div>
             <div className="bg-blue-500 text-white p-4">Item 4</div>
+            <Link to={"/ddddd"}>
+                Teste
+            </Link>
         </div>
 
 

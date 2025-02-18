@@ -10,8 +10,8 @@ import MyProfile from '../components/MyProfile'
 import RotasTeste from '../components/RotasTeste'
 import TesteUsestate from '../components/TesteUsestate'
 import CadastroUsuario from '../components/CadastroUsuario'
-import CadastroEnderecoEntrega from '../components/CadastroEnderecoEntrega'
 import EscolhaEnderecoEntrega from '../components/EscolhaEnderecoEntrega'
+import CadastroEnderecoEntrega from '../components/CadastroEnderecoEntrega'
 
 const PublicRoutes = () => {
     return (

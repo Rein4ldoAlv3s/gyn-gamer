@@ -10,6 +10,9 @@ import Notebooks from '../components/Notebooks'
 import Pcgamer from '../components/Pcgamer'
 import Produtos from '../components/Produtos'
 import Promocoes from '../components/Promocoes'
+import CadastroUsuario from '../components/CadastroUsuario'
+import CadastroEnderecoEntrega from '../components/CadastroEnderecoEntrega'
+import EscolhaEnderecoEntrega from '../components/EscolhaEnderecoEntrega'
 
 
 const PrivateRoutes = () => {
@@ -20,12 +23,14 @@ const PrivateRoutes = () => {
             <Route path="/pcgamer" element={<Pcgamer />} />
             <Route path="/produtos/:id" element={<Produtos />} />
             <Route path="/notebooks" element={<Notebooks />} />
-            <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/login" element={<Login />} />
             <Route path="/teste-usestate" element={<TesteUsestate />} />
             <Route path="/my-profile" element={<MyProfile />} />
             <Route path="/rotasteste" element={<RotasTeste />} />
             <Route path="/cart" element={<CarrinhoCompras />} />
+            <Route path="/cadastro-usuario" element={<CadastroUsuario />} />
+            <Route path="/cadastro-endereco/:idEnd?" element={<CadastroEnderecoEntrega />} />
+            <Route path="/escolha-endereco-entrega" element={<EscolhaEnderecoEntrega />} />
         </>
     )
 }

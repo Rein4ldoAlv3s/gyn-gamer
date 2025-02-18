@@ -41,7 +41,8 @@ const CadastroEnderecoEntrega = () => {
     }, [endereco]);
 
     useEffect(() => {
-
+        console.log("----------------");
+        console.log(idEndereco);
     }, [idEndereco]);
 
     const handleChange = (e: any) => {
