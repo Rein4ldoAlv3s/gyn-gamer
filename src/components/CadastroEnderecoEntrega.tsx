@@ -10,7 +10,8 @@ const CadastroEnderecoEntrega = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [estadosBrasileiros, setEstadosBrasileiros] = useState<any[]>();
-    const [editEstadoBrasileiro, setEditEstadoBrasileiro] = useState<any>();
+    const [isCadastro, setIsCadastro] = useState<boolean>(true);
+
 
     //esse componente recebe o id do componente CadastroUsuario para fazer a relacao no banco de dados (usuario tem varios enderecos)
     const { idUser } = location.state || {};
@@ -44,10 +45,12 @@ const CadastroEnderecoEntrega = () => {
     }, [endereco]);
 
 
-    //altera valor já existente do objeto endereço
+    //executa caso o usuario queira editar o endereço
     useEffect(() => {
 
         if (idEndereco) {
+            setIsCadastro(false)
+
             axios.get('http://localhost:3000/enderecos/' + idEndereco)
                 .then(function (response) {
                     setEndereco(response.data);
@@ -95,8 +98,18 @@ const CadastroEnderecoEntrega = () => {
             try {
                 const response = await axios.put(`http://localhost:3000/enderecos/edit/${endereco.id}`, endereco);
                 console.log('Recurso atualizado com sucesso:', response.data);
+
+                toast.success("Endereço atualizado!", {
+                    autoClose: 2000
+                });
+
+                setTimeout(() => {
+                    navigate("/my-profile")
+                }, 1500);
+
                 return response.data;
             } catch (error) {
+                toast.error("" + error);
                 console.error('Erro ao atualizar recurso:', error);
                 return;
             }
@@ -128,7 +141,17 @@ const CadastroEnderecoEntrega = () => {
 
     return (
         <div className=" flex flex-col max-w-lg mx-auto pb-5">
-            <h1 className='text-white text-3xl text-center'>Adicionar Endereço</h1>
+
+            {isCadastro
+                ?
+                <h1 className='text-white text-3xl text-center'>
+                    Adicionar Cadastro
+                </h1>
+                :
+                <h1 className='text-white text-3xl text-center'>
+                    Editar Cadastro
+                </h1>
+            }
 
             <label htmlFor="nomeDestinatario" className="mt-2 block text-sm/6 font-medium text-white">
                 Nome Destinatário
