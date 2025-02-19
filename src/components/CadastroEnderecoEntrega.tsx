@@ -10,6 +10,7 @@ const CadastroEnderecoEntrega = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [estadosBrasileiros, setEstadosBrasileiros] = useState<any[]>();
+    const [editEstadoBrasileiro, setEditEstadoBrasileiro] = useState<any>();
 
     //esse componente recebe o id do componente CadastroUsuario para fazer a relacao no banco de dados (usuario tem varios enderecos)
     const { idUser } = location.state || {};
@@ -31,20 +32,38 @@ const CadastroEnderecoEntrega = () => {
         userId: idUser
     })
 
+    //carrega os dados do autocomplete estados (Estados Brasileiros)
     useEffect(() => {
+
         const opcoes: any = estados.map(function (est) {
             return { value: est.label, label: est.label, name: "estado" };
         })
         setEstadosBrasileiros(opcoes)
+
         console.log(endereco);
         console.log(idEndereco);
     }, [endereco]);
 
+
+    //altera valor já existente do objeto endereço (PUT)
     useEffect(() => {
-        console.log("----------------");
         console.log(idEndereco);
+
+        if (idEndereco) {
+            axios.get('http://localhost:3000/enderecos/' + idEndereco)
+                .then(function (response) {
+
+                    console.log(response.data);
+                    setEndereco(response.data);
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
+        }
+
     }, [idEndereco]);
 
+    //edita valores dos inputs de endereco (com exceção do autocomplete 'estado'. É modificado em handleChangeEstado)
     const handleChange = (e: any) => {
 
         const { name, value } = e.target;
@@ -57,6 +76,7 @@ const CadastroEnderecoEntrega = () => {
         }));
     };
 
+    //edita valor do autocomplete 'estado'
     const handleChangeEstado = (e: any) => {
         console.log(e);
 
@@ -143,15 +163,6 @@ const CadastroEnderecoEntrega = () => {
                         Estado
                     </label>
                     <div className="mt-2">
-                        {/* <input
-                            id="estado"
-                            name="estado"
-                            autoComplete="given-name"
-                            onChange={handleChange}
-                            value={endereco.estado}
-                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                        /> */}
-
                         <Select
                             options={estadosBrasileiros}
                             name="estado"
@@ -161,8 +172,7 @@ const CadastroEnderecoEntrega = () => {
                             openMenuOnClick={true}
                             isClearable={true}
                             onChange={handleChangeEstado}
-
-
+                            value={estadosBrasileiros?.find(estado => estado.value === endereco.estado)}
                         />
 
 
