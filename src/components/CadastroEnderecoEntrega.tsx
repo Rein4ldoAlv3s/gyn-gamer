@@ -29,7 +29,8 @@ const CadastroEnderecoEntrega = () => {
         tipoEndereco: "",
         cep: "",
         complemento: "",
-        userId: idUser
+        userId: idUser,
+        id: 0
     })
 
     //carrega os dados do autocomplete estados (Estados Brasileiros)
@@ -40,21 +41,17 @@ const CadastroEnderecoEntrega = () => {
         })
         setEstadosBrasileiros(opcoes)
 
-        console.log(endereco);
-        console.log(idEndereco);
     }, [endereco]);
 
 
-    //altera valor já existente do objeto endereço (PUT)
+    //altera valor já existente do objeto endereço
     useEffect(() => {
-        console.log(idEndereco);
 
         if (idEndereco) {
             axios.get('http://localhost:3000/enderecos/' + idEndereco)
                 .then(function (response) {
-
-                    console.log(response.data);
                     setEndereco(response.data);
+
                 })
                 .catch(function (error) {
                     console.error(error);
@@ -78,7 +75,6 @@ const CadastroEnderecoEntrega = () => {
 
     //edita valor do autocomplete 'estado'
     const handleChangeEstado = (e: any) => {
-        console.log(e);
 
         if (e !== null) {
             const { name, value } = e;
@@ -89,11 +85,30 @@ const CadastroEnderecoEntrega = () => {
         }
     };
 
-    const cadastrar = (e: any) => {
+    const cadastrar = async (e: any) => {
         e.preventDefault();
 
-        axios.post('http://localhost:3000/enderecos/register', endereco)
-            .then(function (response) {
+        //editar endereço
+        console.log("puttt");
+        console.log(endereco);
+        if (endereco.id > 0) {
+            try {
+                const response = await axios.put(`http://localhost:3000/enderecos/edit/${endereco.id}`, endereco);
+                console.log('Recurso atualizado com sucesso:', response.data);
+                return response.data;
+            } catch (error) {
+                console.error('Erro ao atualizar recurso:', error);
+                return;
+            }
+
+        }
+
+        //criar endereço
+
+        console.log("posttt");
+        if (endereco.id === 0) {
+            try {
+                const response = await axios.post('http://localhost:3000/enderecos/register', endereco)
                 console.log(response);
 
                 toast.success("Endereço criado! O usuário já pode logar em sua conta.", {
@@ -104,11 +119,11 @@ const CadastroEnderecoEntrega = () => {
                     navigate("/")
                 }, 1500);
 
-            })
-            .catch(function (error) {
+            } catch (error) {
                 toast.error("Usuário ou senha errados!");
                 console.error(error);
-            });
+            }
+        }
     }
 
     return (
