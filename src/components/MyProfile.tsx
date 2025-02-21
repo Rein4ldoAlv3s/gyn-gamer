@@ -173,6 +173,16 @@ const MyProfile = () => {
                                                 </Link>
                                             )}
                                         </MenuItem>
+                                        <MenuItem>
+                                            {({ active }) => (
+                                                <Link
+                                                    to={`/cadastro-endereco/${endereco?.id}`}
+                                                    className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
+                                                >
+                                                    Deletar
+                                                </Link>
+                                            )}
+                                        </MenuItem>
                                     </div>
                                 </MenuItems>
                             </Menu>
