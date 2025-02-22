@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { IconButton } from '@mui/material';
-import { HomeIcon } from '@heroicons/react/16/solid';
-import { BiHome } from 'react-icons/bi';
 import { FaHome, FaUserCircle } from 'react-icons/fa';
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { Button, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import axios from 'axios';
-import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import AlertDialog from './dialog/AlertDialog';
+
 
 const MyProfile = () => {
 
@@ -164,36 +168,19 @@ const MyProfile = () => {
                                 <MenuItems transition modal={false} anchor="bottom start" className="absolute text-white right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1  ring-black ring-opacity-5 z-10 transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0">
                                     <div className="py-1">
                                         <MenuItem>
-                                            {({ active }) => (
+                                            {({ focus }) => (
                                                 <Link
                                                     to={`/cadastro-endereco/${endereco?.id}`}
-                                                    className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
+                                                    className={`block px-4 py-2 text-sm ${focus ? 'bg-black' : 'text-gray-700'}`}
                                                 >
                                                     Editar
                                                 </Link>
                                             )}
                                         </MenuItem>
+                                        {/* opens dialog */}
                                         <MenuItem>
-                                            {({ active }) => (
-                                                <Link
-                                                    to={`/enderecos/delete/${endereco?.id}`}
-                                                    className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
-                                                >
-                                                    Deletar
-                                                </Link>
-                                            )}
-                                        </MenuItem>
-                                        <MenuItem>
-                                            {({ active }) => (
-                                                <button
-                                                    className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
-                                                    onClick={() => toast.success("teste", {
-                                                        position: "bottom-center",
-                                                        autoClose: false
-                                                    })}
-                                                >
-                                                    Deletar2
-                                                </button>
+                                            {({ focus }) => (
+                                                <AlertDialog focus={focus}></AlertDialog>
                                             )}
                                         </MenuItem>
                                     </div>
