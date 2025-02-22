@@ -185,7 +185,15 @@ const MyProfile = () => {
                                         </MenuItem>
                                         <MenuItem>
                                             {({ active }) => (
-                                                <button>Deletar</button>
+                                                <button
+                                                    className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
+                                                    onClick={() => toast.success("teste", {
+                                                        position: "bottom-center",
+                                                        autoClose: false
+                                                    })}
+                                                >
+                                                    Deletar2
+                                                </button>
                                             )}
                                         </MenuItem>
                                     </div>
