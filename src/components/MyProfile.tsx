@@ -18,6 +18,7 @@ const MyProfile = () => {
     const idUser = localStorage.getItem("idUser");
     const [userData, setUserData] = useState<any>(null);
     const [enderecoData, setEnderecoData] = useState<any>(null);
+    const [isOpenDialog, setIsOpenDialog] = useState<boolean>(false)
 
     useEffect(() => {
         // if (idUser) {
@@ -53,8 +54,8 @@ const MyProfile = () => {
     }, [])
 
     useEffect(() => {
-        console.log(userData);
-    }, [userData])
+        console.log(isOpenDialog);
+    }, [userData, isOpenDialog])
 
     return (
         <div>
@@ -180,7 +181,14 @@ const MyProfile = () => {
                                         {/* opens dialog */}
                                         <MenuItem>
                                             {({ focus }) => (
-                                                <AlertDialog focus={focus}></AlertDialog>
+                                                <div>
+                                                    <button
+                                                        className={`block px-4 py-2 text-sm ${focus ? 'bg-black' : 'text-gray-700'}`}
+                                                    >
+                                                        Open alert dialog
+                                                    </button>
+                                                    <DeleteDialog isOpenDialog></DeleteDialog>
+                                                </div>
                                             )}
                                         </MenuItem>
                                     </div>
@@ -194,6 +202,67 @@ const MyProfile = () => {
 
         </div >
     )
+}
+
+const DeleteDialog = (isOpenDialog: any) => {
+    const [open, setOpen] = React.useState(false);
+
+    // const handleClickOpen = () => {
+    //     if (focus) {
+    //         setOpen(true);
+    //     }
+
+    // };
+
+    const handleClose = () => {
+        if (!isOpenDialog) {
+            setOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        if (isOpenDialog) {
+            setOpen(true)
+        } else {
+            setOpen(false)
+        }
+
+
+    }, [focus])
+
+
+    return (
+        <React.Fragment>
+            {/* <button
+                onClick={handleClickOpen}
+                className={`block px-4 py-2 text-sm ${focus ? 'bg-black' : 'text-gray-700'}`}
+            >
+                Open alert dialog
+            </button> */}
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">
+                    {"Use Google's location service?"}
+                </DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        Let Google help apps determine location. This means sending anonymous
+                        location data to Google, even when no apps are running.
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>Disagree</Button>
+                    <Button onClick={handleClose} autoFocus>
+                        Agree
+                    </Button>
+                </DialogActions>
+            </Dialog>
+        </React.Fragment>
+    );
 }
 
 export default MyProfile
