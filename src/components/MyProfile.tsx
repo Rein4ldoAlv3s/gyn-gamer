@@ -30,6 +30,22 @@ const MyProfile = () => {
         setOpen(false);
     };
 
+    const handleExcluir = (id: any) => {
+        //acao de excluir
+        axios.delete("http://localhost:3000/enderecos/delete/" + id)
+            .then(response => {
+                console.log('Recurso excluído:', response.data);
+            })
+            .catch(error => {
+                console.error('Erro ao excluir:', error);
+            });
+
+        console.log("endereco excluido");
+
+        //acao de fechar dialog
+        handleClose()
+    }
+
     useEffect(() => {
         // if (idUser) {
         //     axios.get('http://localhost:3000/users/' + idUser)
@@ -59,7 +75,8 @@ const MyProfile = () => {
                 });
         }
 
-
+        console.log("dsadasdas");
+        console.log(enderecoData);
 
     }, [])
 
@@ -224,7 +241,7 @@ const MyProfile = () => {
                                     </DialogContent>
                                     <DialogActions>
                                         <Button onClick={handleClose}>Não</Button>
-                                        <Button onClick={handleClose} autoFocus>
+                                        <Button onClick={() => handleExcluir(endereco?.id)} autoFocus>
                                             Sim
                                         </Button>
                                     </DialogActions>
