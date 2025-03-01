@@ -10,7 +10,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import AlertDialog from './dialog/AlertDialog';
+import { IoAdd } from "react-icons/io5";
 
 
 const MyProfile = () => {
@@ -151,6 +151,18 @@ const MyProfile = () => {
             </div>
 
             <h2 className='text-2xl font-bold mt-5'>Endereço de Entrega</h2>
+
+            <div className='mt-1'>
+                {/* <button className='flex items-center justify-center bg-black rounded-md text-slate-300 px-3 py-2 '>
+                    <IoAdd size={30} className='mr-1 text-white ' />Adicionar endereço
+                </button> */}
+
+                <Link to="/cadastro-endereco" className='flex items-center justify-center bg-black rounded-md text-slate-300 px-3 py-2 w-1/2'>
+                    <IoAdd size={30} className='mr-1 text-white ' />Adicionar endereço
+                </Link>
+
+
+            </div>
 
             <div>
                 {enderecoData && enderecoData.map((endereco: any, index: any) => (
