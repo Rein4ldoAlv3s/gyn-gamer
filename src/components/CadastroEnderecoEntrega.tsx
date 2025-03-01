@@ -271,9 +271,17 @@ const CadastroEnderecoEntrega = () => {
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
             </div>
-            <div className='mt-3'>
-                <button onClick={(e) => cadastrar(e)} className='bg-black rounded-md text-slate-300 px-3 py-2 w-full '>Criar conta</button>
-            </div>
+
+            {isCadastro
+                ?
+                <div className='mt-3'>
+                    <button onClick={(e) => cadastrar(e)} className='bg-black rounded-md text-slate-300 px-3 py-2 w-full '>Adicionar endereço</button>
+                </div>
+                :
+                <div className='mt-3'>
+                    <button onClick={(e) => cadastrar(e)} className='bg-black rounded-md text-slate-300 px-3 py-2 w-full '>Editar endereço</button>
+                </div>
+            }
 
 
         </div>
