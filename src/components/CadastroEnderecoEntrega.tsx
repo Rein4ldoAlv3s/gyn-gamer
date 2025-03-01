@@ -145,11 +145,11 @@ const CadastroEnderecoEntrega = () => {
             {isCadastro
                 ?
                 <h1 className='text-white text-3xl text-center'>
-                    Adicionar Cadastro
+                    Adicionar Endereço
                 </h1>
                 :
                 <h1 className='text-white text-3xl text-center'>
-                    Editar Cadastro
+                    Editar Endereço
                 </h1>
             }
 

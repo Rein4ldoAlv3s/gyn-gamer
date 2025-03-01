@@ -89,6 +89,14 @@ const MyProfile = () => {
             <h1 className="flex justify-center text-3xl font-bold text-customWhite">Welcome, {userData?.nomeReal || "User"}!</h1>
 
             <h2 className='text-2xl font-bold'>Dados do Usuário</h2>
+
+            <div className='mt-1'>
+                <Link to="/cadastro-usuario" className='flex items-center justify-center bg-black rounded-md text-slate-300 px-3 py-2 w-1/2'>
+                    <IoAdd size={30} className='mr-1 text-white ' />Adicionar usuário
+                </Link>
+            </div>
+
+
             <div className='mt-2 flex w-1/2 justify-between bg-customGrayHover rounded-md text-sm'>
 
                 <div className='py-3 pl-2'>
@@ -153,15 +161,9 @@ const MyProfile = () => {
             <h2 className='text-2xl font-bold mt-5'>Endereço de Entrega</h2>
 
             <div className='mt-1'>
-                {/* <button className='flex items-center justify-center bg-black rounded-md text-slate-300 px-3 py-2 '>
-                    <IoAdd size={30} className='mr-1 text-white ' />Adicionar endereço
-                </button> */}
-
                 <Link to="/cadastro-endereco" className='flex items-center justify-center bg-black rounded-md text-slate-300 px-3 py-2 w-1/2'>
                     <IoAdd size={30} className='mr-1 text-white ' />Adicionar endereço
                 </Link>
-
-
             </div>
 
             <div>
