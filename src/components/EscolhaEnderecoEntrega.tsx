@@ -9,6 +9,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import axios from 'axios';
 
 
 const EscolhaEnderecoEntrega = () => {
@@ -27,6 +28,21 @@ const EscolhaEnderecoEntrega = () => {
         setOpen(false);
     };
 
+    const handleExcluir = (id: any) => {
+        //acao de excluir
+        axios.delete("http://localhost:3000/enderecos/delete/" + id)
+            .then(response => {
+                console.log('Recurso excluído:', response.data);
+            })
+            .catch(error => {
+                console.error('Erro ao excluir:', error);
+            });
+
+        console.log("endereco excluido");
+
+        //acao de fechar dialog
+        handleClose()
+    }
 
     useEffect(() => {
         if (idUser) {
@@ -61,31 +77,52 @@ const EscolhaEnderecoEntrega = () => {
             <div>
                 {enderecoData && enderecoData.map((endereco: any, index: any) => (
                     <div key={index} className='mt-2 flex w-1/2 justify-between bg-customGrayHover rounded-md text-sm'>
-                        <div className='py-3 pl-2'>
-                            <div className='flex items-center'>
-                                <FaHome size={20} className='mr-2 text-white ' />
-                                <span>{endereco?.nomeDestinatario || ""}</span>
+                        <div className='py-3 px-2 flex'>
+                            <div className="inline-flex items-center">
+                                <label className="flex items-center cursor-pointer relative" htmlFor="check-2">
+                                    <input type="checkbox"
+                                        className="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800"
+                                        id="check-2" />
+                                    <span className="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
+                                            stroke="currentColor" stroke-width="1">
+                                            <path fill-rule="evenodd"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </span>
+                                </label>
                             </div>
 
-                            <div className='mt-2'>
-                                <span>{endereco?.logradouro || ""}, Rua {endereco?.rua || ""}</span>
+
+                            <div className='px-2'>
+                                <div className='flex items-center'>
+                                    <FaHome size={20} className='mr-2 text-white ' />
+                                    <span>{endereco?.nomeDestinatario || ""}</span>
+                                </div>
+
+                                <div className='mt-2'>
+                                    <span>{endereco?.logradouro || ""}, Rua {endereco?.rua || ""}</span>
+                                </div>
+
+                                <div>
+                                    <span>{endereco?.cidade || ""}-{endereco?.estado || ""}</span>
+                                </div>
+
+                                <div className='mt-2'>
+                                    <span>CEP {endereco?.cep || ""}</span>
+                                </div>
+
+                                <div className='mt-2'>
+                                    <span>{endereco?.complemento || ""}</span>
+                                </div>
+
+                                <div>
+                                    <span>Endereço {endereco?.tipoEndereco || ""} </span>
+                                </div>
                             </div>
 
-                            <div>
-                                <span>{endereco?.cidade || ""}-{endereco?.estado || ""}</span>
-                            </div>
 
-                            <div className='mt-2'>
-                                <span>CEP {endereco?.cep || ""}</span>
-                            </div>
-
-                            <div className='mt-2'>
-                                <span>{endereco?.complemento || ""}</span>
-                            </div>
-
-                            <div>
-                                <span>Endereço {endereco?.tipoEndereco || ""} </span>
-                            </div>
 
                         </div>
                         <div>
@@ -146,8 +183,8 @@ const EscolhaEnderecoEntrega = () => {
                                         </DialogContentText>
                                     </DialogContent>
                                     <DialogActions>
-                                        <Button >Não</Button>
-                                        <Button autoFocus>
+                                        <Button onClick={handleClose}>Não</Button>
+                                        <Button onClick={() => handleExcluir(endereco?.id)} autoFocus>
                                             Sim
                                         </Button>
                                     </DialogActions>
