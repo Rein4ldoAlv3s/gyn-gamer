@@ -2,15 +2,37 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { IconButton } from '@mui/material';
 import { FaHome } from 'react-icons/fa';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const EscolhaEnderecoEntrega = () => {
 
     const id = 1;
+    const idUser = localStorage.getItem("idUser");
+    const [enderecoData, setEnderecoData] = useState<any>(null);
+
 
     useEffect(() => {
+        if (idUser) {
+            fetch('http://localhost:3000/users/' + idUser)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro na requisição');
+                    }
+                    return response.json();
+                })
+                //chamada dos dados de endereço, que estao relacionados com usuario
+                .then(response => {
+                    // setUserData(response)
+                    setEnderecoData(response.Enderecos)
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
+        }
 
+        console.log("dsadasdas");
+        console.log(enderecoData);
     }, [])
 
 
