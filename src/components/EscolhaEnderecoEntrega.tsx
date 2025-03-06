@@ -75,9 +75,9 @@ const EscolhaEnderecoEntrega = () => {
                 Escolha o endereço de entrega
             </h1>
 
-            <div>
+            <div className='w-1/2'>
                 {enderecoData && enderecoData.map((endereco: any, index: any) => (
-                    <div key={index} className='mt-2 flex w-1/2 justify-between bg-customGrayHover rounded-md text-sm'>
+                    <div key={index} className='mt-2 flex justify-between bg-customGrayHover rounded-md text-sm'>
                         <div className='py-3 px-2 flex'>
                             {/* checkbox para selecionar endereço de entrega*/}
                             <div className="inline-flex items-center">
@@ -123,8 +123,6 @@ const EscolhaEnderecoEntrega = () => {
                                     <span>Endereço {endereco?.tipoEndereco || ""} </span>
                                 </div>
                             </div>
-
-
 
                         </div>
                         <div>
@@ -195,12 +193,13 @@ const EscolhaEnderecoEntrega = () => {
                         </div>
                     </div>
                 ))}
+
+                <div className='mt-5 text-end'>
+                    <Link to="/escolha-pagamento" className='mt-3 bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Próximo</Link>
+                </div>
             </div>
 
-            <div>
-                <Link to="/escolha-pagamento" className='mt-3 bg-[#2E2E2E] text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Continuar a Compra</Link>
 
-            </div>
 
         </div >
     )
