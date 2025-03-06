@@ -91,7 +91,7 @@ const EscolhaEnderecoEntrega = () => {
                                         value={index}
                                         onChange={e => setCheckboxValue(e.target.value)}
                                     />
-                                    <span className="absolute bg-black w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
+                                    <span className="absolute bg-white w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
                                 </label>
 
                             </div>
