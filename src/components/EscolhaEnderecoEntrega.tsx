@@ -72,7 +72,7 @@ const EscolhaEnderecoEntrega = () => {
     return (
         <div>
             <h1 className="flex justify-start text-3xl font-bold text-customWhite ">
-                Escolha a forma de entrega
+                Escolha o endereço de entrega
             </h1>
 
             <div>
@@ -81,24 +81,19 @@ const EscolhaEnderecoEntrega = () => {
                         <div className='py-3 px-2 flex'>
                             {/* checkbox para selecionar endereço de entrega*/}
                             <div className="inline-flex items-center">
-                                {/* <label className="flex items-center cursor-pointer relative" htmlFor="check-2">
-                                    <input type="radio"
-                                        onChange={e => console.log(e.target.value)}
-                                        name='opcao'
-                                        value={index}
-                                        className=''
-                                    />
 
-                                </label> */}
                                 <label className="relative flex items-center cursor-pointer">
                                     <input
                                         name="color"
                                         type="radio"
                                         className="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-slate-300 checked:border-slate-400 transition-all"
                                         readOnly
+                                        value={index}
+                                        onChange={e => setCheckboxValue(e.target.value)}
                                     />
-                                    <span className="absolute bg-slate-800 w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
+                                    <span className="absolute bg-black w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
                                 </label>
+
                             </div>
 
                             {/* dados endereço de entrega */}
@@ -200,6 +195,11 @@ const EscolhaEnderecoEntrega = () => {
                         </div>
                     </div>
                 ))}
+            </div>
+
+            <div>
+                <Link to="/escolha-pagamento" className='mt-3 bg-[#2E2E2E] text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Continuar a Compra</Link>
+
             </div>
 
         </div >
