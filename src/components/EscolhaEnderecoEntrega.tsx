@@ -81,7 +81,7 @@ const EscolhaEnderecoEntrega = () => {
                         <div className='py-3 px-2 flex'>
                             {/* checkbox para selecionar endereço de entrega*/}
                             <div className="inline-flex items-center">
-                                <label className="flex items-center cursor-pointer relative" htmlFor="check-2">
+                                {/* <label className="flex items-center cursor-pointer relative" htmlFor="check-2">
                                     <input type="radio"
                                         onChange={e => console.log(e.target.value)}
                                         name='opcao'
@@ -89,6 +89,15 @@ const EscolhaEnderecoEntrega = () => {
                                         className=''
                                     />
 
+                                </label> */}
+                                <label className="relative flex items-center cursor-pointer">
+                                    <input
+                                        name="color"
+                                        type="radio"
+                                        className="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-slate-300 checked:border-slate-400 transition-all"
+                                        readOnly
+                                    />
+                                    <span className="absolute bg-slate-800 w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
                                 </label>
                             </div>
 

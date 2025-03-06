@@ -7,26 +7,25 @@ const TesteUsestate = () => {
 
     return (
         <div>
-            <form className="bg-white p-6 rounded-lg shadow-lg w-96">
-                <h2 className="text-xl font-semibold mb-4">Escolha uma opção:</h2>
-
-                <div className="flex items-center mb-2">
-                    <input id="option1" name="options" type="radio" className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" />
-                    <label htmlFor="option1" className="ml-2 text-gray-700">Opção 1</label>
+            <div className="flex gap-10">
+                <div className="inline-flex items-center">
+                    <label className="relative flex items-center cursor-pointer" htmlFor="html">
+                        <input name="framework" type="radio" className="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-slate-300 checked:border-slate-400 transition-all" id="html" />
+                        <span className="absolute bg-blue-500 w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        </span>
+                    </label>
+                    <label className="ml-2 text-white cursor-pointer text-sm" htmlFor="html">HTML</label>
                 </div>
 
-                <div className="flex items-center mb-2">
-                    <input id="option2" name="options" type="radio" className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" />
-                    <label htmlFor="option2" className="ml-2 text-gray-700">Opção 2</label>
+                <div className="inline-flex items-center">
+                    <label className="relative flex items-center cursor-pointer" htmlFor="react">
+                        <input name="framework" type="radio" className="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-slate-300 checked:border-slate-400 transition-all" id="react" checked />
+                        <span className="absolute bg-blue-500 w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        </span>
+                    </label>
+                    <label className="ml-2 text-white cursor-pointer text-sm" htmlFor="react">React</label>
                 </div>
-
-                <div className="flex items-center mb-2">
-                    <input id="option3" name="options" type="radio" className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" />
-                    <label htmlFor="option3" className="ml-2 text-gray-700">Opção 3</label>
-                </div>
-
-                <button type="submit" className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">Enviar</button>
-            </form>
+            </div>
         </div>
 
     )
