@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const EscolhaPagamento = () => {
 
@@ -75,6 +76,10 @@ const EscolhaPagamento = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div className='mt-5 text-end'>
+                    <Link to="/pagamento-escolhido" className='mt-3 bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Próximo</Link>
                 </div>
 
 

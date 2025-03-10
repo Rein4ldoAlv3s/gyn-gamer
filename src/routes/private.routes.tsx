@@ -14,6 +14,7 @@ import CadastroUsuario from '../components/CadastroUsuario'
 import CadastroEnderecoEntrega from '../components/CadastroEnderecoEntrega'
 import EscolhaEnderecoEntrega from '../components/EscolhaEnderecoEntrega'
 import EscolhaPagamento from '../components/EscolhaPagamento'
+import PagamentoEscolhido from '../components/PagamentoEscolhido'
 
 
 const PrivateRoutes = () => {
@@ -33,6 +34,7 @@ const PrivateRoutes = () => {
             <Route path="/cadastro-endereco/:idEnd?" element={<CadastroEnderecoEntrega />} />
             <Route path="/escolha-endereco-entrega" element={<EscolhaEnderecoEntrega />} />
             <Route path="/escolha-pagamento" element={<EscolhaPagamento />} />
+            <Route path="/pagamento-escolhido" element={<PagamentoEscolhido />} />
         </>
     )
 }
