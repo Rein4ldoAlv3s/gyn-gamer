@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 
 type ButtonAtrib = {
     color: string;
@@ -18,7 +18,7 @@ const PagamentoEscolhido = () => {
     });
 
     // contador que determina a estilizacao do botao copiar quando é clicado
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(1)
 
 
     const copiarUrl = () => {
@@ -32,9 +32,13 @@ const PagamentoEscolhido = () => {
             );
         }
         if (count === 1) {
-            setButtonAtrib(
-                { color: "bg-green-600", content: "Copiado!", hover: "bg-green-600" }
-            );
+            // evento para copiar o codigo de pagamento do pix
+            navigator.clipboard.writeText("htesteeeeeee")
+                .then(() => {
+                    setButtonAtrib(
+                        { color: "bg-green-600", content: "Copiado!", hover: "bg-green-600" }
+                    );
+                })
         }
     }
 
