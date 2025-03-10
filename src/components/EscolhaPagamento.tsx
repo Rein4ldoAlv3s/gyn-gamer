@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 const EscolhaPagamento = () => {
 
 
-    const [checkboxValue, setCheckboxValue] = useState<any>("dddddd");
+    const [checkboxValue, setCheckboxValue] = useState<any>(0);
+
+    useEffect(() => {
+        console.log(checkboxValue);
+
+
+    }, [checkboxValue])
+
 
     return (
         <div>
@@ -22,6 +29,7 @@ const EscolhaPagamento = () => {
                             <input
                                 name="color"
                                 type="radio"
+                                value={1}
                                 className="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-slate-300 checked:border-slate-400 transition-all"
                                 readOnly
                                 onChange={e => setCheckboxValue(e.target.value)}
@@ -53,6 +61,7 @@ const EscolhaPagamento = () => {
                             <input
                                 name="color"
                                 type="radio"
+                                value={2}
                                 className="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-slate-300 checked:border-slate-400 transition-all"
                                 readOnly
                                 onChange={e => setCheckboxValue(e.target.value)}
@@ -78,13 +87,11 @@ const EscolhaPagamento = () => {
                     </div>
                 </div>
 
-                <div className='mt-5 text-end'>
-                    <Link to="/pagamento-escolhido" className='mt-3 bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Próximo</Link>
-                </div>
-
-
-
-
+                {checkboxValue !== 0 &&
+                    <div className='mt-5 text-end'>
+                        <Link to={`/pagamento-escolhido/${checkboxValue}`} className='mt-3 bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Próximo</Link>
+                    </div>
+                }
 
             </div>
 

@@ -34,7 +34,7 @@ const PrivateRoutes = () => {
             <Route path="/cadastro-endereco/:idEnd?" element={<CadastroEnderecoEntrega />} />
             <Route path="/escolha-endereco-entrega" element={<EscolhaEnderecoEntrega />} />
             <Route path="/escolha-pagamento" element={<EscolhaPagamento />} />
-            <Route path="/pagamento-escolhido" element={<PagamentoEscolhido />} />
+            <Route path="/pagamento-escolhido/:id" element={<PagamentoEscolhido />} />
         </>
     )
 }
