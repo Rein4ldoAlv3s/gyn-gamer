@@ -72,13 +72,13 @@ const CarrinhoCompras = () => {
 
     return (
 
-        <div>
+        <div className='pb-10'>
             <div>
                 <h1 className="flex justify-center text-3xl font-bold text-customWhite pb-5">
                     CARRINHO DE COMPRAS
                 </h1>
             </div>
-            <div className='flex pb-10'>
+            <div className='flex'>
                 <TableContainer className='bg-customGrayTable'>
                     <Table>
                         {/* Cabeçalho da Tabela */}
@@ -136,7 +136,12 @@ const CarrinhoCompras = () => {
                         </TableBody>
                     </Table>
                 </TableContainer>
+
+
                 <ResumoCompra qtdTotal={qtdTotal} setQtdTotal={setQtdTotal} valorTotal={valorTotal} setValorTotal={setValorTotal} />
+            </div>
+            <div className='mt-6'>
+                <Link to="/" className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Voltar Para a Página Inicial</Link>
             </div>
         </div>
     );
