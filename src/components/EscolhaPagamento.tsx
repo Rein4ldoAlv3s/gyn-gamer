@@ -87,11 +87,17 @@ const EscolhaPagamento = () => {
                     </div>
                 </div>
 
-                {checkboxValue !== 0 &&
-                    <div className='mt-5 text-end'>
-                        <Link to={`/pagamento-escolhido/${checkboxValue}`} className='mt-3 bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Próximo</Link>
+                <div className='flex mt-5 justify-between'>
+                    <div>
+                        <Link to="/escolha-endereco-entrega" className=' bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Voltar</Link>
                     </div>
-                }
+
+                    {checkboxValue !== 0 &&
+                        <div>
+                            <Link to={`/pagamento-escolhido/${checkboxValue}`} className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Próximo</Link>
+                        </div>
+                    }
+                </div>
 
             </div>
 
