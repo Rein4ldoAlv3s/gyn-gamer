@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 type ButtonAtrib = {
     color: string;
@@ -86,6 +86,9 @@ const PagamentoEscolhido = () => {
                         />
                     </div>
                 }
+                <div className='mt-5'>
+                    <Link to="/escolha-pagamento" className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Voltar</Link>
+                </div>
             </div>
         </div>
     )
