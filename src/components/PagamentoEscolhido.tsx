@@ -53,13 +53,13 @@ const PagamentoEscolhido = () => {
 
     return (
         <div>
-            <div>
+            <div className='w-1/2'>
                 {id === "1" &&
                     <div>
                         <h1 className='text-xl'>Utilize o QRCode ou a URL para pagamento do Pix</h1>
                         <div className='mt-3'>
                             <h1>Pix por QRCode:</h1>
-                            <img className='w-1/4 mt-2'
+                            <img className='w-1/2 mt-2'
                                 src="https://peahimoda.wordpress.com/wp-content/uploads/2013/08/cc3b3digo-qr.jpg"
                                 alt=""
                             />
@@ -82,12 +82,17 @@ const PagamentoEscolhido = () => {
                         <img
                             src="https://scontent.fudi1-1.fna.fbcdn.net/v/t1.6435-9/69608029_1367304000095537_8154214927234498560_n.png?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHFcL-Tprz8tkXnGb-CIWIillfOJOwZAW-WV84k7BkBbxAc6wVVpzYk0MPBESBe586o-ZjKLTo8vzP_XnGchqMz&_nc_ohc=il2slloa1T4Q7kNvgHGIR3w&_nc_oc=AdiMULsJ0HheKGZ7Qm8zjlHJ62OtrMSu285kXUTMoGOAmwGRCZ_mB9Ys_eT3aqiDiB0&_nc_zt=23&_nc_ht=scontent.fudi1-1.fna&_nc_gid=AjBHuZeCCOP8qgWfI3NNE5A&oh=00_AYGvrmAfOoKiH7ERIKgmNK6rNK45kNTSwNQkpqTC3plD9Q&oe=67F79857"
                             alt=""
-                            className='w-1/2 mt-3'
+                            className='mt-3'
                         />
                     </div>
                 }
-                <div className='mt-5'>
-                    <Link to="/escolha-pagamento" className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Voltar</Link>
+                <div className='mt-5 flex justify-between'>
+                    <div>
+                        <Link to="/escolha-pagamento" className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Voltar</Link>
+                    </div>
+                    <div>
+                        <Link to="/detalhe-pedido" className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Próximo</Link>
+                    </div>
                 </div>
             </div>
         </div>
