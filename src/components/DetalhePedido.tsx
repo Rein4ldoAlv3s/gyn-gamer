@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaHome } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 const DetalhePedido = () => {
     return (
@@ -8,43 +9,47 @@ const DetalhePedido = () => {
                 Detalhe do Pedido
             </h1>
             <div>
+
                 <div className="w-1/2">
                     <div className='mt-2 flex justify-between bg-customGrayHover rounded-md text-sm'>
-                        <div className='py-3 px-2 flex'>
-                            {/* checkbox para selecionar endereço de entrega*/}
-
-                            {/* dados endereço de entrega */}
-                            <div className='px-2'>
+                        <div className='py-3 px-4 flex justify-between w-full items-center'>
+                            <div className='flex flex-col'>
                                 <div className='flex items-center'>
-                                    <FaHome size={20} className='mr-2 text-white ' />
-                                    <span>Reinaldo Alves Lfdsfdsfdsfsd</span>
+                                    <span>TRAVA P/NOTEBOOK C/CHAVE TR0001</span>
                                 </div>
 
                                 <div className='mt-2'>
-                                    <span>Av dos Abacates, Rua 11</span>
-                                </div>
-
-                                <div>
-                                    <span>Goiânia-Goiás</span>
+                                    <span>1 unid | </span>
+                                    <Link className='text-blue-300' to={"/produtos/1"}>Ver detalhe</Link>
                                 </div>
 
                                 <div className='mt-2'>
-                                    <span>CEP 74000-000</span>
+                                    <div>
+                                        <span>Produto: R$ 22,00</span>
+                                    </div>
+                                    <div>
+                                        <span>Frete: R$ 6,00</span>
+                                    </div>
+                                    <div>
+                                        <span>Total: R$ 28,00</span>
+                                    </div>
                                 </div>
 
                                 <div className='mt-2'>
-                                    <span>Perto do Rede Store Supermercado</span>
-                                </div>
-
-                                <div>
-                                    <span>Endereço Residencial</span>
+                                    <span>Pagamento: Pix</span>
                                 </div>
                             </div>
-
+                            <div>
+                                <img
+                                    className='w-[100px]'
+                                    src="https://images.tcdn.com.br/img/img_prod/1214924/trava_p_notebook_c_chave_tr0001_19524_1_6a1a53146c9ae27859a40eb406ce7c87.png"
+                                    alt=""
+                                />
+                            </div>
                         </div>
-
                     </div>
                 </div>
+
             </div>
         </div>
     )
