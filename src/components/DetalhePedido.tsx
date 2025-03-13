@@ -11,6 +11,7 @@ const DetalhePedido = () => {
             <div>
 
                 <div className="w-1/2">
+                    {/*detalhe item  */}
                     <div className='mt-2 flex justify-between bg-customGrayHover rounded-md text-sm'>
                         <div className='py-3 px-4 flex justify-between w-full items-center'>
                             <div className='flex flex-col'>
@@ -45,6 +46,25 @@ const DetalhePedido = () => {
                                     src="https://images.tcdn.com.br/img/img_prod/1214924/trava_p_notebook_c_chave_tr0001_19524_1_6a1a53146c9ae27859a40eb406ce7c87.png"
                                     alt=""
                                 />
+                            </div>
+                        </div>
+                    </div>
+                    {/* detalhe envio */}
+                    <div className='mt-2 flex justify-between bg-customGrayHover rounded-md text-sm'>
+                        <div className='py-3 px-4 flex justify-between w-full items-center'>
+                            <div className='flex flex-col w-4/5'>
+                                <span className='text-orange-400 fe'>Aguardando Pagamento</span>
+
+                                <span className='mt-1 text-lg'>Prévisão de entrega após o pagamento</span>
+
+                                <span className='mt-1'>Entregamos seu pacote na Av dos Abacates, Rua 11, Goiânia-Goiás, Perto do Rede Store Supermercado
+                                </span>
+                                <div className='mt-4'>
+                                    <Link to="/produtos/1" className='bg-black rounded-full px-4 py-2'>Comprar novamente</Link>
+                                </div>
+                            </div>
+                            <div className='w-1/5 flex justify-end'>
+                                <img src="/full.svg" className='w-[50px]' />
                             </div>
                         </div>
                     </div>
