@@ -13,7 +13,7 @@ export default {
 
         customGrayHover: "#3A3A3A",
         customWhite: "#fff",
-        customYellowDiscount: "#ffd700"
+        customYellowDiscount: "#ffd700",
       }
     },
   },
