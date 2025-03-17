@@ -60,8 +60,13 @@ const DetalhePedido = () => {
                                 <span className='mt-1 text-lg'>Prévisão de entrega após o pagamento</span>
 
                                 <span className='mt-1'>Entregamos seu pacote na Av dos Abacates, Rua 11, Goiânia-Goiás, Perto do Rede Store Supermercado</span>
-                                <div className='mt-4'>
-                                    <Link to="/produtos/1" className='bg-black rounded-full px-4 py-2'>Comprar novamente</Link>
+                                <div className='flex mt-4'>
+                                    <div className=''>
+                                        <Link to="/produtos/1" className='bg-black rounded-full px-4 py-2'>Comprar novamente</Link>
+                                    </div>
+                                    <div className='ml-1'>
+                                        <Link to="/meus-pedidos" className='bg-black rounded-full px-4 py-2'>Ver Pedidos</Link>
+                                    </div>
                                 </div>
                             </div>
                             <div className='w-1/5 flex justify-end'>
