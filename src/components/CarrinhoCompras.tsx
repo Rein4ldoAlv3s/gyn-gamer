@@ -68,6 +68,8 @@ const CarrinhoCompras = () => {
         let valorTotal = cart?.produtos.reduce((acumulador: any, produto: any) => acumulador + (produto.desc * produto.quantity), 0)
         setValorTotal(valorTotal)
 
+        console.log(cart);
+
     }, [cart]);
 
     return (

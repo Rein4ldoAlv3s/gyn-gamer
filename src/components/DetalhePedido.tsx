@@ -10,7 +10,7 @@ const DetalhePedido = () => {
             </h1>
             <div>
 
-                <div className="w-1/2">
+                <div className="w-1/2 flex flex-col">
                     {/*detalhe item  */}
                     <div className='mt-2 flex justify-between bg-customGrayHover rounded-md text-sm'>
                         <div className='py-3 px-4 flex justify-between w-full items-center'>
@@ -64,15 +64,15 @@ const DetalhePedido = () => {
                                     <div className=''>
                                         <Link to="/produtos/1" className='bg-black rounded-full px-4 py-2'>Comprar novamente</Link>
                                     </div>
-                                    <div className='ml-1'>
-                                        <Link to="/meus-pedidos" className='bg-black rounded-full px-4 py-2'>Ver Pedidos</Link>
-                                    </div>
                                 </div>
                             </div>
                             <div className='w-1/5 flex justify-end'>
                                 <img src="/full.svg" className='w-[50px]' />
                             </div>
                         </div>
+                    </div>
+                    <div className='mt-3 self-end'>
+                        <Link to="/meus-pedidos" className='bg-black rounded-full px-4 py-2'>Ver Pedidos</Link>
                     </div>
                 </div>
 
