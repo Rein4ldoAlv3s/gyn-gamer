@@ -91,7 +91,13 @@ const PagamentoEscolhido = () => {
                         <Link to="/escolha-pagamento" className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Voltar</Link>
                     </div>
                     <div>
-                        <Link to="/detalhe-pedido" className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Próximo</Link>
+                        <Link
+                            // to="/detalhe-pedido"
+                            to={"#"}
+
+                            className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
+                            Confirmar Pedido
+                        </Link>
                     </div>
                 </div>
             </div>
