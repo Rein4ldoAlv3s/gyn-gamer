@@ -1,5 +1,12 @@
-import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import { Button, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+
 
 type ButtonAtrib = {
     color: string;
@@ -41,6 +48,19 @@ const PagamentoEscolhido = () => {
                 })
         }
     }
+
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         //   if(buttonAtrib === 0){
@@ -92,15 +112,37 @@ const PagamentoEscolhido = () => {
                     </div>
                     <div>
                         <Link
-                            // to="/detalhe-pedido"
-                            to={"#"}
-
+                            to={""}
+                            onClick={handleClickOpen}
                             className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
                             Confirmar Pedido
                         </Link>
                     </div>
                 </div>
             </div>
+            <React.Fragment>
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">
+                        {""}
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            Tem certeza que deseja concluir esse pedido?
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose}>Não</Button>
+                        <Button onClick={() => navigate("/detalhe-pedido")} autoFocus>
+                            Sim
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+            </React.Fragment>
         </div>
     )
 }

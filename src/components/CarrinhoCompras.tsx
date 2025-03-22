@@ -170,8 +170,7 @@ const ResumoCompra = ({ qtdTotal, setQtdTotal, valorTotal, setValorTotal }: Resu
                     <span className='text-xl'>R$ {(valorTotal).toFixed(2)}</span>
                 </div>
                 <div className='flex justify-center'>
-                    {/* <button className='mt-3 bg-[#2E2E2E] text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Continuar a Compra</button> */}
-                    <Link to="/escolha-endereco-entrega" className='mt-3 bg-[#2E2E2E] text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Continuar a Compra</Link>
+                    <Link to="/escolha-endereco-entrega" className='mt-3 bg-[#2E2E2E] text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Continuar Pedido</Link>
                 </div>
             </div>
         </div>

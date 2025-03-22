@@ -19,7 +19,7 @@ const EscolhaEnderecoEntrega = () => {
     const [enderecoData, setEnderecoData] = useState<any>(null);
     const [checkboxValue, setCheckboxValue] = useState<any>("");
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
