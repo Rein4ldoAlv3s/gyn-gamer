@@ -14,11 +14,13 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { CartContext } from '../contexts/CartContext';
 import { Link, useNavigate } from 'react-router-dom';
+import { PedidoContext } from '../contexts/PedidoContext';
 
 const CarrinhoCompras = () => {
     // const [products, setProducts] = useState(initialProducts);
 
     const cart = useContext(CartContext);
+    const pedido = useContext(PedidoContext);
 
     //qtd somada de varios produtos (ex: 2 mouses + 1 teclado)
     const [qtdTotal, setQtdTotal] = useState(0);
@@ -52,7 +54,6 @@ const CarrinhoCompras = () => {
     const deleteProduct = (id: number) => {
         let produtosAtualizados = cart?.produtos.filter((p: { id: number; }) => p.id !== id)
         cart?.setProdutos(produtosAtualizados)
-        console.log(cart?.produtos);
 
     }
 
@@ -68,7 +69,6 @@ const CarrinhoCompras = () => {
         let valorTotal = cart?.produtos.reduce((acumulador: any, produto: any) => acumulador + (produto.desc * produto.quantity), 0)
         setValorTotal(valorTotal)
 
-        console.log(cart);
 
     }, [cart]);
 
@@ -160,6 +160,22 @@ interface ResumoCompraProps {
 }
 
 const ResumoCompra = ({ qtdTotal, setQtdTotal, valorTotal, setValorTotal }: ResumoCompraProps) => {
+
+    const cart = useContext(CartContext);
+    const pedido = useContext(PedidoContext);
+
+    const inserirPedido = () => {
+        console.log("dsdas");
+        pedido?.setCarrinhoCompras(cart?.produtos)
+        console.log(pedido);
+    }
+
+    useEffect(() => {
+        console.log(pedido);
+
+    }, [cart])
+
+
     return (
         <div className='ml-5 w-1/3 max-h-72 bg-customGrayTable flex flex-col justify-between '>
             <h2 className='text-2xl text-center mt-3'>Resumo da compra</h2>
@@ -170,7 +186,14 @@ const ResumoCompra = ({ qtdTotal, setQtdTotal, valorTotal, setValorTotal }: Resu
                     <span className='text-xl'>R$ {(valorTotal).toFixed(2)}</span>
                 </div>
                 <div className='flex justify-center'>
-                    <Link to="/escolha-endereco-entrega" className='mt-3 bg-[#2E2E2E] text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Continuar Pedido</Link>
+                    <Link
+                        // to="/escolha-endereco-entrega"
+                        to=""
+                        className='mt-3 bg-[#2E2E2E] text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'
+                        onClick={() => (inserirPedido())}
+                    >
+                        Continuar Pedido
+                    </Link>
                 </div>
             </div>
         </div>

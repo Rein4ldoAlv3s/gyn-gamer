@@ -4,8 +4,8 @@ import { Produto } from '../constants';
 import { CartContext } from '../contexts/CartContext';
 
 interface PedidoContextType {
-    carrinhoCompras: number | any;
-    setCarrinhoCompras: React.Dispatch<React.SetStateAction<number | any>>;
+    carrinhoCompras: string | any;
+    setCarrinhoCompras: React.Dispatch<React.SetStateAction<string | any>>;
 
     endereco: string | any;
     setEndereco: React.Dispatch<React.SetStateAction<string | any>>;
@@ -27,9 +27,8 @@ interface PedidoProviderProps {
 // Componente Provider para passar os valores para os children
 const PedidoProvider: React.FC<PedidoProviderProps> = ({ children }) => {
 
-    const cart = useContext(CartContext);
 
-    const [carrinhoCompras, setCarrinhoCompras] = useState<any>(cart);
+    const [carrinhoCompras, setCarrinhoCompras] = useState<string | any>();
     const [endereco, setEndereco] = useState<string | any>("");
     const [pagamento, setPagamento] = useState<string | any>("");
 

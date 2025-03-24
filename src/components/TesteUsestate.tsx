@@ -10,7 +10,7 @@ const TesteUsestate = () => {
 
     useEffect(() => {
         console.log(pedidoContext);
-    }, [pedidoContext])
+    }, [])
 
 
     return (
