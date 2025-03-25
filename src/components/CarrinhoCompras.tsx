@@ -166,8 +166,7 @@ const ResumoCompra = ({ qtdTotal, setQtdTotal, valorTotal, setValorTotal }: Resu
 
     const inserirPedido = () => {
         console.log("dsdas");
-        // pedido?.setCarrinhoCompras(cart?.produtos)
-        console.log(pedido);
+        pedido?.setCarrinhoCompras(cart?.produtos)
     }
 
     useEffect(() => {
