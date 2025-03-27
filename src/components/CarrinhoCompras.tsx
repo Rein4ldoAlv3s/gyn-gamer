@@ -165,14 +165,22 @@ const ResumoCompra = ({ qtdTotal, setQtdTotal, valorTotal, setValorTotal }: Resu
     const pedido = useContext(PedidoContext);
 
     const inserirPedido = () => {
-        console.log("dsdas");
-        cart?.produtos.map((prod: any) => pedido?.setCarrinhoCompras(prod))
-        console.log(pedido?.carrinhoCompras);
+        console.log("continuar pedido");
+        pedido?.setCarrinhoCompras((prev) => {
+            let carrinhoCompras = {
+                ...prev,
+                produtos: cart?.produtos,
+                qtdProduto: cart?.qtdProduto
+            }
+            return carrinhoCompras
+        })
+
     }
 
     useEffect(() => {
-
-    }, [cart])
+        console.log(pedido?.carrinhoCompras);
+        console.log("continuar pedido2");
+    }, [pedido])
 
 
     return (
