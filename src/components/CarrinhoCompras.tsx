@@ -170,7 +170,8 @@ const ResumoCompra = ({ qtdTotal, setQtdTotal, valorTotal, setValorTotal }: Resu
             let carrinhoCompras = {
                 ...prev,
                 produtos: cart?.produtos,
-                qtdProduto: cart?.qtdProduto
+                qtdTotalProdutos: qtdTotal,
+                precoTotalCompras: valorTotal
             }
             return carrinhoCompras
         })
@@ -178,7 +179,7 @@ const ResumoCompra = ({ qtdTotal, setQtdTotal, valorTotal, setValorTotal }: Resu
     }
 
     useEffect(() => {
-        console.log(pedido?.carrinhoCompras);
+        console.log(pedido);
         console.log("continuar pedido2");
     }, [pedido])
 
