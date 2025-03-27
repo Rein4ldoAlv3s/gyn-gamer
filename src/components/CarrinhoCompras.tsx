@@ -163,8 +163,10 @@ const ResumoCompra = ({ qtdTotal, setQtdTotal, valorTotal, setValorTotal }: Resu
 
     const cart = useContext(CartContext);
     const pedido = useContext(PedidoContext);
+    const navigate = useNavigate();
 
-    const inserirPedido = () => {
+    const inserirPedido = (e: any) => {
+        e.preventDefault();
         console.log("continuar pedido");
         pedido?.setCarrinhoCompras((prev) => {
             let carrinhoCompras = {
@@ -175,6 +177,8 @@ const ResumoCompra = ({ qtdTotal, setQtdTotal, valorTotal, setValorTotal }: Resu
             }
             return carrinhoCompras
         })
+
+        navigate("/escolha-endereco-entrega")
 
     }
 
@@ -194,14 +198,12 @@ const ResumoCompra = ({ qtdTotal, setQtdTotal, valorTotal, setValorTotal }: Resu
                     <span className='text-xl'>R$ {(valorTotal).toFixed(2)}</span>
                 </div>
                 <div className='flex justify-center'>
-                    <Link
-                        // to="/escolha-endereco-entrega"
-                        to=""
+                    <button
                         className='mt-3 bg-[#2E2E2E] text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'
-                        onClick={() => (inserirPedido())}
+                        onClick={(e) => (inserirPedido(e))}
                     >
                         Continuar Pedido
-                    </Link>
+                    </button>
                 </div>
             </div>
         </div>
