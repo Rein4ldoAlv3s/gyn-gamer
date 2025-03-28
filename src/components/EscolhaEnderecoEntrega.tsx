@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { IconButton } from '@mui/material';
 import { FaHome } from 'react-icons/fa';
@@ -10,14 +10,17 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import axios from 'axios';
+import { PedidoContext } from '../contexts/PedidoContext';
 
 
 const EscolhaEnderecoEntrega = () => {
 
     const id = 1;
     const idUser = localStorage.getItem("idUser");
-    const [enderecoData, setEnderecoData] = useState<any>(null);
+    const [enderecoData, setEnderecoData] = useState<any[]>([]);
     const [checkboxValue, setCheckboxValue] = useState<any>("");
+    const pedido = useContext(PedidoContext);
+
 
     const [open, setOpen] = useState(false);
 
@@ -45,6 +48,10 @@ const EscolhaEnderecoEntrega = () => {
         handleClose()
     }
 
+    const incluirEndereco = () => {
+        // enderecoData.find((endereco) => )
+    }
+
     useEffect(() => {
         if (idUser) {
             fetch('http://localhost:3000/users/' + idUser)
@@ -66,7 +73,7 @@ const EscolhaEnderecoEntrega = () => {
 
         console.log("checkboxValue: ");
         console.log(checkboxValue);
-    }, [])
+    }, [checkboxValue])
 
 
     return (
@@ -88,8 +95,8 @@ const EscolhaEnderecoEntrega = () => {
                                         type="radio"
                                         className="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-slate-300 checked:border-slate-400 transition-all"
                                         readOnly
-                                        value={index}
-                                        onChange={e => setCheckboxValue(e.target.value)}
+                                        value={endereco?.id}
+                                        onChange={e => (setCheckboxValue(e.target.value))}
                                     />
                                     <span className="absolute bg-white w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
                                 </label>
@@ -198,12 +205,18 @@ const EscolhaEnderecoEntrega = () => {
                     <div>
                         <Link to="/cart" className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Voltar</Link>
                     </div>
-                    {
-                        checkboxValue &&
-                        <div>
-                            <Link to="/escolha-pagamento" className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Próximo</Link>
-                        </div>
-                    }
+                    {/* { */}
+                    {/* checkboxValue && */}
+                    <div>
+                        <Link
+                            // to="/escolha-pagamento"
+                            to=""
+                            onClick={() => (incluirEndereco())}
+                            className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
+                            Próximo
+                        </Link>
+                    </div>
+                    {/* } */}
 
 
                 </div>
