@@ -53,7 +53,9 @@ const EscolhaEnderecoEntrega = () => {
             (endereco) => endereco.id === checkboxValue
         )
 
-        pedido?.setEndereco(enderecoEncontrado);
+        // pedido?.setEndereco(enderecoEncontrado);
+        console.log(checkboxValue);
+        console.log(enderecoEncontrado);
     }
 
     useEffect(() => {
