@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Countdown from 'react-countdown';
-import { BiCart } from 'react-icons/bi';
 import InputMask from 'react-input-mask';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { Produto, PRODUTOS } from '../constants';
-import { CartContext } from '../contexts/CartContext';
 import clockk from "../svg/svgviewer-output.svg";
 
 interface Cep {
@@ -34,10 +32,7 @@ const Produtos = () => {
     const [produto, setProduto] = useState<Produto>();
 
     const fimPromocao = Date.now() + 604800000;
-    const cart = useContext(CartContext);
-    const navigate = useNavigate();
 
-    const [teste, setTeste] = useState();
 
     useEffect(() => {
         console.log(state);
@@ -45,11 +40,6 @@ const Produtos = () => {
         setProduto(produto)
     }, [state]);
 
-    const [valor, setValor] = useState('');
-
-    const handleChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
-        setValor(e.target.value);
-    };
 
     const [cep, setCep] = useState();
 
@@ -106,18 +96,18 @@ const Produtos = () => {
         }).format(valor);
     }
 
-    const addCart = (): void => {
+    // const addCart = (): void => {
 
-        let itemEncontrado = cart?.produtos.find((e: any) => e.id === produto!.id)
+    //     let itemEncontrado = cart?.produtos.find((e: any) => e.id === produto!.id)
 
-        if (cart?.produtos.length === 0 || !itemEncontrado) {
-            cart?.produtos.push(produto)
-            console.log(cart?.produtos);
-        } else {
-            console.log("produto ja existe no carrinho!");
-        }
-        navigate("/cart")
-    }
+    //     if (cart?.produtos.length === 0 || !itemEncontrado) {
+    //         cart?.produtos.push(produto)
+    //         console.log(cart?.produtos);
+    //     } else {
+    //         console.log("produto ja existe no carrinho!");
+    //     }
+    //     navigate("/cart")
+    // }
 
     return (
         <div>
@@ -145,9 +135,9 @@ const Produtos = () => {
                     }
                     <div className='flex flex-col '>
                         <button className=' mt-3 bg-black text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Comprar</button>
-                        <button onClick={(e) => addCart()} className='mt-3 bg-black flex items-center justify-center text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
+                        {/* <button onClick={(e) => addCart()} className='mt-3 bg-black flex items-center justify-center text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
                             <BiCart size={30} className='mr-1 text-white ' /> Adicionar ao Carrinho
-                        </button>
+                        </button> */}
 
                     </div>
                     <div className='mt-5'>

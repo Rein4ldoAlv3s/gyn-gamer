@@ -15,7 +15,6 @@ import { PedidoContext } from '../contexts/PedidoContext';
 
 const EscolhaEnderecoEntrega = () => {
 
-    const id = 1;
     const idUser = localStorage.getItem("idUser");
     const [enderecoData, setEnderecoData] = useState<any[]>([]);
     const [checkboxValue, setCheckboxValue] = useState<any>("");

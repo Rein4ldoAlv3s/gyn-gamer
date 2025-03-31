@@ -19,7 +19,6 @@ const CarrinhoCompras = () => {
     // const [products, setProducts] = useState(initialProducts);
 
     const cart = useContext(CartContext);
-    const pedido = useContext(PedidoContext);
 
     //qtd somada de varios produtos (ex: 2 mouses + 1 teclado)
     const [qtdTotal, setQtdTotal] = useState(0);
@@ -158,7 +157,7 @@ interface ResumoCompraProps {
     setValorTotal: React.Dispatch<React.SetStateAction<number>>; // Tipo do setter do estado
 }
 
-const ResumoCompra = ({ qtdTotal, setQtdTotal, valorTotal, setValorTotal }: ResumoCompraProps) => {
+const ResumoCompra = ({ qtdTotal, valorTotal }: ResumoCompraProps) => {
 
     const cart = useContext(CartContext);
     const pedido = useContext(PedidoContext);
