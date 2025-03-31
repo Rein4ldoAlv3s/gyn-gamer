@@ -1,13 +1,11 @@
-import React, { useContext } from 'react'
-import { Link, redirect, useLocation, useNavigate, useParams } from 'react-router-dom'
-import { Produto, PRODUTOS } from '../constants'
-import { useState, useEffect } from 'react';
-import clockk from "../svg/svgviewer-output.svg";
+import React, { useContext, useEffect, useState } from 'react';
 import Countdown from 'react-countdown';
-import InputMask from 'react-input-mask';
-import { FaUserCircle } from 'react-icons/fa';
 import { BiCart } from 'react-icons/bi';
+import InputMask from 'react-input-mask';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Produto, PRODUTOS } from '../constants';
 import { CartContext } from '../contexts/CartContext';
+import clockk from "../svg/svgviewer-output.svg";
 
 interface Cep {
     abreviatura?: string;

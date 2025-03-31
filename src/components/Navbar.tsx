@@ -1,17 +1,16 @@
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { useContext, useEffect, useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom'
-import Select from "react-select";
-import { Produto, PRODUTOS } from '../constants'
-import { FaUserCircle } from 'react-icons/fa';
-import { AuthContext } from '../contexts/AuthContext';
-import { Flip, toast, ToastContainer } from 'react-toastify';
-import { BiCart } from 'react-icons/bi';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { IconButton } from '@mui/material';
-import { CartContext } from '../contexts/CartContext';
 import Badge, { badgeClasses } from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
+import { useContext, useEffect, useState } from 'react';
+import { FaUserCircle } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
+import Select from "react-select";
+import { toast } from 'react-toastify';
+import { PRODUTOS } from '../constants';
+import { AuthContext } from '../contexts/AuthContext';
+import { CartContext } from '../contexts/CartContext';
 
 
 

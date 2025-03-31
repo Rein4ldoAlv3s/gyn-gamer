@@ -1,7 +1,4 @@
-import React, { createContext, useState, ReactNode, useContext } from 'react';
-import Produtos from '../components/Produtos';
-import { Produto } from '../constants';
-import { CartContext } from '../contexts/CartContext';
+import React, { createContext, ReactNode, useState } from 'react';
 
 interface PedidoContextType {
     carrinhoCompras: any[];

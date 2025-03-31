@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import { Produto, PRODUTOS } from '../constants';
 import { Link } from 'react-router-dom';
+import { Produto, PRODUTOS } from '../constants';
 
 
 const Pcgamer = () => {

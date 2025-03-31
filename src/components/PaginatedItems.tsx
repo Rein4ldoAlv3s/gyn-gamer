@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import { Produto, PRODUTOS } from '../constants'
+import { Produto, PRODUTOS } from '../constants';
 
 // Example items, to simulate fetching from another resources.
 // const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];

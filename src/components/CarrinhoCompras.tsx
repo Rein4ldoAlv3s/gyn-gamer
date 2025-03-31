@@ -1,19 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
+import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
+import RemoveIcon from '@mui/icons-material/Remove';
 import {
+    IconButton,
     Table,
     TableBody,
     TableCell,
     TableContainer,
     TableHead,
-    TableRow,
-    Paper,
-    IconButton
+    TableRow
 } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
-import DeleteIcon from '@mui/icons-material/Delete';
-import { CartContext } from '../contexts/CartContext';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { CartContext } from '../contexts/CartContext';
 import { PedidoContext } from '../contexts/PedidoContext';
 
 const CarrinhoCompras = () => {

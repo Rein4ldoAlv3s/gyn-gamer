@@ -1,15 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { Button, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { IconButton } from '@mui/material';
-import { FaHome } from 'react-icons/fa';
-import { Button, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { Link } from 'react-router-dom';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
+import { FaHome } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { PedidoContext } from '../contexts/PedidoContext';
 
 

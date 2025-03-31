@@ -1,7 +1,6 @@
-import React from 'react'
-import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa'
-import { FaX } from 'react-icons/fa6'
-import { Flip, toast, ToastContainer } from 'react-toastify'
+import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaX } from 'react-icons/fa6';
+import { Flip, toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Footer = () => {

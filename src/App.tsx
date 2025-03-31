@@ -1,12 +1,12 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Navbar from "./components/Navbar"
-import Footer from './components/Footer';
-import { useContext, useEffect, useState } from 'react';
-import PrivateRoutes from './routes/private.routes';
-import { AuthContext } from './contexts/AuthContext';
-import PublicRoutes from './routes/public.routes';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme, CssBaseline } from '@mui/material';
+import { useContext } from 'react';
+import { BrowserRouter as Router, Routes } from 'react-router-dom';
+import Footer from './components/Footer';
+import Navbar from "./components/Navbar";
+import { AuthContext } from './contexts/AuthContext';
+import PrivateRoutes from './routes/private.routes';
+import PublicRoutes from './routes/public.routes';
 
 function App() {
 

@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import Select from "react-select";
+import { toast } from 'react-toastify';
 import { estados } from '../constants/estados';
 
 const CadastroEnderecoEntrega = () => {

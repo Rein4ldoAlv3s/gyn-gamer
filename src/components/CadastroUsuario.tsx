@@ -1,11 +1,7 @@
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { useEffect, useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom'
-import Select from "react-select";
-import { Produto, PRODUTOS } from '../constants'
-import e from 'cors';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 import InputMask from 'react-input-mask';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const CadastroUsuario = () => {

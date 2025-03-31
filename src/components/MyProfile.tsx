@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import { Button, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { IconButton } from '@mui/material';
-import { FaHome, FaUserCircle } from 'react-icons/fa';
-import { Button, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { FaHome, FaUserCircle } from 'react-icons/fa';
 import { IoAdd } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 
 
 const MyProfile = () => {

@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { Produto, PRODUTOS } from '../constants';
+import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { Link } from 'react-router-dom';
+import { Produto, PRODUTOS } from '../constants';
 
 const Notebooks = () => {
     return (
