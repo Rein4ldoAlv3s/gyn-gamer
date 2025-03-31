@@ -18,7 +18,7 @@ const MyProfile = () => {
     const idUser = localStorage.getItem("idUser");
     const [userData, setUserData] = useState<any>(null);
     const [enderecoData, setEnderecoData] = useState<any>(null);
-    const [isOpenDialog, setIsOpenDialog] = useState<boolean>(false)
+    const [isOpenDialog] = useState<boolean>(false)
 
     const [open, setOpen] = React.useState(false);
 
