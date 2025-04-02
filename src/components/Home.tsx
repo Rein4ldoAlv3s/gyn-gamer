@@ -34,7 +34,7 @@ function Produtos({ currentProdutos }: { currentProdutos: Produto[] }) {
 
     return (
         <div>
-            <div className="grid grid-cols-4 gap-4 py-5 ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 py-5 ">
                 {currentProdutos.map((prod, index) => (
                     <Link key={index} to={`/produtos/${prod.id}`}>
                         <div className="flex justify-center flex-col items-center border-2 rounded-md border-gray-400 hover:scale-105 transition-transform duration-300" key={index}>
