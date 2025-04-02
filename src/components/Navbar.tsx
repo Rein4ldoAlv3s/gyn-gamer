@@ -71,7 +71,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <header className="grid grid-cols-3 px-2 py-4 bg-black">
+      <header className="grid lg:grid-cols-3 px-2 py-4 bg-black">
         <div>
           <Link to="/">
             <h1 className="text-red-600 font-bold text-2xl select-none">Gyn Gamer</h1>
