@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Countdown from 'react-countdown';
+import { BiCart } from 'react-icons/bi';
 import InputMask from 'react-input-mask';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Produto, PRODUTOS } from '../constants';
+import { CartContext } from '../contexts/CartContext';
 import clockk from "../svg/svgviewer-output.svg";
+
 
 interface Cep {
     abreviatura?: string;
@@ -23,6 +26,7 @@ interface Cep {
 const Produtos = () => {
 
     const location = useLocation();
+    const navigate = useNavigate();
     const state = location.state || {}; //evita erros se for undefined
 
     const { id } = useParams();
@@ -44,6 +48,8 @@ const Produtos = () => {
     const [cep, setCep] = useState();
 
     const [dadosCep, setDadosCep] = useState<Cep>();
+    const cart = useContext(CartContext);
+
 
     useEffect(() => {
         if (dadosCep) {
@@ -96,18 +102,18 @@ const Produtos = () => {
         }).format(valor);
     }
 
-    // const addCart = (): void => {
+    const addCart = (): void => {
 
-    //     let itemEncontrado = cart?.produtos.find((e: any) => e.id === produto!.id)
+        let itemEncontrado = cart?.produtos.find((e: any) => e.id === produto!.id)
 
-    //     if (cart?.produtos.length === 0 || !itemEncontrado) {
-    //         cart?.produtos.push(produto)
-    //         console.log(cart?.produtos);
-    //     } else {
-    //         console.log("produto ja existe no carrinho!");
-    //     }
-    //     navigate("/cart")
-    // }
+        if (cart?.produtos.length === 0 || !itemEncontrado) {
+            cart?.produtos.push(produto)
+            console.log(cart?.produtos);
+        } else {
+            console.log("produto ja existe no carrinho!");
+        }
+        navigate("/cart")
+    }
 
     return (
         <div>
@@ -135,9 +141,9 @@ const Produtos = () => {
                     }
                     <div className='flex flex-col '>
                         <button className=' mt-3 bg-black text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Comprar</button>
-                        {/* <button onClick={(e) => addCart()} className='mt-3 bg-black flex items-center justify-center text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
+                        <button onClick={(e) => addCart()} className='mt-3 bg-black flex items-center justify-center text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
                             <BiCart size={30} className='mr-1 text-white ' /> Adicionar ao Carrinho
-                        </button> */}
+                        </button>
 
                     </div>
                     <div className='mt-5'>
