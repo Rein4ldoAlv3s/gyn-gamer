@@ -17,7 +17,7 @@ const EscolhaEnderecoEntrega = () => {
 
     const idUser = localStorage.getItem("idUser");
     const [enderecoData, setEnderecoData] = useState<any[]>([]);
-    const [checkboxValue, setCheckboxValue] = useState<any>("");
+    const [checkboxValue, setCheckboxValue] = useState<number>(0);
     const pedido = useContext(PedidoContext);
 
 
@@ -52,9 +52,7 @@ const EscolhaEnderecoEntrega = () => {
             (endereco) => endereco.id === checkboxValue
         )
 
-        // pedido?.setEndereco(enderecoEncontrado);
-        console.log(checkboxValue);
-        console.log(enderecoEncontrado);
+        pedido?.setEndereco(enderecoEncontrado);
     }
 
     useEffect(() => {
@@ -76,7 +74,8 @@ const EscolhaEnderecoEntrega = () => {
                 });
         }
 
-        console.log(pedido?.endereco);
+        console.log(pedido);
+
     }, [pedido])
 
 
@@ -100,7 +99,7 @@ const EscolhaEnderecoEntrega = () => {
                                         className="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-slate-300 checked:border-slate-400 transition-all"
                                         readOnly
                                         value={endereco?.id}
-                                        onChange={e => (setCheckboxValue(e.target.value))}
+                                        onChange={e => (setCheckboxValue(Number(e.target.value)))}
                                     />
                                     <span className="absolute bg-white w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
                                 </label>
