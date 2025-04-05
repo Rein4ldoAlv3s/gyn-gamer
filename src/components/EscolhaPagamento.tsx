@@ -1,16 +1,31 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { PedidoContext } from '../contexts/PedidoContext';
 
 const EscolhaPagamento = () => {
 
 
-    const [checkboxValue, setCheckboxValue] = useState<any>(0);
+    const [checkboxValue, setCheckboxValue] = useState<number>(0);
+    const pedido = useContext(PedidoContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         console.log(checkboxValue);
+        console.log(pedido);
 
+    }, [pedido])
 
-    }, [checkboxValue])
+    const escolherPagamento = (e: any) => {
+        e.preventDefault();
+        if (checkboxValue === 1) {
+            pedido?.setPagamento("Pix")
+        }
+        else if (checkboxValue === 2) {
+            pedido?.setPagamento("Boleto")
+        }
+        navigate(`/pagamento-escolhido/${checkboxValue}`)
+    }
 
 
     return (
@@ -32,7 +47,7 @@ const EscolhaPagamento = () => {
                                 value={1}
                                 className="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-slate-300 checked:border-slate-400 transition-all"
                                 readOnly
-                                onChange={e => setCheckboxValue(e.target.value)}
+                                onChange={e => setCheckboxValue(Number(e.target.value))}
                             />
                             <span className="absolute bg-white w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
 
@@ -64,7 +79,7 @@ const EscolhaPagamento = () => {
                                 value={2}
                                 className="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-slate-300 checked:border-slate-400 transition-all"
                                 readOnly
-                                onChange={e => setCheckboxValue(e.target.value)}
+                                onChange={e => setCheckboxValue(Number(e.target.value))}
                             />
                             <span className="absolute bg-white w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
 
@@ -94,7 +109,12 @@ const EscolhaPagamento = () => {
 
                     {checkboxValue !== 0 &&
                         <div>
-                            <Link to={`/pagamento-escolhido/${checkboxValue}`} className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Próximo</Link>
+                            <Link
+                                to=""
+                                onClick={(e) => escolherPagamento(e)}
+                                className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
+                                Próximo
+                            </Link>
                         </div>
                     }
                 </div>

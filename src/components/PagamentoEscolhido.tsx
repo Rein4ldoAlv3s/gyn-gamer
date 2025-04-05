@@ -4,8 +4,9 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { PedidoContext } from '../contexts/PedidoContext';
 
 
 type ButtonAtrib = {
@@ -17,6 +18,7 @@ type ButtonAtrib = {
 const PagamentoEscolhido = () => {
 
     const { id } = useParams();
+    const pedido = useContext(PedidoContext);
 
     const [buttonAtrib, setButtonAtrib] = useState<ButtonAtrib>({
         color: "bg-black",
@@ -63,10 +65,7 @@ const PagamentoEscolhido = () => {
 
 
     useEffect(() => {
-        //   if(buttonAtrib === 0){
-
-        //   }
-
+        console.log(pedido);
 
     }, [buttonAtrib])
 

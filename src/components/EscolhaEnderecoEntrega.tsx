@@ -9,7 +9,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { FaHome } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { PedidoContext } from '../contexts/PedidoContext';
 
 
@@ -19,6 +19,7 @@ const EscolhaEnderecoEntrega = () => {
     const [enderecoData, setEnderecoData] = useState<any[]>([]);
     const [checkboxValue, setCheckboxValue] = useState<number>(0);
     const pedido = useContext(PedidoContext);
+    const navigate = useNavigate();
 
 
     const [open, setOpen] = useState(false);
@@ -47,12 +48,15 @@ const EscolhaEnderecoEntrega = () => {
         handleClose()
     }
 
-    const incluirEndereco = () => {
+    const incluirEndereco = (e: any) => {
+        e.preventDefault();
         const enderecoEncontrado = enderecoData.find(
             (endereco) => endereco.id === checkboxValue
         )
 
         pedido?.setEndereco(enderecoEncontrado);
+        navigate("/escolha-pagamento")
+
     }
 
     useEffect(() => {
@@ -212,9 +216,9 @@ const EscolhaEnderecoEntrega = () => {
                     {/* checkboxValue && */}
                     <div>
                         <Link
-                            // to="/escolha-pagamento"
+
                             to=""
-                            onClick={() => (incluirEndereco())}
+                            onClick={(e) => (incluirEndereco(e))}
                             className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
                             Próximo
                         </Link>
