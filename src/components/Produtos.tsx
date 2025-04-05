@@ -141,7 +141,7 @@ const Produtos = () => {
                     }
                     <div className='flex flex-col '>
                         <button className=' mt-3 bg-black text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Comprar</button>
-                        <button onClick={(e) => addCart()} className='mt-3 bg-black flex items-center justify-center text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
+                        <button onClick={() => addCart()} className='mt-3 bg-black flex items-center justify-center text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
                             <BiCart size={30} className='mr-1 text-white ' /> Adicionar ao Carrinho
                         </button>
 
