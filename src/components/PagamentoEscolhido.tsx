@@ -7,7 +7,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { PedidoContext } from '../contexts/PedidoContext';
-
+import { toast } from 'react-toastify';
 
 type ButtonAtrib = {
     color: string;
@@ -63,6 +63,16 @@ const PagamentoEscolhido = () => {
 
     const navigate = useNavigate();
 
+    const concluirPedido = () => {
+        toast.success("Pedido concluido!");
+
+        //atrasar redirecionamento
+        setTimeout(() => {
+            navigate("/detalhe-pedido")
+        }, 1500); // Atraso de 2 segundos (2000 ms)
+
+
+    }
 
     useEffect(() => {
         console.log(pedido);
@@ -136,7 +146,7 @@ const PagamentoEscolhido = () => {
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={handleClose}>Não</Button>
-                        <Button onClick={() => navigate("/detalhe-pedido")} autoFocus>
+                        <Button onClick={() => concluirPedido()} autoFocus>
                             Sim
                         </Button>
                     </DialogActions>
