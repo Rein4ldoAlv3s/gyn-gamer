@@ -64,6 +64,9 @@ const PagamentoEscolhido = () => {
     const navigate = useNavigate();
 
     const concluirPedido = () => {
+        //define a data e o horário que o pedido foi realizado
+        pedido?.setDataPedido(Date.now)
+
         toast.success("Pedido concluido!");
 
         //atrasar redirecionamento

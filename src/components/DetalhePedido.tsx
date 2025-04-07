@@ -1,6 +1,17 @@
+import { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { PedidoContext } from '../contexts/PedidoContext';
 
 const DetalhePedido = () => {
+
+    const pedido = useContext(PedidoContext);
+
+    useEffect(() => {
+        console.log(pedido);
+
+    }, [pedido])
+
+
     return (
         <div>
             <h1 className="flex justify-start text-3xl font-bold text-customWhite ">
