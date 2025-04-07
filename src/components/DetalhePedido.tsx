@@ -53,7 +53,7 @@ const DetalhePedido = () => {
                             <div className='flex flex-col w-4/5'>
                                 <span className='text-orange-400 fe'>Aguardando Pagamento</span>
 
-                                <span className='mt-1'>Pedido feito em 13/03/2025</span>
+                                <span className='mt-1'>Pedido solicitado em 13/03/2025 às 12:15</span>
 
                                 <span className='mt-1 text-lg'>Prévisão de entrega após o pagamento</span>
 

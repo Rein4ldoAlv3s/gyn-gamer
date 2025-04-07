@@ -11,6 +11,9 @@ interface PedidoContextType {
     setPagamento: React.Dispatch<React.SetStateAction<string | any>>;
 
     // criar context oara pedido
+    dataPedido: number | any;
+    setDataPedido: React.Dispatch<React.SetStateAction<number | any>>;
+
 }
 
 // Crie o Contexto com um valor padrão inicial (opcionalmente undefined)
@@ -28,10 +31,11 @@ const PedidoProvider: React.FC<PedidoProviderProps> = ({ children }) => {
     const [carrinhoCompras, setCarrinhoCompras] = useState<any[]>([]);
     const [endereco, setEndereco] = useState<string | any>("");
     const [pagamento, setPagamento] = useState<string | any>("");
+    const [dataPedido, setDataPedido] = useState<number | any>(0);
 
 
     return (
-        <PedidoContext.Provider value={{ carrinhoCompras, setCarrinhoCompras, endereco, setEndereco, pagamento, setPagamento }}>
+        <PedidoContext.Provider value={{ carrinhoCompras, setCarrinhoCompras, endereco, setEndereco, pagamento, setPagamento, dataPedido, setDataPedido }}>
             {children}
         </PedidoContext.Provider>
     );
