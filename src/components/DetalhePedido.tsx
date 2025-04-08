@@ -7,7 +7,8 @@ const DetalhePedido = () => {
     const pedido = useContext(PedidoContext);
 
     useEffect(() => {
-        console.log(pedido);
+        const dataFormatada = new Date(pedido?.dataPedido)
+        console.log(dataFormatada);
 
     }, [pedido])
 
