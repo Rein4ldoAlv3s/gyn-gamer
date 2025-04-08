@@ -3,27 +3,27 @@ import { PedidoContext } from '../contexts/PedidoContext'
 
 const TesteUsestate = () => {
 
-    const [dataTeste, setDataTeste] = useState(Date.now);
-    const pedido = useContext(PedidoContext);
+    const [dataTeste, setDataTeste] = useState(Date.now)
+
+    const converterData = () => {
+        const formatter = new Intl.DateTimeFormat('pt-BR', {
+            dateStyle: 'full',
+            timeStyle: 'short',
+        });
+
+        const dataConvertida = formatter.format(new Date(dataTeste))
+
+        console.log(dataConvertida);
+    }
 
     useEffect(() => {
-        console.log(pedido);
     }, [])
 
 
     return (
         <div>
-            <div>
-                <h1 className='text-white'>
-                    {
-                        Intl.DateTimeFormat('pt-BR', {
-                            dateStyle: 'long',
-                            timeStyle: 'short'
-                        }).format(dataTeste)
-                    }
-
-
-                </h1>
+            <div className='text-white'>
+                <button onClick={converterData}>Click</button>
             </div>
         </div>
 
