@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import { PedidoContext } from '../contexts/PedidoContext'
+import { PedidosContext } from '../contexts/PedidosContext'
 
 const TesteUsestate = () => {
 
@@ -16,8 +17,14 @@ const TesteUsestate = () => {
         console.log(dataConvertida);
     }
 
+    const pedidos = useContext(PedidosContext);
+    const pedido = useContext(PedidoContext);
+
     useEffect(() => {
-    }, [])
+
+        console.log(pedidos);
+        console.log(pedido);
+    }, [pedidos])
 
 
     return (

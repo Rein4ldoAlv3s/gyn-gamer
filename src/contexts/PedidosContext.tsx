@@ -1,6 +1,5 @@
 import React, { createContext, ReactNode, useState } from 'react';
 
-//context que possui uma lista de pedidos confirmados
 interface PedidoContextType {
     carrinhoCompras: any[];
     setCarrinhoCompras: React.Dispatch<React.SetStateAction<any[]>>;
@@ -18,15 +17,15 @@ interface PedidoContextType {
 }
 
 // Crie o Contexto com um valor padrão inicial (opcionalmente undefined)
-export const PedidoContext = createContext<PedidoContextType | undefined>(undefined);
+export const PedidosContext = createContext<PedidoContextType[] | undefined>(undefined);
 
 // Interface para os props do PedidoProvider
-interface PedidoProviderProps {
+interface PedidosProviderProps {
     children: ReactNode; // Define o tipo de children
 }
 
 // Componente Provider para passar os valores para os children
-const PedidoProvider: React.FC<PedidoProviderProps> = ({ children }) => {
+const PedidosProvider: React.FC<PedidosProviderProps> = ({ children }) => {
 
 
     const [carrinhoCompras, setCarrinhoCompras] = useState<any[]>([]);
@@ -36,10 +35,10 @@ const PedidoProvider: React.FC<PedidoProviderProps> = ({ children }) => {
 
 
     return (
-        <PedidoContext.Provider value={{ carrinhoCompras, setCarrinhoCompras, endereco, setEndereco, pagamento, setPagamento, dataPedido, setDataPedido }}>
+        <PedidosContext.Provider value={[{ carrinhoCompras, setCarrinhoCompras, endereco, setEndereco, pagamento, setPagamento, dataPedido, setDataPedido }]}>
             {children}
-        </PedidoContext.Provider>
+        </PedidosContext.Provider>
     );
 };
 
-export default PedidoProvider;
+export default PedidosProvider;

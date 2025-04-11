@@ -8,6 +8,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { PedidoContext } from '../contexts/PedidoContext';
 import { toast } from 'react-toastify';
+import { PedidosContext } from '../contexts/PedidosContext';
 
 type ButtonAtrib = {
     color: string;
@@ -19,6 +20,7 @@ const PagamentoEscolhido = () => {
 
     const { id } = useParams();
     const pedido = useContext(PedidoContext);
+    const pedidos = useContext(PedidosContext);
 
     const [buttonAtrib, setButtonAtrib] = useState<ButtonAtrib>({
         color: "bg-black",
@@ -66,6 +68,9 @@ const PagamentoEscolhido = () => {
     const concluirPedido = () => {
         //define a data e o horário que o pedido foi realizado
         pedido?.setDataPedido(Date.now)
+
+        //coloca o objeto Pedido no array Pedidos
+        pedidos?.push(pedido)
 
         toast.success("Pedido concluido!");
 

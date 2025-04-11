@@ -9,16 +9,19 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import CartProvider from './contexts/CartContext.tsx'
 import PedidoProvider from './contexts/PedidoContext.tsx'
+import PedidosProvider from './contexts/PedidosContext.tsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <AuthProvider>
-      <PedidoProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-      </PedidoProvider>
+      <PedidosProvider>
+        <PedidoProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </PedidoProvider>
+      </PedidosProvider>
     </AuthProvider>
   </React.StrictMode>,
 )
