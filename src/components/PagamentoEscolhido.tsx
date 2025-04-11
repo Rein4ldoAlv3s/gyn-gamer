@@ -112,7 +112,7 @@ const PagamentoEscolhido = () => {
                     <div>
                         <h1>Pagamento por Boleto</h1>
                         <img
-                            src="https://scontent.fudi1-1.fna.fbcdn.net/v/t1.6435-9/69608029_1367304000095537_8154214927234498560_n.png?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHFcL-Tprz8tkXnGb-CIWIillfOJOwZAW-WV84k7BkBbxAc6wVVpzYk0MPBESBe586o-ZjKLTo8vzP_XnGchqMz&_nc_ohc=il2slloa1T4Q7kNvgHGIR3w&_nc_oc=AdiMULsJ0HheKGZ7Qm8zjlHJ62OtrMSu285kXUTMoGOAmwGRCZ_mB9Ys_eT3aqiDiB0&_nc_zt=23&_nc_ht=scontent.fudi1-1.fna&_nc_gid=AjBHuZeCCOP8qgWfI3NNE5A&oh=00_AYGvrmAfOoKiH7ERIKgmNK6rNK45kNTSwNQkpqTC3plD9Q&oe=67F79857"
+                            src="/boletobancario.jpg"
                             alt=""
                             className='mt-3'
                         />
