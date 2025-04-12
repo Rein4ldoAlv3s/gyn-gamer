@@ -70,7 +70,6 @@ const PagamentoEscolhido = () => {
         pedido?.setDataPedido(Date.now)
 
         //coloca o objeto Pedido no array Pedidos
-
         if (pedido) {
             pedidos?.setPedidos(prev => [...prev, pedido]);
         }
@@ -87,7 +86,6 @@ const PagamentoEscolhido = () => {
     }
 
     useEffect(() => {
-        console.log(pedido);
     }, [buttonAtrib])
 
 

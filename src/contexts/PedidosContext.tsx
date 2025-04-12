@@ -10,7 +10,7 @@ interface Pedido {
     pagamento: string | any;
     setPagamento: React.Dispatch<React.SetStateAction<string | any>>;
 
-    // criar context oara pedido
+    // criar context para pedido
     dataPedido: number | any;
     setDataPedido: React.Dispatch<React.SetStateAction<number | any>>;
 }
@@ -32,12 +32,6 @@ interface PedidosProviderProps {
 const PedidosProvider: React.FC<PedidosProviderProps> = ({ children }) => {
 
     const [pedidos, setPedidos] = useState<Pedido[]>([])
-
-    // const [carrinhoCompras, setCarrinhoCompras] = useState<any[]>([]);
-    // const [endereco, setEndereco] = useState<string | any>("");
-    // const [pagamento, setPagamento] = useState<string | any>("");
-    // const [dataPedido, setDataPedido] = useState<number | any>(0);
-
 
     return (
         <PedidosContext.Provider value={{ pedidos, setPedidos }}>

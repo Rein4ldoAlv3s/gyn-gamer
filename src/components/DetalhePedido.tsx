@@ -9,6 +9,7 @@ const DetalhePedido = () => {
     const pedidos = useContext(PedidosContext);
 
     useEffect(() => {
+        console.log(pedido);
         console.log(pedidos);
 
     }, [pedido])
