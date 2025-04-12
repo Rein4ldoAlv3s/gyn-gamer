@@ -70,7 +70,11 @@ const PagamentoEscolhido = () => {
         pedido?.setDataPedido(Date.now)
 
         //coloca o objeto Pedido no array Pedidos
-        pedidos?.push(pedido)
+
+        if (pedido) {
+            pedidos?.setPedidos(prev => [...prev, pedido]);
+        }
+
 
         toast.success("Pedido concluido!");
 
@@ -84,7 +88,6 @@ const PagamentoEscolhido = () => {
 
     useEffect(() => {
         console.log(pedido);
-
     }, [buttonAtrib])
 
 

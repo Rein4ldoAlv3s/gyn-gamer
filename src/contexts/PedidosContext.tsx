@@ -1,6 +1,6 @@
 import React, { createContext, ReactNode, useState } from 'react';
 
-interface PedidoContextType {
+interface Pedido {
     carrinhoCompras: any[];
     setCarrinhoCompras: React.Dispatch<React.SetStateAction<any[]>>;
 
@@ -13,11 +13,15 @@ interface PedidoContextType {
     // criar context oara pedido
     dataPedido: number | any;
     setDataPedido: React.Dispatch<React.SetStateAction<number | any>>;
+}
 
+interface PedidoContextType {
+    pedidos: Pedido[];
+    setPedidos: React.Dispatch<React.SetStateAction<Pedido[]>>;
 }
 
 // Crie o Contexto com um valor padrão inicial (opcionalmente undefined)
-export const PedidosContext = createContext<PedidoContextType[] | undefined>(undefined);
+export const PedidosContext = createContext<PedidoContextType | undefined>(undefined);
 
 // Interface para os props do PedidoProvider
 interface PedidosProviderProps {
@@ -27,15 +31,16 @@ interface PedidosProviderProps {
 // Componente Provider para passar os valores para os children
 const PedidosProvider: React.FC<PedidosProviderProps> = ({ children }) => {
 
+    const [pedidos, setPedidos] = useState<Pedido[]>([])
 
-    const [carrinhoCompras, setCarrinhoCompras] = useState<any[]>([]);
-    const [endereco, setEndereco] = useState<string | any>("");
-    const [pagamento, setPagamento] = useState<string | any>("");
-    const [dataPedido, setDataPedido] = useState<number | any>(0);
+    // const [carrinhoCompras, setCarrinhoCompras] = useState<any[]>([]);
+    // const [endereco, setEndereco] = useState<string | any>("");
+    // const [pagamento, setPagamento] = useState<string | any>("");
+    // const [dataPedido, setDataPedido] = useState<number | any>(0);
 
 
     return (
-        <PedidosContext.Provider value={[{ carrinhoCompras, setCarrinhoCompras, endereco, setEndereco, pagamento, setPagamento, dataPedido, setDataPedido }]}>
+        <PedidosContext.Provider value={{ pedidos, setPedidos }}>
             {children}
         </PedidosContext.Provider>
     );

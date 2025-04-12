@@ -1,14 +1,15 @@
 import { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { PedidoContext } from '../contexts/PedidoContext';
+import { PedidosContext } from '../contexts/PedidosContext';
 
 const DetalhePedido = () => {
 
     const pedido = useContext(PedidoContext);
+    const pedidos = useContext(PedidosContext);
 
     useEffect(() => {
-        const dataFormatada = new Date(pedido?.dataPedido)
-        console.log(dataFormatada);
+        console.log(pedidos);
 
     }, [pedido])
 
