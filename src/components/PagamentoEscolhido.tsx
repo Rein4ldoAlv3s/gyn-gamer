@@ -20,7 +20,7 @@ const PagamentoEscolhido = () => {
 
     const { id } = useParams();
     const pedido = useContext(PedidoContext);
-    const pedidos = useContext(PedidosContext);
+    const contextPedidos = useContext(PedidosContext);
 
     const [buttonAtrib, setButtonAtrib] = useState<ButtonAtrib>({
         color: "bg-black",
@@ -56,6 +56,7 @@ const PagamentoEscolhido = () => {
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
+        pedido?.setDataPedido(Date.now)
         setOpen(true);
     };
 
@@ -67,11 +68,11 @@ const PagamentoEscolhido = () => {
 
     const concluirPedido = () => {
         //define a data e o horário que o pedido foi realizado
-        pedido?.setDataPedido(Date.now)
+
 
         //coloca o objeto Pedido no array Pedidos
         if (pedido) {
-            pedidos?.setPedidos(prev => [...prev, pedido]);
+            contextPedidos?.setPedidos(prev => [...prev, pedido]);
         }
 
 

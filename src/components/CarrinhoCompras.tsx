@@ -14,6 +14,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
 import { PedidoContext } from '../contexts/PedidoContext';
+import { PedidosContext } from '../contexts/PedidosContext';
 
 const CarrinhoCompras = () => {
     // const [products, setProducts] = useState(initialProducts);
@@ -161,6 +162,7 @@ const ResumoCompra = ({ qtdTotal, valorTotal }: ResumoCompraProps) => {
 
     const cart = useContext(CartContext);
     const pedido = useContext(PedidoContext);
+    const pedidos = useContext(PedidosContext);
     const navigate = useNavigate();
 
     const inserirPedido = (e: any) => {
@@ -182,6 +184,7 @@ const ResumoCompra = ({ qtdTotal, valorTotal }: ResumoCompraProps) => {
 
     useEffect(() => {
         console.log(pedido);
+        console.log(pedidos);
 
         //converte timestamp em formatado legivel para debug
         // console.log(new Date(pedido?.dataPedido));
