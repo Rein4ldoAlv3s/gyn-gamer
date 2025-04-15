@@ -42,7 +42,7 @@ const PublicRoutes = () => {
             <Route path="/escolha-endereco-entrega" element={<EscolhaEnderecoEntrega />} />
             <Route path="/escolha-pagamento" element={<EscolhaPagamento />} />
             <Route path="/pagamento-escolhido/:id" element={<PagamentoEscolhido />} />
-            <Route path="/detalhe-pedido" element={<DetalhePedido />} />
+            <Route path="/detalhe-pedido/:id" element={<DetalhePedido />} />
             <Route path="/meus-pedidos" element={<MeusPedidos />} />
         </>
     )
