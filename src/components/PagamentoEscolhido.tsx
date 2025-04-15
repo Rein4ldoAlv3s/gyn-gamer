@@ -9,6 +9,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { PedidoContext } from '../contexts/PedidoContext';
 import { toast } from 'react-toastify';
 import { PedidosContext } from '../contexts/PedidosContext';
+import { v4 as uuidv4 } from 'uuid';
+
 
 type ButtonAtrib = {
     color: string;
@@ -57,6 +59,7 @@ const PagamentoEscolhido = () => {
 
     const handleClickOpen = () => {
         pedido?.setDataPedido(Date.now)
+        pedido?.setIdPedido(uuidv4())
         setOpen(true);
     };
 

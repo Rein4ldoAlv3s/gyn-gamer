@@ -1,6 +1,9 @@
 import React, { createContext, ReactNode, useState } from 'react';
 
 interface PedidoContextType {
+    idPedido: string;
+    setIdPedido: React.Dispatch<React.SetStateAction<string>>;
+
     carrinhoCompras: any[];
     setCarrinhoCompras: React.Dispatch<React.SetStateAction<any[]>>;
 
@@ -32,10 +35,11 @@ const PedidoProvider: React.FC<PedidoProviderProps> = ({ children }) => {
     const [endereco, setEndereco] = useState<string | any>("");
     const [pagamento, setPagamento] = useState<string | any>("");
     const [dataPedido, setDataPedido] = useState<number | any>(0);
+    const [idPedido, setIdPedido] = useState<string | any>("");
 
 
     return (
-        <PedidoContext.Provider value={{ carrinhoCompras, setCarrinhoCompras, endereco, setEndereco, pagamento, setPagamento, dataPedido, setDataPedido }}>
+        <PedidoContext.Provider value={{ carrinhoCompras, setCarrinhoCompras, endereco, setEndereco, pagamento, setPagamento, dataPedido, setDataPedido, idPedido, setIdPedido }}>
             {children}
         </PedidoContext.Provider>
     );
