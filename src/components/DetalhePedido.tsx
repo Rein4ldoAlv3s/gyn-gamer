@@ -6,12 +6,16 @@ import { PedidosContext } from '../contexts/PedidosContext';
 const DetalhePedido = () => {
 
     const pedido = useContext(PedidoContext);
+    const contextPedidos = useContext(PedidosContext);
+
     const { id } = useParams();
     const idNumero = Number(id);
 
     useEffect(() => {
-        console.log(pedido);
         console.log(idNumero);
+
+        const pedidoObj = contextPedidos?.pedidos.find(obj => obj.idPedido === idNumero)
+
     }, [pedido])
 
 

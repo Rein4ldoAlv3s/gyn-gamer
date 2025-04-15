@@ -1,6 +1,9 @@
 import React, { createContext, ReactNode, useState } from 'react';
 
 interface Pedido {
+    idPedido: number;
+    setIdPedido: React.Dispatch<React.SetStateAction<number>>;
+
     carrinhoCompras: any[];
     setCarrinhoCompras: React.Dispatch<React.SetStateAction<any[]>>;
 
