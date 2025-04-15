@@ -1,24 +1,24 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { PedidoContext } from '../contexts/PedidoContext';
 import { PedidosContext } from '../contexts/PedidosContext';
+import { Pedido } from './type/Pedido';
 
 const DetalhePedido = () => {
 
-    const pedido = useContext(PedidoContext);
     const contextPedidos = useContext(PedidosContext);
 
     const { id } = useParams();
+    const [pedido, setPedido] = useState<Pedido>();
 
     useEffect(() => {
         console.log(id);
 
+        // busca o pedido pelo id
         const pedidoObj = contextPedidos?.pedidos.find(obj => obj.idPedido === id)
+        setPedido(pedidoObj);
 
-        console.log("pedidoobjdasdas");
-        console.log(pedidoObj);
-
-    }, [pedido])
+    }, [contextPedidos])
 
 
     return (
