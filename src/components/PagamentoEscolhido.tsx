@@ -83,7 +83,7 @@ const PagamentoEscolhido = () => {
 
         //atrasar redirecionamento
         setTimeout(() => {
-            navigate("/detalhe-pedido")
+            navigate("/detalhe-pedido/" + pedido?.idPedido);
         }, 1500); // Atraso de 2 segundos (2000 ms)
 
 

@@ -9,12 +9,14 @@ const DetalhePedido = () => {
     const contextPedidos = useContext(PedidosContext);
 
     const { id } = useParams();
-    const idNumero = Number(id);
 
     useEffect(() => {
-        console.log(idNumero);
+        console.log(id);
 
-        const pedidoObj = contextPedidos?.pedidos.find(obj => obj.idPedido === idNumero)
+        const pedidoObj = contextPedidos?.pedidos.find(obj => obj.idPedido === id)
+
+        console.log("pedidoobjdasdas");
+        console.log(pedidoObj);
 
     }, [pedido])
 
