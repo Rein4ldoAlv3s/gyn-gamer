@@ -1,17 +1,17 @@
 import { useContext, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { PedidoContext } from '../contexts/PedidoContext';
 import { PedidosContext } from '../contexts/PedidosContext';
 
 const DetalhePedido = () => {
 
     const pedido = useContext(PedidoContext);
-    const pedidos = useContext(PedidosContext);
+    const { id } = useParams();
+    const idNumero = Number(id);
 
     useEffect(() => {
         console.log(pedido);
-        console.log(pedidos);
-
+        console.log(idNumero);
     }, [pedido])
 
 
