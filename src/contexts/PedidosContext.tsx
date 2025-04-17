@@ -4,8 +4,8 @@ interface Pedido {
     idPedido: string;
     setIdPedido: React.Dispatch<React.SetStateAction<string>>;
 
-    carrinhoCompras: any[];
-    setCarrinhoCompras: React.Dispatch<React.SetStateAction<any[]>>;
+    carrinhoCompras: any;
+    setCarrinhoCompras: React.Dispatch<React.SetStateAction<any>>;
 
     endereco: string | any;
     setEndereco: React.Dispatch<React.SetStateAction<string | any>>;
