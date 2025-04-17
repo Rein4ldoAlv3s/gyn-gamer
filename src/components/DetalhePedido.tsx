@@ -11,6 +11,19 @@ const DetalhePedido = () => {
     const { id } = useParams();
     const [pedido, setPedido] = useState<Pedido>();
 
+    const converterData = (dataPedido: string) => {
+        const formatter = new Intl.DateTimeFormat('pt-BR', {
+            dateStyle: 'full',
+            timeStyle: 'short',
+        });
+
+        if (dataPedido) {
+            const dataConvertida = formatter.format(new Date(dataPedido))
+            return dataConvertida;
+        }
+
+    }
+
     useEffect(() => {
         console.log(id);
 
@@ -55,7 +68,7 @@ const DetalhePedido = () => {
                                 </div>
 
                                 <div className='mt-2'>
-                                    <span>Pagamento: Pix</span>
+                                    <span>Pagamento: {pedido?.pagamento || ""}</span>
                                 </div>
                             </div>
                             <div>
@@ -73,7 +86,7 @@ const DetalhePedido = () => {
                             <div className='flex flex-col w-4/5'>
                                 <span className='text-orange-400 fe'>Aguardando Pagamento</span>
 
-                                <span className='mt-1'>Pedido solicitado em 13/03/2025 às 12:15</span>
+                                <span className='mt-1'>Pedido solicitado em {converterData(pedido?.dataPedido) || ""}</span>
 
                                 <span className='mt-1 text-lg'>Prévisão de entrega após o pagamento</span>
 
