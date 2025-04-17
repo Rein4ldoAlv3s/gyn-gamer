@@ -43,8 +43,8 @@ const DetalhePedido = () => {
 
                 <div className="w-1/2 flex flex-col">
                     {/*detalhe item  */}
-                    <div className='mt-2 flex justify-between bg-customGrayHover rounded-md text-sm'>
-                        <div className='py-3 px-4 flex justify-between w-full items-center'>
+                    <div className='mt-2 bg-customGrayHover rounded-md text-sm py-3 px-4'>
+                        <div className=' flex justify-between w-full items-center'>
                             <div className='flex flex-col'>
                                 <div className='flex items-center'>
                                     <span>TRAVA P/NOTEBOOK C/CHAVE TR0001</span>
@@ -70,6 +70,8 @@ const DetalhePedido = () => {
                                 <div className='mt-2'>
                                     <span>Pagamento: {pedido?.pagamento || ""}</span>
                                 </div>
+
+
                             </div>
                             <div>
                                 <img
@@ -79,6 +81,8 @@ const DetalhePedido = () => {
                                 />
                             </div>
                         </div>
+
+                        <hr className='mt-3' />
                     </div>
                     {/* detalhe envio */}
                     <div className='mt-2 flex justify-between bg-customGrayHover rounded-md text-sm'>
