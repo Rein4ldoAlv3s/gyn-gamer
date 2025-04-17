@@ -38,7 +38,7 @@ const DetalhePedido = () => {
                                 </div>
 
                                 <div className='mt-2'>
-                                    <span>{pedido?.carrinhoCompras} unid | </span>
+                                    <span>{pedido?.carrinhoCompras.qtdTotalProdutos || ""} unid | </span>
                                     <Link className='text-blue-300' to={"/produtos/1"}>Ver detalhe</Link>
                                 </div>
 
