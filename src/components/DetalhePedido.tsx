@@ -10,6 +10,7 @@ const DetalhePedido = () => {
 
     const { id } = useParams();
     const [pedido, setPedido] = useState<Pedido>();
+    const [endereco, setEndereco] = useState<any>();
 
     const converterData = (dataPedido: string) => {
         const formatter = new Intl.DateTimeFormat('pt-BR', {
@@ -37,6 +38,7 @@ const DetalhePedido = () => {
         // busca o pedido pelo id
         const pedidoObj = contextPedidos?.pedidos.find(obj => obj.idPedido === id)
         setPedido(pedidoObj);
+        setEndereco(pedidoObj?.endereco)
 
     }, [contextPedidos])
 
@@ -99,9 +101,10 @@ const DetalhePedido = () => {
 
                                 <span className='mt-1'>Pedido solicitado em {converterData(pedido?.dataPedido) || ""}</span>
 
-                                <span className='mt-1 text-lg'>Prévisão de entrega após o pagamento</span>
+                                <span className='mt-1 text-lg'>Previsão de entrega após o pagamento</span>
 
-                                <span className='mt-1'>Entregamos seu pacote na Av dos Abacates, Rua 11, Goiânia-Goiás, Perto do Rede Store Supermercado</span>
+                                <span className='mt-1'>Entregamos sua encomenda em {endereco?.logradouro}, {endereco?.cidade}-{endereco?.estado}, {endereco?.complemento}</span>
+
                                 <div className='flex mt-4'>
                                     <div className=''>
                                         <Link to="/produtos/1" className='bg-black rounded-full px-4 py-2'>Comprar novamente</Link>
