@@ -24,6 +24,13 @@ const DetalhePedido = () => {
 
     }
 
+    function formatarMoeda(valor: any) {
+        return new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+        }).format(valor);
+    }
+
     useEffect(() => {
         console.log(id);
 
@@ -49,23 +56,17 @@ const DetalhePedido = () => {
                                 <div className=' flex justify-between w-full items-center'>
                                     <div className='flex flex-col'>
                                         <div className='flex items-center'>
-                                            <span>TRAVA P/NOTEBOOK C/CHAVE TR0001</span>
+                                            <span>{produto.name || ""}</span>
                                         </div>
 
                                         <div className='mt-2'>
-                                            <span>{pedido?.carrinhoCompras.qtdTotalProdutos || ""} unid | </span>
-                                            <Link className='text-blue-300' to={"/produtos/1"}>Ver detalhe</Link>
+                                            <span>{produto.quantity || ""} unid | </span>
+                                            <Link className='text-blue-300' to={"/produtos/" + produto.id}>Ver detalhe</Link>
                                         </div>
 
                                         <div className='mt-2'>
                                             <div>
-                                                <span>Produto: R$ 22,00</span>
-                                            </div>
-                                            <div>
-                                                <span>Frete: R$ 6,00</span>
-                                            </div>
-                                            <div>
-                                                <span>Total: R$ 28,00</span>
+                                                <span> {formatarMoeda(produto.price) || ""}</span>
                                             </div>
                                         </div>
 
@@ -78,7 +79,7 @@ const DetalhePedido = () => {
                                     <div>
                                         <img
                                             className='w-[100px]'
-                                            src="https://images.tcdn.com.br/img/img_prod/1214924/trava_p_notebook_c_chave_tr0001_19524_1_6a1a53146c9ae27859a40eb406ce7c87.png"
+                                            src={produto.img || ""}
                                             alt=""
                                         />
                                     </div>
@@ -87,6 +88,7 @@ const DetalhePedido = () => {
                                 <hr className='my-3' />
                             </div>
                         ))}
+                        Total: R$ {formatarMoeda(pedido?.carrinhoCompras.precoTotalCompras) || ""}
 
                     </div>
                     {/* detalhe envio */}
