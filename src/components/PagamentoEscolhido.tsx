@@ -6,10 +6,10 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { PedidoContext } from '../contexts/PedidoContext';
 import { toast } from 'react-toastify';
-import { PedidosContext } from '../contexts/PedidosContext';
 import { v4 as uuidv4 } from 'uuid';
+import { PedidoContext } from '../contexts/PedidoContext';
+import { PedidosContext } from '../contexts/PedidosContext';
 
 
 type ButtonAtrib = {
@@ -58,8 +58,7 @@ const PagamentoEscolhido = () => {
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
-        pedido?.setDataPedido(Date.now)
-        pedido?.setIdPedido(uuidv4())
+
         setOpen(true);
     };
 
@@ -71,11 +70,16 @@ const PagamentoEscolhido = () => {
 
     const concluirPedido = () => {
         //define a data e o horário que o pedido foi realizado
-
+        pedido?.setDataPedido(Date.now)
+        pedido?.setIdPedido(uuidv4())
 
         //coloca o objeto Pedido no array Pedidos
         if (pedido) {
+            console.log("dsadasdasdasdasdsa");
+            console.log(pedido);
+            console.log("22222dsadasdasdasdasdsa");
             contextPedidos?.setPedidos(prev => [...prev, pedido]);
+            console.log(contextPedidos);
         }
 
 
