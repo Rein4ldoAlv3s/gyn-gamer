@@ -1,8 +1,8 @@
 import React, { createContext, ReactNode, useState } from 'react';
 
 interface PedidoContextType {
-    idPedido: string;
-    setIdPedido: React.Dispatch<React.SetStateAction<string>>;
+    idPedido: string | any;
+    setIdPedido: React.Dispatch<React.SetStateAction<string | any>>;
 
     carrinhoCompras: any[];
     setCarrinhoCompras: React.Dispatch<React.SetStateAction<any[]>>;
