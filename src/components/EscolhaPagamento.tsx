@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { PedidoContext } from '../contexts/PedidoContext';
+import { v4 as uuidv4 } from 'uuid';
 
 const EscolhaPagamento = () => {
 
@@ -17,6 +18,12 @@ const EscolhaPagamento = () => {
 
     const escolherPagamento = (e: any) => {
         e.preventDefault();
+        pedido?.setDataPedido(Date.now)
+        pedido?.setIdPedido(uuidv4())
+        pedido?.setPagamento("testeeeeeeeeeeeee")
+
+
+
         if (checkboxValue === 1) {
             pedido?.setPagamento("Pix")
         }

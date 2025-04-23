@@ -21,8 +21,9 @@ type ButtonAtrib = {
 const PagamentoEscolhido = () => {
 
     const { id } = useParams();
-    const pedido = useContext(PedidoContext);
     const contextPedidos = useContext(PedidosContext);
+    const pedido = useContext(PedidoContext);
+
 
     const [buttonAtrib, setButtonAtrib] = useState<ButtonAtrib>({
         color: "bg-black",
@@ -69,22 +70,17 @@ const PagamentoEscolhido = () => {
 
     const concluirPedido = () => {
 
-        //define a data e o horário que o pedido foi realizado
-        pedido?.setDataPedido("Date.now")
-        pedido?.setIdPedido("uuidv4()")
-        pedido?.setPagamento("testeeeeeeeeeeeee")
-
         //coloca o objeto Pedido no array Pedidos
         const novosPedidos = [...contextPedidos?.pedidos, pedido]
         contextPedidos?.setPedidos(novosPedidos);
+        console.log(contextPedidos?.pedidos);
 
+        toast.success("Pedido concluido!");
 
-        // toast.success("Pedido concluido!");
-
-        //atrasar redirecionamento
-        // setTimeout(() => {
-        //     navigate("/detalhe-pedido/" + pedido?.idPedido);
-        // }, 1500); 
+        // atrasar redirecionamento
+        setTimeout(() => {
+            navigate("/detalhe-pedido/" + pedido?.idPedido);
+        }, 1500);
 
 
     }
