@@ -78,7 +78,7 @@ const PagamentoEscolhido = () => {
             console.log("dsadasdasdasdasdsa");
             console.log(pedido);
             console.log("22222dsadasdasdasdasdsa");
-            contextPedidos?.setPedidos(prev => [...prev, pedido]);
+            contextPedidos?.setPedidos((prevPedidos: any) => [...prevPedidos, pedido]);
             console.log(contextPedidos);
         }
 
