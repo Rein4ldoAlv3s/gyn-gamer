@@ -58,7 +58,6 @@ const PagamentoEscolhido = () => {
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
-
         setOpen(true);
     };
 
@@ -69,30 +68,30 @@ const PagamentoEscolhido = () => {
     const navigate = useNavigate();
 
     const concluirPedido = () => {
+
         //define a data e o horário que o pedido foi realizado
         pedido?.setDataPedido("Date.now")
         pedido?.setIdPedido("uuidv4()")
         pedido?.setPagamento("testeeeeeeeeeeeee")
 
-        const novoPedido = pedido;
-
         //coloca o objeto Pedido no array Pedidos
-        const novosPedidos = [...contextPedidos?.pedidos, novoPedido]
+        const novosPedidos = [...contextPedidos?.pedidos, pedido]
         contextPedidos?.setPedidos(novosPedidos);
 
 
-        toast.success("Pedido concluido!");
+        // toast.success("Pedido concluido!");
 
         //atrasar redirecionamento
-        setTimeout(() => {
-            navigate("/detalhe-pedido/" + pedido?.idPedido);
-        }, 1500); // Atraso de 2 segundos (2000 ms)
+        // setTimeout(() => {
+        //     navigate("/detalhe-pedido/" + pedido?.idPedido);
+        // }, 1500); 
 
 
     }
 
     useEffect(() => {
-    }, [buttonAtrib])
+        console.log(contextPedidos?.pedidos);
+    }, [contextPedidos])
 
 
     return (
