@@ -70,17 +70,15 @@ const PagamentoEscolhido = () => {
 
     const concluirPedido = () => {
         //define a data e o horário que o pedido foi realizado
-        pedido?.setDataPedido(Date.now)
-        pedido?.setIdPedido(uuidv4())
+        pedido?.setDataPedido("Date.now")
+        pedido?.setIdPedido("uuidv4()")
+        pedido?.setPagamento("testeeeeeeeeeeeee")
+
+        const novoPedido = pedido;
 
         //coloca o objeto Pedido no array Pedidos
-        if (pedido) {
-            console.log("dsadasdasdasdasdsa");
-            console.log(pedido);
-            console.log("22222dsadasdasdasdasdsa");
-            contextPedidos?.setPedidos((prevPedidos: any) => [...prevPedidos, pedido]);
-            console.log(contextPedidos);
-        }
+        const novosPedidos = [...contextPedidos?.pedidos, novoPedido]
+        contextPedidos?.setPedidos(novosPedidos);
 
 
         toast.success("Pedido concluido!");
