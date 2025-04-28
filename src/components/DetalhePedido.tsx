@@ -9,7 +9,7 @@ const DetalhePedido = () => {
     const contextPedidos = useContext(PedidosContext);
 
     const { id } = useParams();
-    const [pedido, setPedido] = useState<Pedido>();
+    const [pedido, setPedido] = useState<any>();
     const [endereco, setEndereco] = useState<any>();
 
     const converterData = (dataPedido: string) => {
@@ -36,7 +36,7 @@ const DetalhePedido = () => {
         console.log(id);
 
         // busca o pedido pelo id
-        const pedidoObj = contextPedidos?.pedidos.find(obj => obj.idPedido === id)
+        const pedidoObj = contextPedidos?.pedidos.find((obj: any) => obj.idPedido === id)
         setPedido(pedidoObj);
         setEndereco(pedidoObj?.endereco)
 

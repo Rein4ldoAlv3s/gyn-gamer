@@ -1,6 +1,17 @@
+import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { PedidosContext } from '../contexts/PedidosContext';
 
 const MeusPedidos = () => {
+
+    const contextPedidos = useContext(PedidosContext);
+    const [pedidos, setPedidos] = useState<any>();
+
+    useEffect(() => {
+        setPedidos(contextPedidos?.pedidos)
+    }, [])
+
+
     return (
         <div>
             <div className='flex items-center'>
@@ -9,7 +20,11 @@ const MeusPedidos = () => {
                 </h1>
             </div>
             <div className='py-1'>
-                1 Pedido
+                {pedidos?.length > 0 ? (
+                    <span className='text-sm'>Você possui {pedidos?.length} pedido(s)</span>
+                ) : (
+                    <span className='text-sm'>Você não possui pedidos</span>
+                )}
             </div>
             <div>
                 <div className="w-1/2">
