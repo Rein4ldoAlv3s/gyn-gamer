@@ -9,6 +9,7 @@ const MeusPedidos = () => {
 
     useEffect(() => {
         setPedidos(contextPedidos?.pedidos)
+        console.log(pedidos);
     }, [])
 
 
@@ -29,7 +30,7 @@ const MeusPedidos = () => {
             <div>
                 {pedidos?.map((pedido: any, index: number) => (
 
-                    <div className="w-1/2">
+                    <div key={index} className="w-1/2">
                         {/*detalhe item  */}
                         <div className='mt-2 bg-customGrayHover rounded-md text-sm'>
                             <div className=''>
@@ -47,15 +48,15 @@ const MeusPedidos = () => {
                                             alt=""
                                         />
                                     </div>
-                                    <div className='ml-2'>
+                                    <div className='ml-2 flex flex-col justify-center'>
                                         <div className='flex'>
+                                            <span className='text-white'>TRAVA P/NOTEBOOK C/CHAVE TR0001</span>
+                                        </div>
+                                        <div className='flex mt-1'>
                                             <span className='text-orange-400'>Aguardando Pagamento</span>
                                         </div>
-                                        <div className='mt-1'>
-                                            <span className=''>{pedido?.pagamento}</span>
-                                        </div>
-                                        <div className='mt-1'>
-                                            <span className=''>Prévisão de entrega após o pagamento</span>
+                                        <div className='flex mt-1'>
+                                            <span className='text-white'>R$ 23,00</span>
                                         </div>
                                     </div>
                                 </div>
