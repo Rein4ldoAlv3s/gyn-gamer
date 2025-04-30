@@ -42,7 +42,9 @@ const MeusPedidos = () => {
                                 </div>
                             </div>
                             {pedido.carrinhoCompras.produtos.map((produto: any, index: number) => (
-                                <div key={index}>
+
+
+                                <div>
                                     <hr className=" border-[1/2px] border-gray-400" />
                                     <div className='flex justify-between py-3 px-5'>
                                         <div className='flex'>
@@ -66,8 +68,6 @@ const MeusPedidos = () => {
                                                 <div className='flex mt-1'>
                                                     <span className='text-orange-400'>Aguardando Pagamento</span>
                                                 </div>
-
-
                                             </div>
                                         </div>
                                         <div className='flex flex-col justify-center'>
@@ -79,8 +79,10 @@ const MeusPedidos = () => {
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             ))}
+                            <span className='text-white border-[1/2px] border-gray-400'>Total </span>
 
                         </div>
                         {/* detalhe envio */}
