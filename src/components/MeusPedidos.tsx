@@ -6,14 +6,14 @@ const MeusPedidos = () => {
 
     const contextPedidos = useContext(PedidosContext);
     const [pedidos, setPedidos] = useState<any[] | undefined>();
-    const [produtos, setProdutos] = useState<any[] | undefined>();
 
     useEffect(() => {
         setPedidos(contextPedidos?.pedidos)
-        setProdutos(contextPedidos?.pedidos?.carrinhoCompras?.produtos)
-        console.log(pedidos);
-        console.log(produtos);
     }, [])
+
+    useEffect(() => {
+        console.log("Pedidos atualizados:", pedidos);
+    }, [pedidos]);
 
 
     return (
@@ -40,36 +40,43 @@ const MeusPedidos = () => {
                                 <div className='w-full py-3 px-5 text-sm'>
                                     <span>{pedido.dataPedido}</span>
                                 </div>
-                                <hr className=" border-[1/2px] border-gray-400" />
                             </div>
-                            {produtos?.map((produto: any, index: number) => (
-                                <div key={index} className='flex justify-between py-3 px-5'>
-                                    <div className='flex'>
-                                        <div className='p-2 border-[3px] border-white rounded-md bg-white'>
-                                            <img
-                                                className='w-[80px]'
-                                                src="https://images.tcdn.com.br/img/img_prod/1214924/trava_p_notebook_c_chave_tr0001_19524_1_6a1a53146c9ae27859a40eb406ce7c87.png"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div className='ml-2 flex flex-col justify-center'>
-                                            <div className='flex'>
-                                                <span className='text-white'>{produto?.name}</span>
+                            {pedido.carrinhoCompras.produtos.map((produto: any, index: number) => (
+                                <div key={index}>
+                                    <hr className=" border-[1/2px] border-gray-400" />
+                                    <div className='flex justify-between py-3 px-5'>
+                                        <div className='flex'>
+                                            <div className='p-2 border-[3px] border-white rounded-md bg-white'>
+                                                <img
+                                                    className='w-[80px]'
+                                                    src={produto.img}
+                                                    alt=""
+                                                />
                                             </div>
-                                            <div className='flex mt-1'>
-                                                <span className='text-orange-400'>Aguardando Pagamento</span>
-                                            </div>
-                                            <div className='flex mt-1'>
-                                                <span className='text-white'>R$ 23,00</span>
+                                            <div className='ml-2 flex flex-col justify-center'>
+                                                <div className='flex'>
+                                                    <span className='text-white'>{produto.name}</span>
+                                                </div>
+                                                <div className='flex mt-1'>
+                                                    <span className='text-white'>R$ {produto.price}</span>
+                                                </div>
+                                                <div className='flex mt-1'>
+                                                    <span className='text-white'>x{produto.quantity}</span>
+                                                </div>
+                                                <div className='flex mt-1'>
+                                                    <span className='text-orange-400'>Aguardando Pagamento</span>
+                                                </div>
+
+
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className='flex flex-col justify-center'>
-                                        <div className='mb-5'>
-                                            <Link to="/detalhe-pedido" className='bg-black rounded-full px-4 py-2'>Ver compra</Link>
-                                        </div>
-                                        <div>
-                                            <Link to="/produtos/1" className='bg-black rounded-full px-4 py-2'>Comprar novamente</Link>
+                                        <div className='flex flex-col justify-center'>
+                                            <div className='mb-5'>
+                                                <Link to="/detalhe-pedido" className='bg-black rounded-full px-4 py-2'>Ver compra</Link>
+                                            </div>
+                                            <div>
+                                                <Link to="/produtos/1" className='bg-black rounded-full px-4 py-2'>Comprar novamente</Link>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
