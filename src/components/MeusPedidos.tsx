@@ -15,6 +15,19 @@ const MeusPedidos = () => {
         console.log("Pedidos atualizados:", pedidos);
     }, [pedidos]);
 
+    const converterData = (dataPedido: string) => {
+        const formatter = new Intl.DateTimeFormat('pt-BR', {
+            dateStyle: 'short',
+            timeStyle: 'short',
+        });
+
+        if (dataPedido) {
+            const dataConvertida = formatter.format(new Date(dataPedido))
+            return dataConvertida;
+        }
+
+    }
+
 
     return (
         <div>
@@ -35,7 +48,7 @@ const MeusPedidos = () => {
                     <div className='w-full mt-2 pb-2 bg-customGrayHover rounded-md text-sm'>
 
                         <div className='w-full py-3 px-5'>
-                            <span>{pedido.dataPedido}</span>
+                            <span>{converterData(pedido?.dataPedido) || ""}</span>
                         </div>
 
                         {pedido.carrinhoCompras.produtos.map((produto: any, index: number) => (
