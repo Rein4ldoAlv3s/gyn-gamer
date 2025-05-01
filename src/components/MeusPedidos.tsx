@@ -28,6 +28,13 @@ const MeusPedidos = () => {
 
     }
 
+    const formatarMoeda = (valor: any) => {
+        return new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+        }).format(valor);
+    }
+
 
     return (
         <div>
@@ -71,7 +78,12 @@ const MeusPedidos = () => {
                                                 <span className='text-white'>R$ {produto.price}</span>
                                             </div>
                                             <div className='flex mt-1'>
-                                                <span className='text-white'>x{produto.quantity}</span>
+                                                {(produto.quantity > 1) ? (
+                                                    <span className='text-sm'>{produto.quantity} unidades</span>
+                                                ) : (
+                                                    <span className='text-sm'>{produto.quantity} unidade </span>
+                                                )}
+
                                             </div>
 
                                         </div>
@@ -89,9 +101,9 @@ const MeusPedidos = () => {
                             </div>
                         ))}
                         <div>
-                            <span className='text-orange-400 pl-5'>Aguardando Pagamento</span>
+                            <span className='text-orange-400 pl-5 text-sm'>Aguardando Pagamento</span>
                         </div>
-                        <span className='text-sm pl-5'>Total: {pedido.carrinhoCompras.precoTotalCompras} </span>
+                        <span className='text-sm pl-5'>Total: {formatarMoeda(pedido.carrinhoCompras.precoTotalCompras) || ""} </span>
 
                     </div>
                 ))}
