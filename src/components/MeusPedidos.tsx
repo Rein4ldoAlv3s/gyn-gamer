@@ -54,8 +54,9 @@ const MeusPedidos = () => {
                 {pedidos?.map((pedido: any, index: number) => (
                     <div className='w-full mt-2 pb-2 bg-customGrayHover rounded-md text-sm'>
 
-                        <div className='w-full py-3 px-5'>
+                        <div className='w-full py-3 px-5 flex '>
                             <span>{converterData(pedido?.dataPedido) || ""}</span>
+                            <span className='text-orange-400 text-sm m-auto'> Aguardando Pagamento</span>
                         </div>
 
                         {pedido.carrinhoCompras.produtos.map((produto: any, index: number) => (
@@ -75,7 +76,7 @@ const MeusPedidos = () => {
                                                 <span className='text-white'>{produto.name}</span>
                                             </div>
                                             <div className='flex mt-1'>
-                                                <span className='text-white'>R$ {produto.price}</span>
+                                                <span className='text-white'>{formatarMoeda(produto.price)}</span>
                                             </div>
                                             <div className='flex mt-1'>
                                                 {(produto.quantity > 1) ? (
@@ -100,9 +101,6 @@ const MeusPedidos = () => {
 
                             </div>
                         ))}
-                        <div>
-                            <span className='text-orange-400 pl-5 text-sm'>Aguardando Pagamento</span>
-                        </div>
                         <span className='text-sm pl-5'>Total: {formatarMoeda(pedido.carrinhoCompras.precoTotalCompras) || ""} </span>
 
                     </div>

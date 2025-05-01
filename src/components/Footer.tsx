@@ -18,7 +18,7 @@ const Footer = () => {
     });
 
     return (
-        <div className="border-b text-slate-300 bg-black pb-6 flex space-x-4 pt-4 gap-4">
+        <div className=" text-slate-300 bg-black pb-6 flex space-x-4 pt-4 gap-4">
             <h1 className="text-red-600 font-bold text-4xl select-none flex justify-center items-center ml-3">Gyn Gamer</h1>
             <div className='flex-1'>
                 <p className='text-sm'>GYN GAMER® É UMA MARCA REGISTRADA DE REINALDO ALVES GOIANIA LTDA CNPJ: 95.667.559/0001-86</p>
