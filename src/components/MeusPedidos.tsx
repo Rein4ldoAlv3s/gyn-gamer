@@ -57,6 +57,9 @@ const MeusPedidos = () => {
                         <div className='w-full py-3 px-5 flex '>
                             <span>{converterData(pedido?.dataPedido) || ""}</span>
                             <span className='text-orange-400 text-sm m-auto'> Aguardando Pagamento</span>
+                            <div className=''>
+                                <Link to={"/detalhe-pedido/" + pedido.idPedido} className='bg-black rounded-full px-4 py-2'>Ver Pedido</Link>
+                            </div>
                         </div>
 
                         {pedido.carrinhoCompras.produtos.map((produto: any, index: number) => (
@@ -89,14 +92,14 @@ const MeusPedidos = () => {
 
                                         </div>
                                     </div>
-                                    <div className='flex flex-col justify-center'>
+                                    {/* <div className='flex flex-col justify-center'>
                                         <div className='mb-5'>
                                             <Link to="/detalhe-pedido" className='bg-black rounded-full px-4 py-2'>Ver compra</Link>
                                         </div>
                                         <div>
                                             <Link to="/produtos/1" className='bg-black rounded-full px-4 py-2'>Comprar novamente</Link>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
 
                             </div>
