@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
 import { PedidoContext } from '../contexts/PedidoContext';
 import { PedidosContext } from '../contexts/PedidosContext';
+import { CartContext } from '../contexts/CartContext';
 
 
 type ButtonAtrib = {
@@ -23,6 +24,7 @@ const PagamentoEscolhido = () => {
     const { id } = useParams();
     const contextPedidos = useContext(PedidosContext);
     const pedido = useContext(PedidoContext);
+    const cart = useContext(CartContext);
 
 
     const [buttonAtrib, setButtonAtrib] = useState<ButtonAtrib>({
@@ -75,10 +77,13 @@ const PagamentoEscolhido = () => {
         contextPedidos?.setPedidos(novosPedidos);
         console.log(contextPedidos?.pedidos);
 
+
         toast.success("Pedido concluido!");
 
         // atrasar redirecionamento
         setTimeout(() => {
+            cart?.setProdutos([]); // limpa o carrinho de compras
+            cart?.setQtdProduto(0) //limpa a quantidade de produtos no carrinho
             navigate("/detalhe-pedido/" + pedido?.idPedido);
         }, 1500);
 

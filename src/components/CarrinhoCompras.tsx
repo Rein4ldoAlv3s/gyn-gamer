@@ -183,14 +183,13 @@ const ResumoCompra = ({ qtdTotal, valorTotal }: ResumoCompraProps) => {
     }
 
     useEffect(() => {
-        console.log(pedido);
-        console.log(pedidos);
+        console.log(cart);
 
         //converte timestamp em formatado legivel para debug
         // console.log(new Date(pedido?.dataPedido));
 
-        console.log("continuar pedido2");
-    }, [pedido])
+        console.log("continuar cart");
+    }, [cart])
 
 
     return (
