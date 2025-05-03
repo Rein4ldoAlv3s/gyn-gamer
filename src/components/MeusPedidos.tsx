@@ -50,7 +50,7 @@ const MeusPedidos = () => {
                     <span className='text-sm'>Você não possui pedidos </span>
                 )}
             </div>
-            <div className='pb-10'>
+            <div className='mb-10'>
                 {pedidos?.map((pedido: any, index: number) => (
                     <div className='w-full mt-2 pb-2 bg-customGrayHover rounded-md text-sm'>
 
