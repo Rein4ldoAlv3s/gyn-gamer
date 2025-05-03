@@ -11,6 +11,7 @@ import { toast } from 'react-toastify';
 import { PRODUTOS } from '../constants';
 import { AuthContext } from '../contexts/AuthContext';
 import { CartContext } from '../contexts/CartContext';
+import StorefrontIcon from '@mui/icons-material/Storefront';
 
 
 
@@ -89,6 +90,11 @@ const Navbar = () => {
           onChange={(e: unknown) => autoCompleteChange(e)}
         />
         <div className='flex items-center justify-end'>
+          <Link to={"/meus-pedidos"}>
+            <IconButton sx={{ mr: '15px', width: 30, height: 30, }} >
+              <StorefrontIcon fontSize="medium" />
+            </IconButton>
+          </Link>
           <Link to={"/cart"}>
             <IconButton aria-label="shopping" sx={{ mr: '15px', width: 30, height: 30, }} >
               <ShoppingCartIcon fontSize="medium" />
