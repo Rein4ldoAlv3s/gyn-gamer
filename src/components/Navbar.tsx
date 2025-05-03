@@ -1,6 +1,6 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { IconButton } from '@mui/material';
+import { IconButton, Tooltip } from '@mui/material';
 import Badge, { badgeClasses } from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import { useContext, useEffect, useState } from 'react';
@@ -91,16 +91,20 @@ const Navbar = () => {
         />
         <div className='flex items-center justify-end'>
           <Link to={"/meus-pedidos"}>
-            <IconButton sx={{ mr: '15px', width: 30, height: 30, }} >
-              <StorefrontIcon fontSize="medium" />
-            </IconButton>
+            <Tooltip title="Pedidos">
+              <IconButton sx={{ mr: '15px', width: 30, height: 30, }} >
+                <StorefrontIcon fontSize="medium" />
+              </IconButton>
+            </Tooltip>
           </Link>
           <Link to={"/cart"}>
-            <IconButton aria-label="shopping" sx={{ mr: '15px', width: 30, height: 30, }} >
-              <ShoppingCartIcon fontSize="medium" />
-              {/* <span>{qtdProdutos}</span> */}
-              <CartBadge badgeContent={qtdProdutos} color="primary" />
-            </IconButton>
+            <Tooltip title="Carrinho de Compras">
+              <IconButton aria-label="shopping" sx={{ mr: '15px', width: 30, height: 30, }} >
+                <ShoppingCartIcon fontSize="medium" />
+                {/* <span>{qtdProdutos}</span> */}
+                <CartBadge badgeContent={qtdProdutos} color="primary" />
+              </IconButton>
+            </Tooltip>
           </Link>
           <FaUserCircle size={30} className='mr-2 text-white ' />
           {/* <Link to="/login" className='text-white '>{nomeUsuario || "Entrar"}</Link> */}
