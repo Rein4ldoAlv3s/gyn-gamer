@@ -91,7 +91,7 @@ const Navbar = () => {
         />
         <div className='flex items-center justify-end'>
           <Link to={"/meus-pedidos"}>
-            <Tooltip title="Pedidos">
+            <Tooltip title="Meus Pedidos">
               <IconButton sx={{ mr: '15px', width: 30, height: 30, }} >
                 <StorefrontIcon fontSize="medium" />
               </IconButton>

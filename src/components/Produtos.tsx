@@ -115,6 +115,20 @@ const Produtos = () => {
         navigate("/cart")
     }
 
+    const buy = () => {
+        let itemEncontrado = cart?.produtos.find((e: any) => e.id === produto!.id)
+
+        if (cart?.produtos.length === 0 || !itemEncontrado) {
+            //reseta o carrinho
+            cart?.setProdutos([])
+            cart?.setProdutos(produto)
+            console.log(cart?.produtos);
+        } else {
+            console.log("produto ja existe no carrinho!");
+        }
+        navigate("/escolha-endereco-entrega")
+    }
+
     return (
         <div>
             <h1 className="flex justify-center text-3xl font-bold text-customWhite">
@@ -140,7 +154,7 @@ const Produtos = () => {
                         </div>
                     }
                     <div className='flex flex-col '>
-                        <button className=' mt-3 bg-black text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Comprar</button>
+                        <button onClick={() => buy()} className=' mt-3 bg-black text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Comprar</button>
                         <button onClick={() => addCart()} className='mt-3 bg-black flex items-center justify-center text-white py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
                             <BiCart size={30} className='mr-1 text-white ' /> Adicionar ao Carrinho
                         </button>

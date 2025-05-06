@@ -3,7 +3,7 @@ import { Produto } from '../constants';
 
 interface CartContextType {
     produtos: Produto[] | any;
-    setProdutos: React.Dispatch<React.SetStateAction<Produto[]>>;
+    setProdutos: React.Dispatch<React.SetStateAction<Produto[] | any>>;
     // qtd de um produto (ex: 2 mouses === 2 qtdProduto)
     qtdProduto: number;
     setQtdProduto: React.Dispatch<React.SetStateAction<number>>;
