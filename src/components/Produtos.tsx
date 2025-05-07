@@ -27,7 +27,7 @@ const Produtos = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
-    const state = location.state || {}; //evita erros se for undefined
+    const state = location.state || {}; //captura id passado por um Link do componente Home
 
     const { id } = useParams();
 
@@ -39,10 +39,15 @@ const Produtos = () => {
 
 
     useEffect(() => {
-        console.log(state);
         const produto = PRODUTOS.find(obj => obj.id === idNumero || obj.id === state.id)
         setProduto(produto)
-    }, [state]);
+    }, []);
+
+    useEffect(() => {
+        console.log("stateeee");
+        console.log(state.id);
+    }, [state])
+
 
 
     const [cep, setCep] = useState();
