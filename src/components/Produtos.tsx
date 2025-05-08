@@ -27,7 +27,7 @@ const Produtos = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
-    const state = location.state || {}; //captura id passado por um Link do componente Home
+    const state = location || {}; //captura id passado por um Link do componente Home
 
     const { id } = useParams();
 
@@ -39,14 +39,9 @@ const Produtos = () => {
 
 
     useEffect(() => {
-        const produto = PRODUTOS.find(obj => obj.id === idNumero || obj.id === state.id)
+        const produto = PRODUTOS.find(obj => obj.id === idNumero)
         setProduto(produto)
     }, []);
-
-    useEffect(() => {
-        console.log("stateeee");
-        console.log(state.id);
-    }, [state])
 
 
 
@@ -121,12 +116,12 @@ const Produtos = () => {
     }
 
     const buy = () => {
+        // console.log(state);
+
         let itemEncontrado = cart?.produtos.find((e: any) => e.id === produto!.id)
 
         if (cart?.produtos.length === 0 || !itemEncontrado) {
-            //reseta o carrinho
-            cart?.setProdutos([])
-            cart?.setProdutos(produto)
+            cart?.produtos.push(produto)
             console.log(cart?.produtos);
         } else {
             console.log("produto ja existe no carrinho!");
