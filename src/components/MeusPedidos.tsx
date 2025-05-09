@@ -104,7 +104,7 @@ const MeusPedidos = () => {
 
                             </div>
                         ))}
-                        <span className='text-sm pl-5'>Total: {formatarMoeda(pedido.carrinhoCompras.precoTotalCompras) || ""} </span>
+                        <span className='text-base pl-5'>Total: {formatarMoeda(pedido.carrinhoCompras.precoTotalCompras) || ""} </span>
 
                     </div>
                 ))}
