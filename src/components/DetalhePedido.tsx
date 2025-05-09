@@ -89,7 +89,9 @@ const DetalhePedido = () => {
                             <hr className='my-3' />
                         </div>
                     ))}
-                    Total: R$ {formatarMoeda(pedido?.carrinhoCompras.precoTotalCompras) || ""}
+                    <div className='text-center text-lg'>
+                        Total: R$ {formatarMoeda(pedido?.carrinhoCompras.precoTotalCompras) || ""}
+                    </div>
 
                 </div>
                 {/* detalhe envio */}
