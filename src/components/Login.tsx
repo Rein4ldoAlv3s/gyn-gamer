@@ -46,6 +46,12 @@ const Login = () => {
             })
             .catch(function (error) {
                 console.error(error);
+                if (error.message === "Network Error") {
+                    toast.error("Erro de conexão com o servidor");
+                    return;
+                }
+                toast.error(error.response.data.message);
+
             });
     }
 
