@@ -37,7 +37,7 @@ const MeusPedidos = () => {
 
 
     return (
-        <div>
+        <div >
             <div className='flex items-center'>
                 <h1 className="flex justify-start text-3xl font-bold text-customWhite ">
                     Meus Pedidos
@@ -50,7 +50,7 @@ const MeusPedidos = () => {
                     <span className='text-sm'>Você não possui pedidos </span>
                 )}
             </div>
-            <div className='mb-10'>
+            <div className='pb-10'>
                 {pedidos?.map((pedido: any, index: number) => (
                     <div className='w-full mt-2 pb-2 bg-customGrayHover rounded-md text-sm'>
 
