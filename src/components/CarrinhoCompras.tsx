@@ -28,8 +28,8 @@ const CarrinhoCompras = () => {
     const [valorTotal, setValorTotal] = useState(0);
 
     const handleQuantityChange = (id: number, increment: number) => {
-        cart?.setProdutos((prevProducts) =>
-            prevProducts.map((product) => {
+        cart?.setProdutos((prevProducts: any) =>
+            prevProducts.map((product: any) => {
 
                 // Verifica se o produto corresponde ao ID
                 if (product.id === id) {
@@ -184,6 +184,7 @@ const ResumoCompra = ({ qtdTotal, valorTotal }: ResumoCompraProps) => {
 
     useEffect(() => {
         console.log(cart);
+        console.log(pedido);
 
         //converte timestamp em formatado legivel para debug
         // console.log(new Date(pedido?.dataPedido));

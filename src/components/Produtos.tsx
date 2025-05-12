@@ -116,17 +116,9 @@ const Produtos = () => {
     }
 
     const buy = () => {
-        // console.log(state);
-
-        let itemEncontrado = cart?.produtos.find((e: any) => e.id === produto!.id)
-
-        if (cart?.produtos.length === 0 || !itemEncontrado) {
-            cart?.produtos.push(produto)
-            console.log(cart?.produtos);
-        } else {
-            console.log("produto ja existe no carrinho!");
-        }
-        navigate("/escolha-endereco-entrega")
+        //esvazia carrinho e adiciona o produto
+        cart?.setProdutos([produto])
+        navigate("/cart")
     }
 
     return (
