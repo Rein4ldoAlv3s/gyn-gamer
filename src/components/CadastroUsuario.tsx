@@ -63,7 +63,7 @@ const CadastroUsuario = () => {
     }, [usuario]);
 
     return (
-        <div className=" flex flex-col max-w-lg mx-auto pb-5">
+        <div className=" flex flex-col max-w-lg mx-auto ">
             <h1 className='text-white text-3xl text-center'>Criar minha conta</h1>
 
             <div className='flex justify-between mt-3'>

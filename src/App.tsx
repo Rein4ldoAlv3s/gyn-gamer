@@ -30,7 +30,7 @@ function App() {
       <div>
         <Router>
           <Navbar />
-          <main className="container mx-auto px-8 pt-4 min-h-[calc(100vh-6.875rem)]">
+          <main className="container mx-auto px-8 pt-4 pb-10 min-h-[calc(100vh-6.875rem)]">
             <Routes>
               {auth ? privateRoutes : publicRoutes}
             </Routes>

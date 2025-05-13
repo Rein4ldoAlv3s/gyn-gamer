@@ -140,7 +140,7 @@ const CadastroEnderecoEntrega = () => {
     }
 
     return (
-        <div className=" flex flex-col max-w-lg mx-auto pb-5">
+        <div className=" flex flex-col max-w-lg mx-auto">
 
             {isCadastro
                 ?

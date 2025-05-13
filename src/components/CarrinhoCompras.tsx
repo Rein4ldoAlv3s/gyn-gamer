@@ -73,7 +73,7 @@ const CarrinhoCompras = () => {
 
     return (
 
-        <div className='pb-10'>
+        <div className=''>
             <div>
                 <h1 className="flex justify-center text-3xl font-bold text-customWhite pb-5">
                     CARRINHO DE COMPRAS
