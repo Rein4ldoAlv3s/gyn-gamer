@@ -49,7 +49,7 @@ const DetalhePedido = () => {
                 Detalhe do Pedido
             </h1>
 
-            <div className="w-1/2 flex flex-col pb-10">
+            <div className="w-1/2 flex flex-col ">
                 {/*detalhe item  */}
                 <div className='mt-2 bg-customGrayHover rounded-md text-sm py-3 px-4'>
                     {pedido?.carrinhoCompras.produtos.map((produto: any, index: number) => (
