@@ -152,33 +152,6 @@ const Navbar = () => {
                     )}
                   </MenuItem>
                 }
-
-                {auth?.auth &&
-                  <MenuItem>
-                    {({ active }) => (
-                      <Link
-                        to="/cart"
-                        className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
-                      >
-                        Carrinho de Compra
-                      </Link>
-                    )}
-                  </MenuItem>
-                }
-
-                {auth?.auth &&
-                  <MenuItem>
-                    {({ active }) => (
-                      <Link
-                        to="/meus-pedidos"
-                        className={`block px-4 py-2 text-sm ${active ? 'bg-black' : 'text-gray-700'}`}
-                      >
-                        Meus Pedidos
-                      </Link>
-                    )}
-                  </MenuItem>
-                }
-
                 {auth?.auth &&
                   <MenuItem>
                     {({ active }) => (
