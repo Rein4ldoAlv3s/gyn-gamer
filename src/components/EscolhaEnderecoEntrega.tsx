@@ -59,6 +59,13 @@ const EscolhaEnderecoEntrega = () => {
 
     }
 
+    const redirectionWithState = (e: any, endereco: any) => {
+        e.preventDefault();
+        navigate(`/cadastro-endereco/${endereco?.id}`, {
+            state: { localRedirect: "escolha-endereco-entrega" }
+        })
+    }
+
     useEffect(() => {
         if (idUser) {
             fetch('http://localhost:3000/users/' + idUser)
@@ -155,7 +162,9 @@ const EscolhaEnderecoEntrega = () => {
                                         <MenuItem>
                                             {({ focus }) => (
                                                 <Link
-                                                    to={`/cadastro-endereco/${endereco?.id}`}
+                                                    // to={`/cadastro-endereco/${endereco?.id}`}
+                                                    to={""}
+                                                    onClick={(e) => redirectionWithState(e, endereco)}
                                                     className={`block px-4 py-2 text-sm ${focus ? 'bg-black' : 'text-gray-700'}`}
                                                 >
                                                     Editar

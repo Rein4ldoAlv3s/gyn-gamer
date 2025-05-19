@@ -16,6 +16,8 @@ const CadastroEnderecoEntrega = () => {
     //esse componente recebe o id do componente CadastroUsuario para fazer a relacao no banco de dados (usuario tem varios enderecos)
     const { idUser } = location.state || {};
 
+    const { localRedirect } = location.state || {};
+
     //Recupera o id do Endereco vindo do componente MyProfile 
     const { idEnd } = useParams();
     //ID é usado para editar Endereco já existente no Banco de Dados (PUT)
@@ -41,6 +43,8 @@ const CadastroEnderecoEntrega = () => {
             return { value: est.label, label: est.label, name: "estado" };
         })
         setEstadosBrasileiros(opcoes)
+        console.log("--------isLocalRedirect");
+        console.log(localRedirect);
 
     }, [endereco]);
 
@@ -104,6 +108,9 @@ const CadastroEnderecoEntrega = () => {
                 });
 
                 setTimeout(() => {
+                    if (localRedirect === "escolha-endereco-entrega") {
+                        return navigate("/escolha-endereco-entrega")
+                    }
                     navigate("/my-profile")
                 }, 1500);
 
