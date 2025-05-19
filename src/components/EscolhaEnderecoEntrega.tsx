@@ -212,18 +212,17 @@ const EscolhaEnderecoEntrega = () => {
                     <div>
                         <Link to="/cart" className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>Voltar</Link>
                     </div>
-                    {/* { */}
-                    {/* checkboxValue && */}
-                    <div>
-                        <Link
 
-                            to=""
-                            onClick={(e) => (incluirEndereco(e))}
-                            className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
-                            Próximo
-                        </Link>
-                    </div>
-                    {/* } */}
+                    {checkboxValue !== 0 &&
+                        <div>
+                            <Link
+                                to=""
+                                onClick={(e) => (incluirEndereco(e))}
+                                className='bg-customGrayHover text-white text-center py-2 px-4 rounded-full hover:bg-gray-500 w-56'>
+                                Próximo
+                            </Link>
+                        </div>
+                    }
 
 
                 </div>
